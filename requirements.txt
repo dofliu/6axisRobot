@@ -1,0 +1,12 @@
+numpy==2.4.6
+scipy==1.17.1
+pybullet==3.2.7
+matplotlib==3.11.2
+imageio==2.38.1
+imageio-ffmpeg==0.7.0
+pillow==13.0.0
+pytest==9.2.0
+ruff==0.17.3
+# Phase 3 再加入：gymnasium、stable-baselines3
+# 注意：pybullet 3.2.7 需自行編譯，先 `pip install "setuptools<70" wheel`，
+# 再 `pip install --no-build-isolation pybullet==3.2.7`
