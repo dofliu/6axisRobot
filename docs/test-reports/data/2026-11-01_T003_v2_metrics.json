@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-01",
+  "source_trajectory": {
+    "n_points": 823,
+    "duration_s": 8.216197243913529,
+    "matches_T003_metrics": true
+  },
+  "frames": 206,
+  "render_ms_per_view": 421.65651710679583,
+  "gif_MB": 1.647855,
+  "mp4_MB": 0.351225
+}
