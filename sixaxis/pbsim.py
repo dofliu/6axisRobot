@@ -12,6 +12,7 @@ from .robot import G, SixAxisRobot
 from .urdf import write_urdf
 
 URDF_PATH = Path(__file__).resolve().parents[1] / "robots" / "ur5_like.urdf"
+FLOOR_TEXTURE = Path(__file__).resolve().parents[1] / "robots" / "textures" / "floor.png"
 FLANGE = 6  # 固定法蘭連桿 index
 
 
@@ -24,7 +25,12 @@ class PBRobot:
         urdf = Path(urdf) if urdf else URDF_PATH
         if not urdf.exists():
             write_urdf(self.robot, urdf)
-        self.plane = pb.loadURDF("plane.urdf", physicsClientId=self.cid) if plane else None
+        self.plane = None
+        if plane:
+            self.plane = pb.loadURDF("plane.urdf", physicsClientId=self.cid)
+            if FLOOR_TEXTURE.exists():  # 工廠地坪貼圖取代預設藍白棋盤
+                tex = pb.loadTexture(str(FLOOR_TEXTURE), physicsClientId=self.cid)
+                pb.changeVisualShape(self.plane, -1, textureUniqueId=tex, physicsClientId=self.cid)
         self.id = pb.loadURDF(
             str(urdf),
             useFixedBase=True,
@@ -81,9 +87,7 @@ class PBRobot:
             )
         # 放寬 PyBullet 關節限位（否則撞限位會損失能量，與動力學模型無關）
         for j in self.joints:
-            pb.changeDynamics(
-                self.id, j, jointLowerLimit=-1e4, jointUpperLimit=1e4, physicsClientId=self.cid
-            )
+            pb.changeDynamics(self.id, j, jointLowerLimit=-1e4, jointUpperLimit=1e4, physicsClientId=self.cid)
         pb.setJointMotorControlArray(
             self.id, self.joints, pb.VELOCITY_CONTROL, forces=[0.0] * 6, physicsClientId=self.cid
         )
@@ -116,11 +120,53 @@ class PBRobot:
         vs = pb.createVisualShape(pb.GEOM_SPHERE, radius=radius, rgbaColor=rgba, physicsClientId=self.cid)
         return pb.createMultiBody(0, -1, vs, list(map(float, pos)), physicsClientId=self.cid)
 
-    def render(self, target=(0.0, 0.0, 0.4), distance=1.6, yaw=45, pitch=-25, size=(400, 300)):
+    def render(
+        self,
+        target=(0.0, 0.0, 0.4),
+        distance=1.6,
+        yaw=45,
+        pitch=-25,
+        size=(400, 300),
+        supersample: int = 2,
+        shadow: bool = True,
+        fov: float = 45,
+    ):
+        """TinyRenderer 離屏渲染（無 GPU）。supersample 倍率渲染後以 Lanczos 縮小做反鋸齒；
+        光源位於相機左上後方，含陰影與高光。"""
+        from PIL import Image
+
         w, h = size
+        W, H = w * supersample, h * supersample
         view = pb.computeViewMatrixFromYawPitchRoll(
             target, distance, yaw, pitch, 0, 2, physicsClientId=self.cid
         )
-        proj = pb.computeProjectionMatrixFOV(50, w / h, 0.05, 10, physicsClientId=self.cid)
-        img = pb.getCameraImage(w, h, view, proj, renderer=pb.ER_TINY_RENDERER, physicsClientId=self.cid)
-        return np.reshape(img[2], (h, w, 4))[:, :, :3].astype(np.uint8)
+        proj = pb.computeProjectionMatrixFOV(fov, w / h, 0.05, 10, physicsClientId=self.cid)
+        ly = np.deg2rad(yaw - 40)
+        light = [float(np.sin(ly) * 1.2), float(-np.cos(ly) * 1.2), 2.5]
+        img = pb.getCameraImage(
+            W,
+            H,
+            view,
+            proj,
+            lightDirection=light,
+            lightColor=[1.0, 0.98, 0.95],
+            lightDistance=3.0,
+            shadow=int(shadow),
+            lightAmbientCoeff=0.55,
+            lightDiffuseCoeff=0.55,
+            lightSpecularCoeff=0.15,
+            renderer=pb.ER_TINY_RENDERER,
+            physicsClientId=self.cid,
+        )
+        rgb = np.reshape(img[2], (H, W, 4))[:, :, :3].astype(np.float32)
+        depth = np.reshape(img[3], (H, W))
+        sky = depth >= 0.9999  # 未擊中任何物體的像素 → 合成漸層背景（廠房牆面色）
+        if sky.any():
+            t = np.linspace(0.0, 1.0, H, dtype=np.float32)[:, None, None]
+            top, bottom = np.array([58, 66, 80], np.float32), np.array([150, 160, 172], np.float32)
+            grad = np.broadcast_to(top * (1 - t) + bottom * t, (H, W, 3))
+            rgb[sky] = grad[sky]
+        rgb = rgb.astype(np.uint8)
+        if supersample > 1:
+            rgb = np.asarray(Image.fromarray(rgb).resize((w, h), Image.LANCZOS))
+        return rgb

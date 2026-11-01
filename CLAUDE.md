@@ -14,8 +14,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 
 ## 程式結構
 * `sixaxis/robot.py`：參數、FK/IK/Jacobian、RNE 動力學（`SixAxisRobot`）
-* `sixaxis/urdf.py`：由 DH 產生 `robots/ur5_like.urdf`（改參數後需重新產生：`python3 -m sixaxis.urdf`）
-* `sixaxis/pbsim.py`：PyBullet 介面（`PBRobot`）。數值比對請用不含地面的實例；渲染才加地面（`plane=True`）
+* `sixaxis/urdf.py`：由 DH + 外觀產生 `robots/ur5_like.urdf` 與 `robots/meshes/*.obj`（改參數/外觀後需重新產生：`python3 -m sixaxis.urdf`）
+* `sixaxis/appearance.py`、`sixaxis/meshgen.py`：UR 型外觀（只影響 visual/collision，不影響慣性與運動學）
+* `sixaxis/pbsim.py`：PyBullet 介面（`PBRobot`）。數值比對請用不含地面的實例；渲染才加地面（`plane=True`，含工廠地坪貼圖）；`render()` 已含光影/陰影/反鋸齒，展示動畫請沿用
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

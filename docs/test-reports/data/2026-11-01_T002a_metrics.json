@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-01",
+  "geometry": {
+    "mesh_files": 21,
+    "mesh_triangles_total": 40800,
+    "mesh_dir_MB": 2.494181,
+    "visual_shapes": 33,
+    "collision_shapes": 11
+  },
+  "self_clearance_m": {
+    "zero": {
+      "min": 0.00015900000000002197,
+      "pair": [
+        -1,
+        1
+      ]
+    },
+    "home": {
+      "min": 0.00015899999999998728,
+      "pair": [
+        -1,
+        1
+      ]
+    },
+    "demo": {
+      "min": 0.00017850471111869985,
+      "pair": [
+        -1,
+        1
+      ]
+    }
+  },
+  "random_pose_self_collision_fraction": 0.4766666666666667,
+  "render_ms_per_view": 396.98454225414434,
+  "frames": 181,
+  "gif_MB": 5.254067,
+  "mp4_MB": 0.938883
+}
