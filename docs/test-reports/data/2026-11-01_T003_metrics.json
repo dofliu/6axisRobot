@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-01",
+  "profiles": {
+    "quintic": {
+      "s_end_err": 0.0,
+      "v_end": 0.0,
+      "peak_v_numeric": 0.9375,
+      "peak_v_analytic": 0.9375,
+      "peak_a_numeric": 1.4433756569100016,
+      "peak_a_analytic": 1.4433756729740645
+    },
+    "trapezoid_f0.25": {
+      "s_end_err": 0.0,
+      "v_end": 0.0,
+      "peak_v_numeric": 0.6666666666666666,
+      "peak_v_analytic": 0.6666666666666666,
+      "peak_a_numeric": 1.3333333333333333,
+      "peak_a_analytic": 1.3333333333333333
+    },
+    "trapezoid_f0.10": {
+      "s_end_err": 0.0,
+      "v_end": 0.0,
+      "peak_v_numeric": 0.5555555555555556,
+      "peak_v_analytic": 0.5555555555555556,
+      "peak_a_numeric": 2.7777777777777777,
+      "peak_a_analytic": 2.7777777777777772
+    }
+  },
+  "perf_line_samples_ms_per_pt": 1.0541348109444386,
+  "line": {
+    "length_m": 0.25,
+    "straightness_max_dev_m": 0.0,
+    "slerp_angle_total_rad": 0.5999999999999999,
+    "slerp_linearity_max_err_rad": 1.1102230246251565e-16
+  },
+  "arc": {
+    "radius_m": 0.10000000000000002,
+    "sweep_rad": 3.1415926535897922,
+    "radius_max_err_m": 4.163336342344337e-17,
+    "via_point_err_m": 3.469446951953614e-18,
+    "end_err_m": 2.7755575615628914e-17
+  },
+  "segments": [
+    {
+      "name": "move_j (quintic)",
+      "duration_s": 0.7161972439135292,
+      "ik_fail": 0,
+      "vel_ratio": 0.49999999999999994,
+      "torque_ratio": 0.30650134590590833,
+      "ok": true,
+      "max_joint_step_rad": 0.015616964309104087
+    },
+    {
+      "name": "move_l+SLERP (trapezoid)",
+      "duration_s": 2.0,
+      "ik_fail": 0,
+      "vel_ratio": 0.23622613696031672,
+      "torque_ratio": 0.214933687776698,
+      "ok": true,
+      "max_joint_step_rad": 0.007420246545680631,
+      "pos_track_err_max_m": 9.98457154587919e-12
+    },
+    {
+      "name": "move_c arc+SLERP (quintic)",
+      "duration_s": 3.0,
+      "ik_fail": 0,
+      "vel_ratio": 0.2898914232548288,
+      "torque_ratio": 0.17067225985313064,
+      "ok": true,
+      "max_joint_step_rad": 0.009158574927138119,
+      "pos_track_err_max_m": 5.6419423013091846e-11
+    },
+    {
+      "name": "move_l return (trapezoid)",
+      "duration_s": 2.5,
+      "ik_fail": 0,
+      "vel_ratio": 0.30426693745994027,
+      "torque_ratio": 0.21595073920844732,
+      "ok": true,
+      "max_joint_step_rad": 0.009592655294509145,
+      "pos_track_err_max_m": 4.032204065353968e-11
+    }
+  ],
+  "demo": {
+    "duration_s": 8.216197243913529,
+    "n_points": 823,
+    "pos_violation": false,
+    "vel_ratio": 0.49999999999999994,
+    "torque_ratio": 0.30650134590590833,
+    "vel_ok": true,
+    "torque_ok": true,
+    "ok": true,
+    "max_torque_Nm": [
+      10.987039485404967,
+      45.97520188588625,
+      15.491309049071358,
+      0.7486448758966038,
+      0.07031824372270572,
+      0.0013291584543791662
+    ]
+  },
+  "cartesian_end_error": {
+    "pos_m": 1.1188630228279524e-16,
+    "rot_rad": 2.8443428702192696e-16
+  },
+  "time_scaling": {
+    "T_initial_s": 0.4,
+    "vel_ratio_initial": 2.984155182973037,
+    "torque_ratio_initial": 0.9138929709841358,
+    "T_fitted_s": 1.2564863928307526,
+    "iterations": 2,
+    "feasible": true,
+    "vel_ratio_final": 0.95,
+    "torque_ratio_final": 0.26811053226711806,
+    "history": [
+      [
+        0.4,
+        2.984155182973037,
+        0.9138929709841358
+      ],
+      [
+        1.2564863928307526,
+        0.95,
+        0.26811053226711806
+      ]
+    ]
+  },
+  "pybullet_fk_consistency_max_m": 2.898404326383786e-08,
+  "media": {
+    "gif_MB": 0.788598,
+    "mp4_MB": 0.107328,
+    "frames": 206
+  }
+}
