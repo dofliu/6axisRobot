@@ -32,3 +32,11 @@
 - 背景：本日 Phase 0 為手動啟動，排程 Routine 隨即也啟動並完成 T003，其動畫為 T002a 之前的舊外觀。
 - 新增 `scripts/t003_render_v2.py`：以相同程式碼重建示範軌跡（核對 823 點、8.216 s 與原 metrics 一致），用新外觀渲染；輸出 docs/media/2026-11-01_T003_v2.gif（1.65 MB）/.mp4 與關鍵畫面。原 T003 動畫與報告內容保留，報告末尾加附錄。
 - 下一步：T004 控制器。
+
+## 2026-11-02｜T004 控制器
+- 新增 `sixaxis/control.py`（PD+重力補償、計算力矩、笛卡兒阻抗、平移導納 + 內環追蹤器）與 `sixaxis/ctrlsim.py`（PyBullet TORQUE_CONTROL 閉迴路，dt=1 ms）。
+- 測試：`tests/test_control.py` 6 項；全套 46 passed、`ruff check` 通過。
+- 關鍵數值：CT 軌跡追蹤 RMS 1.15e-5 rad（PD+g 1.12e-3；質量 +20% 誤差模型 1.05e-3）；PD+g 階躍整定 0.326 s／CT 0.149 s；阻抗位移與 F/K 相對誤差 <1e-3；導納穩態 −27.5 mm vs 期望 −25 mm（內環柔度）。
+- 發現：腕軸等效慣量 ~1e-4 kg·m²，固定增益在 1 ms 離散控制下發散 → 增益須依 M_ii 縮放。
+- 報告：docs/test-reports/2026-11-02_T004.md；動畫 docs/media/2026-11-02_T004.gif/.mp4。
+- 下一步：T005 夾爪與物件模型。

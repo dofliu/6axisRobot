@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-02",
+  "step": {
+    "PD+g": {
+      "settle_2pct_s": 0.326,
+      "overshoot_ratio": 0.02897969885985701,
+      "final_err_rad": 1.0095655611497278e-07,
+      "tau_peak_ratio": 2.587239236650748
+    },
+    "CT": {
+      "settle_2pct_s": 0.149,
+      "overshoot_ratio": 0.0,
+      "final_err_rad": 5.146748299766912e-08,
+      "tau_peak_ratio": 4.458753606992093
+    }
+  },
+  "tracking": {
+    "PD+g": {
+      "rms_rad": 0.0011249526766446095,
+      "max_rad": 0.003988266194241641,
+      "tau_peak_ratio": 0.2573455354133713
+    },
+    "CT": {
+      "rms_rad": 1.1491251329222949e-05,
+      "max_rad": 2.5451437840273705e-05,
+      "tau_peak_ratio": 0.25714707115169644
+    },
+    "CT (+20% mass model error)": {
+      "rms_rad": 0.0010480307458089716,
+      "max_rad": 0.0023924577107329315,
+      "tau_peak_ratio": 0.25690277717678583
+    }
+  },
+  "impedance": [
+    {
+      "K_N_per_m": 1000.0,
+      "expected_dz_mm": -20.0,
+      "measured_dz_mm": -19.99943571607482,
+      "rel_err": 2.8214196259000734e-05
+    },
+    {
+      "K_N_per_m": 2000.0,
+      "expected_dz_mm": -10.0,
+      "measured_dz_mm": -10.002066963349765,
+      "rel_err": 0.00020669633497647638
+    },
+    {
+      "K_N_per_m": 4000.0,
+      "expected_dz_mm": -5.0,
+      "measured_dz_mm": -4.99514940973339,
+      "rel_err": 0.0009701180533219431
+    }
+  ],
+  "admittance": {
+    "F_N": -5.0,
+    "Ka": 200.0,
+    "expected_dz_mm": -25.0,
+    "measured_dz_mm": -27.498765991867234
+  },
+  "gif_MB": 1.545876,
+  "mp4_MB": 0.20505
+}
