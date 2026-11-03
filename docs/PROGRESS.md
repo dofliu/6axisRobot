@@ -40,3 +40,11 @@
 - 發現：腕軸等效慣量 ~1e-4 kg·m²，固定增益在 1 ms 離散控制下發散 → 增益須依 M_ii 縮放。
 - 報告：docs/test-reports/2026-11-02_T004.md；動畫 docs/media/2026-11-02_T004.gif/.mp4。
 - 下一步：T005 夾爪與物件模型。
+
+## 2026-11-03｜T005 夾爪與物件模型
+- 新增 `sixaxis/gripper.py`（平行夾爪 URDF 片段、GEAR 連動、物件規格 cube/block/cyl、F_min 解析式）與 `sixaxis/graspsim.py`（抓取場景、計算力矩手臂、取放/靜態滑移實驗）；產生 `robots/ur5_gripper.urdf`（原手臂 URDF 不變）。
+- 測試：`tests/test_gripper.py` 9 項；全套 55 passed、`ruff check` 通過。
+- 關鍵數值：40 N 夾持下三種物件抬升 15 cm 滑移 ≈1 µm、釋放漂移 <0.11 mm；靜態夾持力轉折 1.2→1.3 N（解析 1.226 N）；快速抬升 3.6 m/s² 轉折 1.5→2.0 N（解析 1.68 N）。
+- 發現：對手指關節呼叫 changeDynamics(maxJointVelocity) 會破壞手臂動力學；兩指須用 GEAR 連動、frictionAnchor 抑制蠕滑；PyBullet 位置馬達/每步重置驅動手臂皆造成假滑移，改用 PyBullet 逆動力學之計算力矩。
+- 報告：docs/test-reports/2026-11-03_T005.md；動畫 docs/media/2026-11-03_T005.gif/.mp4。
+- 下一步：T006 場景（工作台、輸送帶、料盤、固定治具；碰撞群組）。
