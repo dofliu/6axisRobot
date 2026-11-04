@@ -15,6 +15,7 @@ import pybullet as pb
 
 from .gripper import CUBE, T_TCP, TCP_Z, Gripper, ObjectSpec, make_arm_with_gripper
 from .robot import SixAxisRobot
+from .scene import Workcell
 from .trajectory import joint_ptp
 
 PED_X, PED_TOP = 0.45, 0.10  # 基座（桌面）中心 x 與頂面高度
@@ -33,7 +34,7 @@ def tool_pose(tcp_xyz) -> np.ndarray:
 
 class GraspScene:
     def __init__(self, spec: ObjectSpec = CUBE, dt: float = 1e-3, friction: float | None = None,
-                 render: bool = False):
+                 render: bool = False, workcell: bool = False):
         self.r = SixAxisRobot()
         self.sim = make_arm_with_gripper(self.r, plane=render)
         self.cid, self.dt, self.spec = self.sim.cid, dt, spec
@@ -41,16 +42,22 @@ class GraspScene:
         pb.setTimeStep(dt, physicsClientId=self.cid)
         pb.setPhysicsEngineParameter(numSolverIterations=100, physicsClientId=self.cid)
         self.g = Gripper(self.sim)
-        he = [0.15, 0.15, PED_TOP / 2]
-        col = pb.createCollisionShape(pb.GEOM_BOX, halfExtents=he, physicsClientId=self.cid)
-        vis = pb.createVisualShape(pb.GEOM_BOX, halfExtents=[0.15, 0.15, PED_TOP / 2],
-                                   rgbaColor=[0.55, 0.57, 0.6, 1], physicsClientId=self.cid)
-        self.table = pb.createMultiBody(0, col, vis, [PED_X, 0, PED_TOP / 2], physicsClientId=self.cid)
-        pb.changeDynamics(self.table, -1, lateralFriction=1.0, physicsClientId=self.cid)
+        self.wc = None
+        if workcell:  # T006 工作站（工作台頂面高度 = PED_TOP，取料點 = PED_X）
+            self.wc = Workcell(self.cid, self.sim.id)
+        else:
+            he = [0.15, 0.15, PED_TOP / 2]
+            col = pb.createCollisionShape(pb.GEOM_BOX, halfExtents=he, physicsClientId=self.cid)
+            vis = pb.createVisualShape(pb.GEOM_BOX, halfExtents=[0.15, 0.15, PED_TOP / 2],
+                                       rgbaColor=[0.55, 0.57, 0.6, 1], physicsClientId=self.cid)
+            self.table = pb.createMultiBody(0, col, vis, [PED_X, 0, PED_TOP / 2], physicsClientId=self.cid)
+            pb.changeDynamics(self.table, -1, lateralFriction=1.0, physicsClientId=self.cid)
         self.z_grasp = PED_TOP + spec.height / 2  # 物件中心（= 抓取 TCP 高度）
         self.q_grasp = self._ik([PED_X, 0, self.z_grasp])
         self.sim.set_state(self.q_grasp)
         self.obj = self.g.spawn(spec, [PED_X, 0, self.z_grasp])
+        if self.wc:
+            self.wc.add_part(self.obj)
         if friction is not None:
             pb.changeDynamics(self.obj, -1, lateralFriction=friction, physicsClientId=self.cid)
         self.rec = {"t": [], "tcp": [], "obj": [], "fL": [], "fR": [], "q": []}
@@ -82,6 +89,8 @@ class GraspScene:
 
     def step(self, n: int = 1):
         for _ in range(n):
+            if self.wc:
+                self.wc.pre_step()
             self.sim.apply_torques(self._arm_torque())
             pb.stepSimulation(physicsClientId=self.cid)
             self.t += self.dt

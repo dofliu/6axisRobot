@@ -48,3 +48,12 @@
 - 發現：對手指關節呼叫 changeDynamics(maxJointVelocity) 會破壞手臂動力學；兩指須用 GEAR 連動、frictionAnchor 抑制蠕滑；PyBullet 位置馬達/每步重置驅動手臂皆造成假滑移，改用 PyBullet 逆動力學之計算力矩。
 - 報告：docs/test-reports/2026-11-03_T005.md；動畫 docs/media/2026-11-03_T005.gif/.mp4。
 - 下一步：T006 場景（工作台、輸送帶、料盤、固定治具；碰撞群組）。
+
+## 2026-11-04｜T006 工作站場景
+- 新增 `sixaxis/scene.py`（`Workcell`：工作台、輸送帶＋擋料板/護欄、2×2 料盤、固定治具、碰撞群組 arm/static/belt/part、`arm_collisions`/`min_clearance` 查詢）；`GraspScene(workcell=True)` 可使用（預設行為不變）。
+- 輸送帶以庫侖限幅速度追隨力建模（帶面摩擦 0）。測試：`tests/test_scene.py` 19 項；全套 74 passed、`ruff check` 通過。
+- 關鍵數值：帶速誤差 0.00 %、擋料板定位 0.011 mm；料盤 4 格×4 偏移全收容；治具滑入基準 RMS 2.4 mm／max 5.6 mm（非精密，已於報告說明）；
+  7 工位首選 IK 解皆無碰撞；示範兩個取放週期（輸送帶→格0、桌面→格3）放置誤差 <0.5 mm、最小間隙 5.0 mm、無碰撞。
+- 發現：角柱料盤只擋斜向（改端板+側銷）；夾爪抱著工件做 PTP 不可橫掃（會掃走桌面零件／擦到治具）→ 需先垂直抬起與中繼點，T110 避障規劃處理。
+- 報告：docs/test-reports/2026-11-04_T006.md；動畫 docs/media/2026-11-04_T006.gif/.mp4。
+- 下一步：T007 指令介面（JSON/DSL：move_j、move_l、move_c、grip、release、wait）。
