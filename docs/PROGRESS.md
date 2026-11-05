@@ -57,3 +57,12 @@
 - 發現：角柱料盤只擋斜向（改端板+側銷）；夾爪抱著工件做 PTP 不可橫掃（會掃走桌面零件／擦到治具）→ 需先垂直抬起與中繼點，T110 避障規劃處理。
 - 報告：docs/test-reports/2026-11-04_T006.md；動畫 docs/media/2026-11-04_T006.gif/.mp4。
 - 下一步：T007 指令介面（JSON/DSL：move_j、move_l、move_c、grip、release、wait）。
+
+## 2026-11-05｜T007 指令介面
+- 新增 `sixaxis/commands.py`：JSON/DSL 解析與驗證（SYNTAX/RANGE）、`Executor`（運動學 dry-run 或 GraspScene 物理）、指令 move_j/move_l/move_c/grip/release/wait/set_speed；
+  未給 T 時以 fit_duration 自動求時（使用率 ≤0.5·speed），給 T 超限 → LIMIT；另有 UNREACHABLE、COLLISION、GRIP_EMPTY；遇錯即停並回報序號與錯誤碼。
+- 測試：`tests/test_commands.py` 26 項；全套 100 passed、`ruff check` 通過。
+- 關鍵數值：兩個示範程式（DSL 桌面→料盤、JSON 輸送帶→料盤）皆成功，放置 XY 誤差 0.49／0.53 mm、Z 誤差 −0.01 mm；指令終點 TCP 誤差最大 0.74 mm；速度/力矩使用率最大 0.50／0.30。
+- 報告：docs/test-reports/2026-11-05_T007.md；動畫 docs/media/2026-11-05_T007.gif/.mp4。
+- 限制：move_l/move_c 無姿態目標；力矩檢查未含夾爪/工件質量；碰撞僅手臂對靜態場景。
+- 下一步：T101 點到點搬運（Phase 2）。

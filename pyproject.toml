@@ -18,4 +18,5 @@ ignore = ["E741"]
 
 [tool.ruff.lint.per-file-ignores]
 "sixaxis/urdf.py" = ["E501"]
+"sixaxis/commands.py" = ["E501"]
 "scripts/*.py" = ["E501"]
