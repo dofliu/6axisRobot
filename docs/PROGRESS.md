@@ -66,3 +66,11 @@
 - 報告：docs/test-reports/2026-11-05_T007.md；動畫 docs/media/2026-11-05_T007.gif/.mp4。
 - 限制：move_l/move_c 無姿態目標；力矩檢查未含夾爪/工件質量；碰撞僅手臂對靜態場景。
 - 下一步：T101 點到點搬運（Phase 2）。
+
+## 2026-11-06｜T101 點到點搬運
+- 新增 `sixaxis/tasks.py`（`transfer_program` 產生 8 道 T007 指令、`random_pairs`、`run_transfer` 量測成功率/誤差/週期/使用率）；腳本 `scripts/t101_report.py`、`t101_write_md.py`。
+- 測試：`tests/test_tasks.py` 6 項；全套 106 passed、`ruff check` 通過。
+- 關鍵數值：隨機起訖 N=30 成功 30/30；放置 XY 誤差平均 0.42／最大 0.80 mm、傾角最大 1.53°、週期平均 5.02 s、速度使用率 ≤0.50、力矩使用率最大 0.43；夾持力 5–80 N、speed 0.4–1.0、五次/梯形曲線皆成功。
+- 發現：取放區必須縮到 x 0.36–0.44、y −0.01–0.02 m：較大範圍會與治具後擋板碰撞或角落抓取落空（一指 ~670 N、另一指 0），原因未深入；更大範圍留給 T110 避障。
+- 報告：docs/test-reports/2026-11-06_T101.md；動畫 docs/media/2026-11-06_T101.gif/.mp4。
+- 下一步：T102 取放 pick & place（可沿用 tasks.py，加入工件位置/姿態偏差與失敗處理）。
