@@ -74,3 +74,14 @@
 - 發現：取放區必須縮到 x 0.36–0.44、y −0.01–0.02 m：較大範圍會與治具後擋板碰撞或角落抓取落空（一指 ~670 N、另一指 0），原因未深入；更大範圍留給 T110 避障。
 - 報告：docs/test-reports/2026-11-06_T101.md；動畫 docs/media/2026-11-06_T101.gif/.mp4。
 - 下一步：T102 取放 pick & place（可沿用 tasks.py，加入工件位置/姿態偏差與失敗處理）。
+
+## 2026-11-10｜T102 取放 pick & place
+- `sixaxis/tasks.py` 新增 `pick_place_program`（放入料盤格高度）、`run_pick_place`（可選 `recover=True`：抬升後 `inhand_ok` 檢查 → 放回 → 鬆開退到安全高度 → 讀回方塊位置重新感測 → 重取，最多 3 次）、`inhand_ok`；`transfer_program` 加 `z_place`；腳本 `scripts/t102_report.py`、`t102_write_md.py`。
+- 測試：`tests/test_pickplace.py` 5 項；全套 112 passed、`ruff check` 通過。
+- 關鍵數值：標稱 N=24 輪流放入 4 格 24/24 成功，放置 XY 最大 0.62 mm、週期平均 5.33 s、力矩使用率 ≤0.21；
+  取點偏差：y 向 ±14 mm 內由夾爪對中吸收，|y|≥16 mm 指墊壓倒方塊（UNRECOVERABLE）；x 向無恢復 ±4 mm 即失敗，有恢復 ±20 mm 皆成功（2 次取點）；
+  隨機感測誤差 ±12 mm、N=30：無恢復 4/30 → 有恢復 30/30。
+- 發現：傾角/偏航須分開（總旋轉角會把偏航算進去；T101 的「傾角」為總旋轉角）；x 向偏差不會被兩指修正，須在抬升後檢查。
+- 報告：docs/test-reports/2026-11-10_T102.md；動畫 docs/media/2026-11-10_T102.gif/.mp4。
+- 限制：「感測」為模擬器直接讀值（理想）；工具姿態固定，不處理 yaw 偏差。
+- 下一步：T103 疊棧/碼垛（沿用 `run_pick_place`，z 逐層遞增）。

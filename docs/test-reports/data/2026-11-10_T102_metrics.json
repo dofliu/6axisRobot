@@ -1,0 +1,5632 @@
+{
+  "date": "2026-11-10",
+  "n": 24,
+  "seed": 2026,
+  "pockets": [
+    [
+      0.405,
+      -0.21500000000000002
+    ],
+    [
+      0.405,
+      -0.125
+    ],
+    [
+      0.495,
+      -0.21500000000000002
+    ],
+    [
+      0.495,
+      -0.125
+    ]
+  ],
+  "batch": {
+    "success": 24,
+    "n": 24,
+    "xy_mean": 0.44600859035190793,
+    "xy_max": 0.6231548192420667,
+    "z_abs_max": 0.010498486726101541,
+    "tilt_max": 0.00144320579932494,
+    "yaw_max": 1.1583232594908281,
+    "cycle_mean": 5.331083333333448,
+    "torque_util_max": 0.2127127038112477,
+    "vel_util_max": 0.5,
+    "per_pocket": [
+      {
+        "pocket": 0,
+        "success": 6,
+        "n": 6
+      },
+      {
+        "pocket": 1,
+        "success": 6,
+        "n": 6
+      },
+      {
+        "pocket": 2,
+        "success": 6,
+        "n": 6
+      },
+      {
+        "pocket": 3,
+        "success": 6,
+        "n": 6
+      }
+    ],
+    "trials": [
+      {
+        "pocket": 0,
+        "pick": [
+          0.3743147850940349,
+          0.009197394971454635
+        ],
+        "xy_err_mm": 0.3391693803656885,
+        "z_err_mm": -0.01007586563148144,
+        "tilt_deg": 0.00034476284764678125,
+        "yaw_deg": 0.9376251613233038,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3743147850940349,
+              0.009197394971454635
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.52600000000018,
+        "error": null,
+        "torque_util": 0.1646739061511805,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 1,
+        "pick": [
+          0.3973814720914788,
+          0.00111501581324144
+        ],
+        "xy_err_mm": 0.554726312857101,
+        "z_err_mm": -0.010268913756078524,
+        "tilt_deg": 0.0007770597284396855,
+        "yaw_deg": 1.1218350585083599,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3973814720914788,
+              0.00111501581324144
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.209000000000074,
+        "error": null,
+        "torque_util": 0.1602176923909169,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 2,
+        "pick": [
+          0.3883933867447721,
+          0.013715547375597948
+        ],
+        "xy_err_mm": 0.37060998435758197,
+        "z_err_mm": -0.01007581221260101,
+        "tilt_deg": 0.00034442545293062257,
+        "yaw_deg": 0.9565468309533358,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3883933867447721,
+              0.013715547375597948
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.463000000000159,
+        "error": null,
+        "torque_util": 0.17105439790252688,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 3,
+        "pick": [
+          0.4324115069341739,
+          -0.004679404245308541
+        ],
+        "xy_err_mm": 0.6231548192420667,
+        "z_err_mm": -0.010268916988354082,
+        "tilt_deg": 0.0007770695780179392,
+        "yaw_deg": 1.1583232594908281,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.4324115069341739,
+              -0.004679404245308541
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.1350000000000495,
+        "error": null,
+        "torque_util": 0.1903611291249432,
+        "vel_util": 0.49945931336746435,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 0,
+        "pick": [
+          0.41222278421481057,
+          -0.0010509169793329227
+        ],
+        "xy_err_mm": 0.351887130094766,
+        "z_err_mm": -0.010023430991101812,
+        "tilt_deg": 6.727497965039472e-05,
+        "yaw_deg": 0.9635293474808364,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.41222278421481057,
+              -0.0010509169793329227
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.428000000000147,
+        "error": null,
+        "torque_util": 0.15595706563534095,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 1,
+        "pick": [
+          0.4373569760129912,
+          0.017595504816118344
+        ],
+        "xy_err_mm": 0.16948098385724739,
+        "z_err_mm": -0.010080313821048126,
+        "tilt_deg": 0.00023126866970943864,
+        "yaw_deg": 0.29736431515893713,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.4373569760129912,
+              0.017595504816118344
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.222000000000079,
+        "error": null,
+        "torque_util": 0.1459090701334085,
+        "vel_util": 0.49945931336746424,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 2,
+        "pick": [
+          0.4108696643315721,
+          0.012581962912372598
+        ],
+        "xy_err_mm": 0.37578424573065217,
+        "z_err_mm": -0.010268927481821288,
+        "tilt_deg": 0.000777090683836665,
+        "yaw_deg": 0.9758546362996867,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.4108696643315721,
+              0.012581962912372598
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.420000000000145,
+        "error": null,
+        "torque_util": 0.16699290992582172,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 3,
+        "pick": [
+          0.40121229570578815,
+          0.0147768577512671
+        ],
+        "xy_err_mm": 0.5515689316676612,
+        "z_err_mm": -0.010080418928637425,
+        "tilt_deg": 0.0002315852162950381,
+        "yaw_deg": 1.0907932809489722,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.40121229570578815,
+              0.0147768577512671
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.235000000000083,
+        "error": null,
+        "torque_util": 0.18409500266353376,
+        "vel_util": 0.49950629477213865,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 0,
+        "pick": [
+          0.39587044363200824,
+          0.00016437359941285506
+        ],
+        "xy_err_mm": 0.3461324363060281,
+        "z_err_mm": -0.010268711072985992,
+        "tilt_deg": 0.0007764525657557062,
+        "yaw_deg": 0.9499575977141603,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.39587044363200824,
+              0.00016437359941285506
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.458000000000157,
+        "error": null,
+        "torque_util": 0.1606259438702247,
+        "vel_util": 0.4997480791071598,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 1,
+        "pick": [
+          0.3822319372400127,
+          -0.0032100082946978975
+        ],
+        "xy_err_mm": 0.535288164481219,
+        "z_err_mm": -0.010268917915612352,
+        "tilt_deg": 0.0007770695780179392,
+        "yaw_deg": 1.0958963724212296,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3822319372400127,
+              -0.0032100082946978975
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.241000000000085,
+        "error": null,
+        "torque_util": 0.16365997856909298,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 2,
+        "pick": [
+          0.40206534746761985,
+          0.002927361820532942
+        ],
+        "xy_err_mm": 0.3829811086417425,
+        "z_err_mm": -0.010139703777251041,
+        "tilt_deg": 0.0005082650117061877,
+        "yaw_deg": 0.9768826540931812,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.40206534746761985,
+              0.002927361820532942
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.40700000000014,
+        "error": null,
+        "torque_util": 0.17331462188978947,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 3,
+        "pick": [
+          0.41305444963780763,
+          -0.009614785528995803
+        ],
+        "xy_err_mm": 0.6191854954598528,
+        "z_err_mm": -0.010268915462435801,
+        "tilt_deg": 0.0007770648877581508,
+        "yaw_deg": 1.1437958880409624,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.41305444963780763,
+              -0.009614785528995803
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.146000000000053,
+        "error": null,
+        "torque_util": 0.2127127038112477,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 0,
+        "pick": [
+          0.3958161521230977,
+          0.0009554240339717402
+        ],
+        "xy_err_mm": 0.345897456408052,
+        "z_err_mm": -0.010268708265231963,
+        "tilt_deg": 0.0007764445859610043,
+        "yaw_deg": 0.9492751478414547,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3958161521230977,
+              0.0009554240339717402
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.460000000000158,
+        "error": null,
+        "torque_util": 0.16062224781901768,
+        "vel_util": 0.4997480791071598,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 1,
+        "pick": [
+          0.3756318079897243,
+          0.007845976130181584
+        ],
+        "xy_err_mm": 0.5344242684853717,
+        "z_err_mm": -0.010498486726101541,
+        "tilt_deg": 0.00144320579932494,
+        "yaw_deg": 1.0851155066373508,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3756318079897243,
+              0.007845976130181584
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.270000000000095,
+        "error": null,
+        "torque_util": 0.16449871254300807,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 2,
+        "pick": [
+          0.39482505247605154,
+          -0.0010002548876455065
+        ],
+        "xy_err_mm": 0.37183127957092765,
+        "z_err_mm": -0.01026892632990939,
+        "tilt_deg": 0.0007770869317330096,
+        "yaw_deg": 0.9587326665378555,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.39482505247605154,
+              -0.0010002548876455065
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.43500000000015,
+        "error": null,
+        "torque_util": 0.17232117725760454,
+        "vel_util": 0.49950629477213865,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 3,
+        "pick": [
+          0.37675328969889754,
+          0.016238721715765382
+        ],
+        "xy_err_mm": 0.5278422769217068,
+        "z_err_mm": -0.010080415184660074,
+        "tilt_deg": 0.00023157419955674327,
+        "yaw_deg": 1.0658203020998442,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.37675328969889754,
+              0.016238721715765382
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.2850000000001,
+        "error": null,
+        "torque_util": 0.19060237491050183,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 0,
+        "pick": [
+          0.4237969852417146,
+          0.008201290300549368
+        ],
+        "xy_err_mm": 0.3436573982456437,
+        "z_err_mm": -0.010268712575284278,
+        "tilt_deg": 0.000776456320924836,
+        "yaw_deg": 0.9509010450260931,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.4237969852417146,
+              0.008201290300549368
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.439000000000151,
+        "error": null,
+        "torque_util": 0.15171288000866578,
+        "vel_util": 0.49974807910715985,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 1,
+        "pick": [
+          0.38760804629338336,
+          0.01840459372938945
+        ],
+        "xy_err_mm": 0.5216577097303109,
+        "z_err_mm": -0.010268916852573806,
+        "tilt_deg": 0.0007770662948390598,
+        "yaw_deg": 1.074282349586177,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.38760804629338336,
+              0.01840459372938945
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.278000000000097,
+        "error": null,
+        "torque_util": 0.16203324023600682,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 2,
+        "pick": [
+          0.4050701899602036,
+          0.0029828821885985613
+        ],
+        "xy_err_mm": 0.38578655350229424,
+        "z_err_mm": -0.010268928598761162,
+        "tilt_deg": 0.0007770944359222038,
+        "yaw_deg": 0.9892741672918604,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.4050701899602036,
+              0.0029828821885985613
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.401000000000138,
+        "error": null,
+        "torque_util": 0.17257775099132766,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 3,
+        "pick": [
+          0.43203596792033777,
+          -0.0004197458829441284
+        ],
+        "xy_err_mm": 0.608707720632909,
+        "z_err_mm": -0.010268913891303688,
+        "tilt_deg": 0.0007770606665001363,
+        "yaw_deg": 1.1522983927227841,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.43203596792033777,
+              -0.0004197458829441284
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.1470000000000535,
+        "error": null,
+        "torque_util": 0.18518640380493023,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 0,
+        "pick": [
+          0.41567958961070267,
+          -0.0005853901821288986
+        ],
+        "xy_err_mm": 0.35212467209715853,
+        "z_err_mm": -0.010268704033727927,
+        "tilt_deg": 0.0007764328508198111,
+        "yaw_deg": 0.9644930146843578,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.41567958961070267,
+              -0.0005853901821288986
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.425000000000146,
+        "error": null,
+        "torque_util": 0.15479462427818166,
+        "vel_util": 0.5,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 1,
+        "pick": [
+          0.380924243704944,
+          0.011025226685025662
+        ],
+        "xy_err_mm": 0.5315217170486265,
+        "z_err_mm": -0.010498472134939929,
+        "tilt_deg": 0.0014431628671776758,
+        "yaw_deg": 1.092756250840715,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.380924243704944,
+              0.011025226685025662
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.269000000000094,
+        "error": null,
+        "torque_util": 0.1635822992309166,
+        "vel_util": 0.49999999999999994,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 2,
+        "pick": [
+          0.3782313583125886,
+          0.0047933096895464225
+        ],
+        "xy_err_mm": 0.3707721974897025,
+        "z_err_mm": -0.010372469991332123,
+        "tilt_deg": 0.0011272657683615392,
+        "yaw_deg": 0.9627908560659577,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.3782313583125886,
+              0.0047933096895464225
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.455000000000156,
+        "error": null,
+        "torque_util": 0.1774696698407733,
+        "vel_util": 0.499731291150895,
+        "offset_mm": 0.0,
+        "success": true
+      },
+      {
+        "pocket": 3,
+        "pick": [
+          0.4064022762416445,
+          -0.004332809057366247
+        ],
+        "xy_err_mm": 0.5900139252514774,
+        "z_err_mm": -0.010372455510387901,
+        "tilt_deg": 0.0011272179163598968,
+        "yaw_deg": 1.1103656060406024,
+        "ok": true,
+        "attempts": 1,
+        "log": [
+          {
+            "attempt": 1,
+            "cmd_pick": [
+              0.4064022762416445,
+              -0.004332809057366247
+            ],
+            "stage": "all",
+            "error": null
+          }
+        ],
+        "cycle_s": 5.192000000000069,
+        "error": null,
+        "torque_util": 0.20809727607015707,
+        "vel_util": 0.49918400666389007,
+        "offset_mm": 0.0,
+        "success": true
+      }
+    ]
+  },
+  "sweep": [
+    {
+      "axis": "x",
+      "cmd_offset_mm": -20,
+      "recover": false,
+      "xy_err_mm": 4.871904974984271,
+      "z_err_mm": 9.741911904112694,
+      "tilt_deg": 55.59642121473923,
+      "yaw_deg": 3.596358283995187,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.38,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.221000000000078,
+      "error": null,
+      "torque_util": 0.16400475208837165,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 20.000000000000018,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -18,
+      "recover": false,
+      "xy_err_mm": 3.8750444127208743,
+      "z_err_mm": 9.625352588157776,
+      "tilt_deg": 56.57890417734466,
+      "yaw_deg": 5.324270260421159,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.382,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.216000000000077,
+      "error": null,
+      "torque_util": 0.16363841104961538,
+      "vel_util": 0.5,
+      "offset_mm": 18.000000000000014,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -16,
+      "recover": false,
+      "xy_err_mm": 6.34539829552503,
+      "z_err_mm": 9.788079156330426,
+      "tilt_deg": 34.815961589305076,
+      "yaw_deg": 0.608513715376283,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.384,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.230000000000081,
+      "error": null,
+      "torque_util": 0.16325253142368376,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 16.000000000000014,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -14,
+      "recover": false,
+      "xy_err_mm": 3.889248338519189,
+      "z_err_mm": 9.626121679794597,
+      "tilt_deg": 56.572327254987606,
+      "yaw_deg": 5.149917923355538,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.386,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.208000000000074,
+      "error": null,
+      "torque_util": 0.16284713186280037,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 14.000000000000012,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -12,
+      "recover": false,
+      "xy_err_mm": 6.16496021986875,
+      "z_err_mm": 9.880174018915138,
+      "tilt_deg": 54.30080062055576,
+      "yaw_deg": 1.7530131989859115,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.388,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.210000000000075,
+      "error": null,
+      "torque_util": 0.16242224491086724,
+      "vel_util": 0.5,
+      "offset_mm": 12.00000000000001,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -8,
+      "recover": false,
+      "xy_err_mm": 4.040158445601662,
+      "z_err_mm": 9.321010036614673,
+      "tilt_deg": 31.176329534361194,
+      "yaw_deg": 1.9032980626855291,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.392,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.215000000000076,
+      "error": null,
+      "torque_util": 0.1615712843146166,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 8.000000000000007,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -4,
+      "recover": false,
+      "xy_err_mm": 3.7186409575478745,
+      "z_err_mm": -0.010075833435874149,
+      "tilt_deg": 0.0003445153866357535,
+      "yaw_deg": 0.5793762344527167,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.396,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.208000000000074,
+      "error": null,
+      "torque_util": 0.16059674659356504,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 4.0000000000000036,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 0,
+      "recover": false,
+      "xy_err_mm": 0.5598578662953373,
+      "z_err_mm": -0.01026892193695117,
+      "tilt_deg": 0.0007770822415779636,
+      "yaw_deg": 1.1356663637730477,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.201000000000072,
+      "error": null,
+      "torque_util": 0.15954552756913687,
+      "vel_util": 0.5,
+      "offset_mm": 0.0,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 4,
+      "recover": false,
+      "xy_err_mm": 0.5606670998689225,
+      "z_err_mm": 14.579753650778072,
+      "tilt_deg": 11.797109897130264,
+      "yaw_deg": 0.4398720203257014,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.404,
+            0.0
+          ],
+          "stage": "all",
+          "error": "COLLISION@5"
+        }
+      ],
+      "cycle_s": 3.1829999999997605,
+      "error": "COLLISION@5",
+      "torque_util": 0.15845855043169996,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 4.0000000000000036,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 8,
+      "recover": false,
+      "xy_err_mm": 3.9535203973454243,
+      "z_err_mm": 14.888305546436303,
+      "tilt_deg": 12.938957349173366,
+      "yaw_deg": 0.49835735852908414,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.40800000000000003,
+            0.0
+          ],
+          "stage": "all",
+          "error": "COLLISION@5"
+        }
+      ],
+      "cycle_s": 3.176999999999761,
+      "error": "COLLISION@5",
+      "torque_util": 0.15726910192424715,
+      "vel_util": 0.5,
+      "offset_mm": 8.000000000000007,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 12,
+      "recover": false,
+      "xy_err_mm": 6.149466900455948,
+      "z_err_mm": 14.169562001816406,
+      "tilt_deg": 17.02013441011778,
+      "yaw_deg": 0.10117321494293208,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41200000000000003,
+            0.0
+          ],
+          "stage": "all",
+          "error": "COLLISION@5"
+        }
+      ],
+      "cycle_s": 3.1929999999997594,
+      "error": "COLLISION@5",
+      "torque_util": 0.14983591932896098,
+      "vel_util": 0.499269806596125,
+      "offset_mm": 12.00000000000001,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 14,
+      "recover": false,
+      "xy_err_mm": 1.6592170284339387,
+      "z_err_mm": 9.189835575626248,
+      "tilt_deg": 29.906189333542127,
+      "yaw_deg": 3.393673615452471,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41400000000000003,
+            0.0
+          ],
+          "stage": "all",
+          "error": "COLLISION@5"
+        }
+      ],
+      "cycle_s": 3.1899999999997597,
+      "error": "COLLISION@5",
+      "torque_util": 0.1492659642709241,
+      "vel_util": 0.5,
+      "offset_mm": 14.000000000000012,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 16,
+      "recover": false,
+      "xy_err_mm": 11.988461604438845,
+      "z_err_mm": 16.80119023298085,
+      "tilt_deg": 12.688695553280505,
+      "yaw_deg": 1.0409043910667393,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41600000000000004,
+            0.0
+          ],
+          "stage": "all",
+          "error": "COLLISION@5"
+        }
+      ],
+      "cycle_s": 3.1649999999997624,
+      "error": "COLLISION@5",
+      "torque_util": 0.15467211914007348,
+      "vel_util": 0.5,
+      "offset_mm": 16.000000000000014,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 18,
+      "recover": false,
+      "xy_err_mm": 14.438129668250777,
+      "z_err_mm": 17.45697553972275,
+      "tilt_deg": 12.05366635358857,
+      "yaw_deg": 1.5430279648533798,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41800000000000004,
+            0.0
+          ],
+          "stage": "all",
+          "error": "COLLISION@5"
+        }
+      ],
+      "cycle_s": 3.1629999999997627,
+      "error": "COLLISION@5",
+      "torque_util": 0.15401235282708087,
+      "vel_util": 0.5,
+      "offset_mm": 18.000000000000014,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 20,
+      "recover": false,
+      "xy_err_mm": 5.0844946078832916,
+      "z_err_mm": 9.80126923072161,
+      "tilt_deg": 55.06124411375069,
+      "yaw_deg": 3.7040790446281022,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.42000000000000004,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.151000000000055,
+      "error": null,
+      "torque_util": 0.15330851985124144,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 20.000000000000018,
+      "success": false
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -20,
+      "recover": true,
+      "xy_err_mm": 0.5539925176946936,
+      "z_err_mm": -0.010268896542459105,
+      "tilt_deg": 0.0007770362765603709,
+      "yaw_deg": 1.6820233572890757,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.38,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 19.99949109574628,
+          "dy_mm": 0.001463985515625849,
+          "dz_mm": -0.07243731618059024,
+          "tilt_deg": 0.16764623497441858
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39902825953002924,
+            -0.00045334110319436354
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -3.860448294368268e-05,
+          "dy_mm": -0.00012105879482757556,
+          "dz_mm": -0.015026861385353252,
+          "tilt_deg": 0.12775392500941055
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.449000000000202,
+      "error": null,
+      "torque_util": 0.2731737103679978,
+      "vel_util": 0.5,
+      "offset_mm": 20.000000000000018,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -18,
+      "recover": true,
+      "xy_err_mm": 0.5337659170251263,
+      "z_err_mm": -0.010268895643483766,
+      "tilt_deg": 0.00077703393133351,
+      "yaw_deg": 1.6944005798768629,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.382,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 17.99955994662794,
+          "dy_mm": 0.0017210418029898816,
+          "dz_mm": -0.06545753156927958,
+          "tilt_deg": 0.16396373250283355
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39907613067129377,
+            -0.0004797159861587597
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.076103343741977e-05,
+          "dy_mm": -0.0002960630185549996,
+          "dz_mm": -0.015077706455202122,
+          "tilt_deg": 0.12684641502557112
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.466000000000193,
+      "error": null,
+      "torque_util": 0.24926061255650572,
+      "vel_util": 0.5,
+      "offset_mm": 18.000000000000014,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -16,
+      "recover": true,
+      "xy_err_mm": 0.5509551802889633,
+      "z_err_mm": -0.010268887680242589,
+      "tilt_deg": 0.00077701470020625,
+      "yaw_deg": 1.7465339582670225,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.384,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 15.999835442678078,
+          "dy_mm": 0.00046735206405304854,
+          "dz_mm": -0.05859259131638095,
+          "tilt_deg": 0.15997271795488877
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.3991216483962287,
+            -0.000503754623206168
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": 2.5828325977972355e-05,
+          "dy_mm": -0.000250795729766942,
+          "dz_mm": -0.015134308735870183,
+          "tilt_deg": 0.12916312325274884
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.445000000000205,
+      "error": null,
+      "torque_util": 0.2254063656127256,
+      "vel_util": 0.5,
+      "offset_mm": 16.000000000000014,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -14,
+      "recover": true,
+      "xy_err_mm": 0.5525508186647626,
+      "z_err_mm": -0.010268885950515116,
+      "tilt_deg": 0.0007770156383210615,
+      "yaw_deg": 1.8670746254537391,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.386,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 13.99977173660638,
+          "dy_mm": 0.0002003704690206593,
+          "dz_mm": -0.05223452188499178,
+          "tilt_deg": 0.15466824078727115
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39921123311231715,
+            -0.0005492992774136264
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -3.839663265114979e-05,
+          "dy_mm": -0.0001370137433524734,
+          "dz_mm": -0.015027777610171489,
+          "tilt_deg": 0.12457201383240686
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.442000000000206,
+      "error": null,
+      "torque_util": 0.2021552202120375,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 14.000000000000012,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -12,
+      "recover": true,
+      "xy_err_mm": 0.5340122446820681,
+      "z_err_mm": -0.01014699937809671,
+      "tilt_deg": 0.0004240522753688436,
+      "yaw_deg": 1.8930574216455511,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.388,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 11.999814619257643,
+          "dy_mm": 0.00744914550235252,
+          "dz_mm": -0.04632851433117313,
+          "tilt_deg": 0.1523346245895665
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.3992551165375081,
+            -0.0005646188993594772
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -3.948828580790931e-05,
+          "dy_mm": -0.00011438052047987781,
+          "dz_mm": -0.015029207827865765,
+          "tilt_deg": 0.12807540542130247
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.459000000000197,
+      "error": null,
+      "torque_util": 0.17838351744291703,
+      "vel_util": 0.5,
+      "offset_mm": 12.00000000000001,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -8,
+      "recover": true,
+      "xy_err_mm": 0.5493083344196336,
+      "z_err_mm": -0.010372302229250119,
+      "tilt_deg": 0.0011267722778785846,
+      "yaw_deg": 1.9311291313144778,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.392,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 7.999730495360846,
+          "dy_mm": 0.0005634280887979455,
+          "dz_mm": -0.03445120127820722,
+          "tilt_deg": 0.14218953599094727
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.3993391521594523,
+            -0.0005990460996398579
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.486350396737393e-05,
+          "dy_mm": -0.0003276787365020595,
+          "dz_mm": -0.015023871265118505,
+          "tilt_deg": 0.1327970436886813
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.437000000000209,
+      "error": null,
+      "torque_util": 0.1615712843146166,
+      "vel_util": 0.5,
+      "offset_mm": 8.000000000000007,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": -4,
+      "recover": true,
+      "xy_err_mm": 0.5508373656863296,
+      "z_err_mm": -0.010268866484280936,
+      "tilt_deg": 0.0007769677930215016,
+      "yaw_deg": 1.9819532766500032,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.396,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 3.999716996573144,
+          "dy_mm": 0.0006733602521000952,
+          "dz_mm": -0.024269537436144573,
+          "tilt_deg": 0.13565767500112594
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.3994149639329782,
+            -0.0006258727322454858
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -5.212638165552619e-05,
+          "dy_mm": -0.00028052071215185423,
+          "dz_mm": -0.015175457533683767,
+          "tilt_deg": 0.13096451773718168
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.433000000000211,
+      "error": null,
+      "torque_util": 0.16059674659356504,
+      "vel_util": 0.5,
+      "offset_mm": 4.0000000000000036,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 0,
+      "recover": true,
+      "xy_err_mm": 0.5598578662953373,
+      "z_err_mm": -0.01026892193695117,
+      "tilt_deg": 0.0007770822415779636,
+      "yaw_deg": 1.1356663637730477,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.0
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.00029681614954757407,
+          "dy_mm": -0.0004280732957800254,
+          "dz_mm": -0.015069277341711595,
+          "tilt_deg": 0.1284223197609242
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.201000000000072,
+      "error": null,
+      "torque_util": 0.15954552756913687,
+      "vel_util": 0.5,
+      "offset_mm": 0.0,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 4,
+      "recover": true,
+      "xy_err_mm": 0.5505521559845276,
+      "z_err_mm": -0.010268865825890927,
+      "tilt_deg": 0.0007769663857622064,
+      "yaw_deg": 1.990218824525222,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.404,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -4.000307351432975,
+          "dy_mm": -0.0011181001328571503,
+          "dz_mm": -0.007025735260984822,
+          "tilt_deg": 0.12067098415996506
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39954245379009645,
+            -0.0006525974167870755
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.604516468109665e-05,
+          "dy_mm": -0.0002602119194716366,
+          "dz_mm": -0.0150264601253558,
+          "tilt_deg": 0.1331922146890484
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.428000000000214,
+      "error": null,
+      "torque_util": 0.15845855043169996,
+      "vel_util": 0.49999999999999994,
+      "offset_mm": 4.0000000000000036,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 8,
+      "recover": true,
+      "xy_err_mm": 0.5517294908968129,
+      "z_err_mm": -0.0102688677706686,
+      "tilt_deg": 0.000776970138447996,
+      "yaw_deg": 1.964040861784774,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.40800000000000003,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -8.000297232086451,
+          "dy_mm": -0.0009054489085100881,
+          "dz_mm": -0.000206506463928946,
+          "tilt_deg": 0.11321415470967178
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39959602467316924,
+            -0.0006597243462752315
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.512573048565116e-05,
+          "dy_mm": -0.00030406305935430384,
+          "dz_mm": -0.015025794092127231,
+          "tilt_deg": 0.1298900814449237
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.425000000000216,
+      "error": null,
+      "torque_util": 0.15726910192424715,
+      "vel_util": 0.5,
+      "offset_mm": 8.000000000000007,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 12,
+      "recover": true,
+      "xy_err_mm": 0.5509877652350004,
+      "z_err_mm": -0.01038006502493416,
+      "tilt_deg": 0.0010508094677510469,
+      "yaw_deg": 1.9398129641429023,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41200000000000003,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -12.000360827138067,
+          "dy_mm": -0.0014412988007304031,
+          "dz_mm": 0.00529341171037756,
+          "tilt_deg": 0.10519280422708928
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.3996439388702541,
+            -0.0006583551804167789
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -5.582560558270444e-05,
+          "dy_mm": -0.0003384517978832942,
+          "dz_mm": -0.015173019200648286,
+          "tilt_deg": 0.1280338457962345
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.444000000000205,
+      "error": null,
+      "torque_util": 0.1982667496434875,
+      "vel_util": 0.49926980659612497,
+      "offset_mm": 12.00000000000001,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 14,
+      "recover": true,
+      "xy_err_mm": 0.5497943531944623,
+      "z_err_mm": -0.010268884912234544,
+      "tilt_deg": 0.0007770151692637972,
+      "yaw_deg": 1.9194828078616126,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41400000000000003,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -14.0002675561669,
+          "dy_mm": -0.0006223753863824689,
+          "dz_mm": 0.0076440231698837735,
+          "tilt_deg": 0.10164860608451079
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.3996684402852957,
+            -0.000655277890902151
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.86644469166464e-05,
+          "dy_mm": -0.00034256289780678056,
+          "dz_mm": -0.015092432759988839,
+          "tilt_deg": 0.12826124645982107
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.443000000000206,
+      "error": null,
+      "torque_util": 0.22318003019102203,
+      "vel_util": 0.4992698065961252,
+      "offset_mm": 14.000000000000012,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 16,
+      "recover": true,
+      "xy_err_mm": 0.5514260642350164,
+      "z_err_mm": -0.010268874210517254,
+      "tilt_deg": 0.0007769851490099074,
+      "yaw_deg": 1.9001445595713236,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41600000000000004,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -16.000326850544646,
+          "dy_mm": -0.0005125420198551982,
+          "dz_mm": 0.009724775571234856,
+          "tilt_deg": 0.09811459674664866
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39968762007366854,
+            -0.0006518223246387279
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.505914086294638e-05,
+          "dy_mm": -0.00011992869517135976,
+          "dz_mm": -0.015028535543859523,
+          "tilt_deg": 0.12748210485930478
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.420000000000218,
+      "error": null,
+      "torque_util": 0.24816249854758904,
+      "vel_util": 0.5,
+      "offset_mm": 16.000000000000014,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 18,
+      "recover": true,
+      "xy_err_mm": 0.5511601134308055,
+      "z_err_mm": -0.01049825128862647,
+      "tilt_deg": 0.001442564967416759,
+      "yaw_deg": 1.8709350331018157,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.41800000000000004,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -18.000264035511414,
+          "dy_mm": 0.00024328868715605312,
+          "dz_mm": 0.011474288184848414,
+          "tilt_deg": 0.09414621204840637
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39970799533761414,
+            -0.0006452229818830553
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -4.534491210295144e-05,
+          "dy_mm": -0.00013100478311325273,
+          "dz_mm": -0.015027492822283772,
+          "tilt_deg": 0.1293944506778958
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.419000000000219,
+      "error": null,
+      "torque_util": 0.27314672264127454,
+      "vel_util": 0.49945931336746435,
+      "offset_mm": 18.000000000000014,
+      "success": true
+    },
+    {
+      "axis": "x",
+      "cmd_offset_mm": 20,
+      "recover": true,
+      "xy_err_mm": 0.5517075602209541,
+      "z_err_mm": -0.010268878848085361,
+      "tilt_deg": 0.0007769954686030075,
+      "yaw_deg": 1.8463017200744432,
+      "ok": true,
+      "attempts": 2,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.42000000000000004,
+            0.0
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -20.000300323575747,
+          "dy_mm": -0.0008021859545986128,
+          "dz_mm": 0.012741632050172758,
+          "tilt_deg": 0.09024463346770298
+        },
+        {
+          "attempt": 2,
+          "cmd_pick": [
+            0.39972655252567946,
+            -0.0006396661242130118
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -5.532464270041615e-05,
+          "dy_mm": -0.00014496618133783435,
+          "dz_mm": -0.015175421034352432,
+          "tilt_deg": 0.13050861946259168
+        },
+        {
+          "attempt": 2,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 9.41800000000022,
+      "error": null,
+      "torque_util": 0.2981526711783035,
+      "vel_util": 0.4994593133674644,
+      "offset_mm": 20.000000000000018,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -20,
+      "recover": false,
+      "xy_err_mm": 0.9522204740400904,
+      "z_err_mm": -0.010268910794336561,
+      "tilt_deg": 90.00076976390093,
+      "yaw_deg": 0.7462383561811521,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.02
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.154000000000056,
+      "error": null,
+      "torque_util": 0.15986322230997121,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 20.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -18,
+      "recover": false,
+      "xy_err_mm": 0.9740403300478013,
+      "z_err_mm": -0.01004381407374022,
+      "tilt_deg": 90.0001254922572,
+      "yaw_deg": 1.3895566572081037,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.018000000000000002
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.19600000000007,
+      "error": null,
+      "torque_util": 0.15984226119437764,
+      "vel_util": 0.4995062947721386,
+      "offset_mm": 18.000000000000004,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -16,
+      "recover": false,
+      "xy_err_mm": 0.7607011095765582,
+      "z_err_mm": -0.01026892007810476,
+      "tilt_deg": 90.00076980853034,
+      "yaw_deg": 1.44606091606326,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.016
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.151000000000055,
+      "error": null,
+      "torque_util": 0.15981888611667272,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 16.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -14,
+      "recover": false,
+      "xy_err_mm": 0.5664667029969527,
+      "z_err_mm": -0.010268915063227357,
+      "tilt_deg": 0.0007770597284396855,
+      "yaw_deg": 1.0308975166778964,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.014
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.1590000000000575,
+      "error": null,
+      "torque_util": 0.159793103726652,
+      "vel_util": 0.4995062947721386,
+      "offset_mm": 14.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -12,
+      "recover": false,
+      "xy_err_mm": 0.5782962633510963,
+      "z_err_mm": -0.010268914168914955,
+      "tilt_deg": 0.0007770573832836046,
+      "yaw_deg": 1.0391807830154036,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.012
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.1680000000000605,
+      "error": null,
+      "torque_util": 0.15976491947040042,
+      "vel_util": 0.5,
+      "offset_mm": 12.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -8,
+      "recover": false,
+      "xy_err_mm": 0.5830145289587908,
+      "z_err_mm": -0.010146957137108226,
+      "tilt_deg": 0.00042389840041678076,
+      "yaw_deg": 1.0885434754085352,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.008
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.179000000000064,
+      "error": null,
+      "torque_util": 0.1597013611107285,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 8.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -4,
+      "recover": false,
+      "xy_err_mm": 0.5807094133432509,
+      "z_err_mm": -0.010268911214306176,
+      "tilt_deg": 0.0007770498787365826,
+      "yaw_deg": 1.0636178047784952,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.004
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.189000000000068,
+      "error": null,
+      "torque_util": 0.15962823045434965,
+      "vel_util": 0.5,
+      "offset_mm": 4.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 0,
+      "recover": false,
+      "xy_err_mm": 0.5598578662953373,
+      "z_err_mm": -0.01026892193695117,
+      "tilt_deg": 0.0007770822415779636,
+      "yaw_deg": 1.1356663637730477,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.0
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.201000000000072,
+      "error": null,
+      "torque_util": 0.15954552756913687,
+      "vel_util": 0.5,
+      "offset_mm": 0.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 4,
+      "recover": false,
+      "xy_err_mm": 0.5996672265027877,
+      "z_err_mm": -0.010075806180204205,
+      "tilt_deg": 0.00034440111389100734,
+      "yaw_deg": 1.051234833500601,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.004
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.220000000000078,
+      "error": null,
+      "torque_util": 0.15945323319104382,
+      "vel_util": 0.5,
+      "offset_mm": 4.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 8,
+      "recover": false,
+      "xy_err_mm": 0.4794384928500323,
+      "z_err_mm": -0.010146662265952955,
+      "tilt_deg": 0.0004230196412918024,
+      "yaw_deg": 0.6926178765148876,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.008
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.264000000000093,
+      "error": null,
+      "torque_util": 0.15935130878375972,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 8.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 12,
+      "recover": false,
+      "xy_err_mm": 0.5370422434241258,
+      "z_err_mm": -0.010268759625564616,
+      "tilt_deg": 0.0007765886790353987,
+      "yaw_deg": 0.6891261135767834,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.012
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.25500000000009,
+      "error": null,
+      "torque_util": 0.1592396966411136,
+      "vel_util": 0.49950629477213854,
+      "offset_mm": 12.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 14,
+      "recover": false,
+      "xy_err_mm": 0.604524561565563,
+      "z_err_mm": -0.010268765779974931,
+      "tilt_deg": 0.0007766060434964376,
+      "yaw_deg": 0.6588992882034006,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.014
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.259000000000091,
+      "error": null,
+      "torque_util": 0.1591802344289501,
+      "vel_util": 0.4995062947721386,
+      "offset_mm": 14.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 16,
+      "recover": false,
+      "xy_err_mm": 5.179079543558683,
+      "z_err_mm": 9.021574259013482,
+      "tilt_deg": 89.93841189412453,
+      "yaw_deg": 6.862941337850472,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.016
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.252000000000089,
+      "error": null,
+      "torque_util": 0.15911832003229487,
+      "vel_util": 0.5,
+      "offset_mm": 16.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 18,
+      "recover": false,
+      "xy_err_mm": 3.2753799245475856,
+      "z_err_mm": 8.141788148261192,
+      "tilt_deg": 89.99936293631907,
+      "yaw_deg": 0.9621115571537402,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.018000000000000002
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.269000000000094,
+      "error": null,
+      "torque_util": 0.15905394091806896,
+      "vel_util": 0.5,
+      "offset_mm": 18.000000000000004,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 20,
+      "recover": false,
+      "xy_err_mm": 6.542400874423024,
+      "z_err_mm": 9.77214209513888,
+      "tilt_deg": 89.99865430464519,
+      "yaw_deg": 2.1608323383842887,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.02
+          ],
+          "stage": "all",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.271000000000095,
+      "error": null,
+      "torque_util": 0.15898708339003448,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 20.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -20,
+      "recover": true,
+      "xy_err_mm": 105.40984420977985,
+      "z_err_mm": -4.010498278476716,
+      "tilt_deg": 89.9985737778159,
+      "yaw_deg": 1.7816196660567698,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.02
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -0.6773602926848921,
+          "dy_mm": 0.0043536852900559475,
+          "dz_mm": 0.05658960760077103,
+          "tilt_deg": 89.78393760634053
+        }
+      ],
+      "cycle_s": 4.77799999999993,
+      "error": "UNRECOVERABLE",
+      "torque_util": 0.15986322230997121,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 20.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -18,
+      "recover": true,
+      "xy_err_mm": 106.82742046949913,
+      "z_err_mm": -4.010350567611676,
+      "tilt_deg": 89.99891831337226,
+      "yaw_deg": 3.438806869272099,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.018000000000000002
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": -0.6878620319306639,
+          "dy_mm": 0.02528125443638715,
+          "dz_mm": -0.18349394758487847,
+          "tilt_deg": 89.36395599420767
+        }
+      ],
+      "cycle_s": 4.773999999999929,
+      "error": "UNRECOVERABLE",
+      "torque_util": 0.15984226119437764,
+      "vel_util": 0.4995062947721386,
+      "offset_mm": 18.000000000000004,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -16,
+      "recover": true,
+      "xy_err_mm": 109.4549074623537,
+      "z_err_mm": -4.010268922208848,
+      "tilt_deg": 89.99923019493481,
+      "yaw_deg": 1.128495387082829,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.016
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 0.1168888487968478,
+          "dy_mm": 0.0005076511856924593,
+          "dz_mm": -0.11944697059146359,
+          "tilt_deg": 89.92345467961569
+        }
+      ],
+      "cycle_s": 4.77699999999993,
+      "error": "UNRECOVERABLE",
+      "torque_util": 0.15981888611667272,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 16.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -14,
+      "recover": true,
+      "xy_err_mm": 0.5664667029969527,
+      "z_err_mm": -0.010268915063227357,
+      "tilt_deg": 0.0007770597284396855,
+      "yaw_deg": 1.0308975166778964,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.014
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.001230237832272607,
+          "dy_mm": 0.0010265129588068328,
+          "dz_mm": 0.026155946469874625,
+          "tilt_deg": 0.10231817157665506
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.1590000000000575,
+      "error": null,
+      "torque_util": 0.159793103726652,
+      "vel_util": 0.4995062947721386,
+      "offset_mm": 14.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -12,
+      "recover": true,
+      "xy_err_mm": 0.5782962633510963,
+      "z_err_mm": -0.010268914168914955,
+      "tilt_deg": 0.0007770573832836046,
+      "yaw_deg": 1.0391807830154036,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.012
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": 0.020760007251985346,
+          "dy_mm": -0.01313853428348312,
+          "dz_mm": 0.023489435736739894,
+          "tilt_deg": 0.08585458508521776
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.1680000000000605,
+      "error": null,
+      "torque_util": 0.15976491947040042,
+      "vel_util": 0.5,
+      "offset_mm": 12.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -8,
+      "recover": true,
+      "xy_err_mm": 0.5830145289587908,
+      "z_err_mm": -0.010146957137108226,
+      "tilt_deg": 0.00042389840041678076,
+      "yaw_deg": 1.0885434754085352,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.008
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": 0.0032323502847098062,
+          "dy_mm": -0.014575729112859676,
+          "dz_mm": 0.013228107695134605,
+          "tilt_deg": 0.0974701952644916
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.179000000000064,
+      "error": null,
+      "torque_util": 0.1597013611107285,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 8.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": -4,
+      "recover": true,
+      "xy_err_mm": 0.5807094133432509,
+      "z_err_mm": -0.010268911214306176,
+      "tilt_deg": 0.0007770498787365826,
+      "yaw_deg": 1.0636178047784952,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            -0.004
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": 0.008353999671195655,
+          "dy_mm": -0.014890008943457995,
+          "dz_mm": 0.01340638918304049,
+          "tilt_deg": 0.06420187331042108
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.189000000000068,
+      "error": null,
+      "torque_util": 0.15962823045434965,
+      "vel_util": 0.5,
+      "offset_mm": 4.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 0,
+      "recover": true,
+      "xy_err_mm": 0.5598578662953373,
+      "z_err_mm": -0.01026892193695117,
+      "tilt_deg": 0.0007770822415779636,
+      "yaw_deg": 1.1356663637730477,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.0
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.00029681614954757407,
+          "dy_mm": -0.0004280732957800254,
+          "dz_mm": -0.015069277341711595,
+          "tilt_deg": 0.1284223197609242
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.201000000000072,
+      "error": null,
+      "torque_util": 0.15954552756913687,
+      "vel_util": 0.5,
+      "offset_mm": 0.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 4,
+      "recover": true,
+      "xy_err_mm": 0.5996672265027877,
+      "z_err_mm": -0.010075806180204205,
+      "tilt_deg": 0.00034440111389100734,
+      "yaw_deg": 1.051234833500601,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.004
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.06274305566317251,
+          "dy_mm": 0.0008620813272582073,
+          "dz_mm": 0.08375995748632903,
+          "tilt_deg": 0.7962155562622841
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.220000000000078,
+      "error": null,
+      "torque_util": 0.15945323319104382,
+      "vel_util": 0.5,
+      "offset_mm": 4.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 8,
+      "recover": true,
+      "xy_err_mm": 0.4794384928500323,
+      "z_err_mm": -0.010146662265952955,
+      "tilt_deg": 0.0004230196412918024,
+      "yaw_deg": 0.6926178765148876,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.008
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.06608428216597906,
+          "dy_mm": 0.018501152338187832,
+          "dz_mm": 0.2095294127958114,
+          "tilt_deg": 0.5150080728595723
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.264000000000093,
+      "error": null,
+      "torque_util": 0.15935130878375972,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 8.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 12,
+      "recover": true,
+      "xy_err_mm": 0.5370422434241258,
+      "z_err_mm": -0.010268759625564616,
+      "tilt_deg": 0.0007765886790353987,
+      "yaw_deg": 0.6891261135767834,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.012
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.09359584149037925,
+          "dy_mm": 0.01029671985916178,
+          "dz_mm": 0.24484001432514835,
+          "tilt_deg": 0.5568367389561544
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.25500000000009,
+      "error": null,
+      "torque_util": 0.1592396966411136,
+      "vel_util": 0.49950629477213854,
+      "offset_mm": 12.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 14,
+      "recover": true,
+      "xy_err_mm": 0.604524561565563,
+      "z_err_mm": -0.010268765779974931,
+      "tilt_deg": 0.0007766060434964376,
+      "yaw_deg": 0.6588992882034006,
+      "ok": true,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.014
+          ],
+          "stage": "pick",
+          "error": null,
+          "dx_mm": -0.11382442569790596,
+          "dy_mm": 0.005513950579794091,
+          "dz_mm": 0.3034044249694834,
+          "tilt_deg": 0.5344040426984279
+        },
+        {
+          "attempt": 1,
+          "stage": "place",
+          "error": null
+        }
+      ],
+      "cycle_s": 5.259000000000091,
+      "error": null,
+      "torque_util": 0.1591802344289501,
+      "vel_util": 0.4995062947721386,
+      "offset_mm": 14.0,
+      "success": true
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 16,
+      "recover": true,
+      "xy_err_mm": 140.2324161348888,
+      "z_err_mm": -4.010266997106035,
+      "tilt_deg": 89.99989337103707,
+      "yaw_deg": 7.242207938522235,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.016
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 4.418371448584757,
+          "dy_mm": -0.5461072452466638,
+          "dz_mm": 6.984316938630553,
+          "tilt_deg": 89.86754035157111
+        }
+      ],
+      "cycle_s": 4.778999999999931,
+      "error": "UNRECOVERABLE",
+      "torque_util": 0.15911832003229487,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 16.0,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 18,
+      "recover": true,
+      "xy_err_mm": 142.44454032219537,
+      "z_err_mm": -4.01026659923566,
+      "tilt_deg": 89.9992365058204,
+      "yaw_deg": 5.644264578030864,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.018000000000000002
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 2.6314399044807257,
+          "dy_mm": -0.25186342886608304,
+          "dz_mm": 0.21198132305697004,
+          "tilt_deg": 89.82579208697317
+        }
+      ],
+      "cycle_s": 4.778999999999931,
+      "error": "UNRECOVERABLE",
+      "torque_util": 0.15905394091806896,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 18.000000000000004,
+      "success": false
+    },
+    {
+      "axis": "y",
+      "cmd_offset_mm": 20,
+      "recover": true,
+      "xy_err_mm": 143.53165061516236,
+      "z_err_mm": -4.010267012763344,
+      "tilt_deg": 89.99923539771439,
+      "yaw_deg": 5.00597908139509,
+      "ok": false,
+      "attempts": 1,
+      "log": [
+        {
+          "attempt": 1,
+          "cmd_pick": [
+            0.4,
+            0.02
+          ],
+          "stage": "pick",
+          "error": "INHAND_OFFSET",
+          "dx_mm": 11.43855520773246,
+          "dy_mm": -1.0988721212933963,
+          "dz_mm": 0.3645796042165417,
+          "tilt_deg": 89.92461157252112
+        }
+      ],
+      "cycle_s": 4.77799999999993,
+      "error": "UNRECOVERABLE",
+      "torque_util": 0.15898708339003448,
+      "vel_util": 0.49950629477213865,
+      "offset_mm": 20.0,
+      "success": false
+    }
+  ],
+  "rand": {
+    "n": 30,
+    "range_mm": 12,
+    "raw": {
+      "success": 4,
+      "xy_mean": 3.345294235782186,
+      "xy_max": 6.040601833925137,
+      "cycle_mean": 4.471933333333293,
+      "attempts_mean": 1.0,
+      "retry_cases": 0,
+      "trials": [
+        {
+          "err_mm": [
+            -11.807868950261586,
+            -2.7388187787579668
+          ],
+          "pocket": 0,
+          "xy_err_mm": 5.581469350846573,
+          "z_err_mm": 9.795819467111999,
+          "tilt_deg": 55.11061772488258,
+          "yaw_deg": 2.2069287136770868,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.36067268391204355,
+                0.013893751581960335
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.552000000000189,
+          "error": null,
+          "torque_util": 0.16614637505635738,
+          "vel_util": 0.5,
+          "offset_mm": 12.121340579714317,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -10.019505225392717,
+            -0.05036194169371555
+          ],
+          "pocket": 1,
+          "xy_err_mm": 5.123829746887189,
+          "z_err_mm": 9.584458676693137,
+          "tilt_deg": 33.092810066826104,
+          "yaw_deg": 1.7748103381838547,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.401518682369012,
+                -0.006929212158510061
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.178000000000064,
+          "error": null,
+          "torque_util": 0.15926378622761747,
+          "vel_util": 0.4995062947721386,
+          "offset_mm": 10.019631793975394,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -1.2301047970458097,
+            4.930280242207893
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.9408381406311285,
+          "z_err_mm": -0.010380323248959655,
+          "tilt_deg": 0.0010513008277987833,
+          "yaw_deg": 0.6415027013371812,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4271740316759914,
+                0.011984410685138985
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.414000000000143,
+          "error": null,
+          "torque_util": 0.1612004026993492,
+          "vel_util": 0.4997312911508949,
+          "offset_mm": 5.081419199241554,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -4.853076307188123,
+            2.9103525734927924
+          ],
+          "pocket": 3,
+          "xy_err_mm": 1.3586086716031818,
+          "z_err_mm": 8.519532924880725,
+          "tilt_deg": 26.51024301437956,
+          "yaw_deg": 1.4321183265679025,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38819734718052656,
+                0.017467787907750137
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.275000000000096,
+          "error": null,
+          "torque_util": 0.18314796972496783,
+          "vel_util": 0.5,
+          "offset_mm": 5.6588427920756725,
+          "success": false
+        },
+        {
+          "err_mm": [
+            1.4616562323947413,
+            -9.843654004240856
+          ],
+          "pocket": 0,
+          "xy_err_mm": 1.6345534322867261,
+          "z_err_mm": -0.010208424463503674,
+          "tilt_deg": 0.0006160975212749494,
+          "yaw_deg": 0.9363451642396186,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4027102221529437,
+                0.002628726519665142
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.453000000000156,
+          "error": null,
+          "torque_util": 0.15873022373148749,
+          "vel_util": 0.49974807910715985,
+          "offset_mm": 9.951580934550323,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -11.785423582043252,
+            -2.8252686362115327
+          ],
+          "pocket": 1,
+          "xy_err_mm": 5.501977165500594,
+          "z_err_mm": 9.766621242425416,
+          "tilt_deg": 55.37628125673168,
+          "yaw_deg": 2.1546727713713807,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.37354366547639234,
+                -0.012090830094633458
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.213000000000076,
+          "error": null,
+          "torque_util": 0.16521855261975593,
+          "vel_util": 0.4995474089392321,
+          "offset_mm": 12.119337930553057,
+          "success": false
+        },
+        {
+          "err_mm": [
+            9.527023766506307,
+            -11.305721513707145
+          ],
+          "pocket": 2,
+          "xy_err_mm": 5.643014038638921,
+          "z_err_mm": 15.627202421026414,
+          "tilt_deg": 11.863401653605582,
+          "yaw_deg": 0.055603948186579544,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38724877635164073,
+                -0.0010595857948013255
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.4089999999997356,
+          "error": "COLLISION@5",
+          "torque_util": 0.17878938627100133,
+          "vel_util": 0.5,
+          "offset_mm": 14.784570362140284,
+          "success": false
+        },
+        {
+          "err_mm": [
+            11.075989884421396,
+            5.884935747133191
+          ],
+          "pocket": 3,
+          "xy_err_mm": 5.62608486014003,
+          "z_err_mm": 14.095308256190902,
+          "tilt_deg": 16.74539653388597,
+          "yaw_deg": 0.3095803397529906,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.41065617843670765,
+                0.016532243479062778
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.240999999999754,
+          "error": "COLLISION@5",
+          "torque_util": 0.17591229621030785,
+          "vel_util": 0.5,
+          "offset_mm": 12.542329156408341,
+          "success": false
+        },
+        {
+          "err_mm": [
+            5.365289297154796,
+            -7.5909806217843325
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.8247297522183676,
+          "z_err_mm": 14.083885816103397,
+          "tilt_deg": 13.121364719799459,
+          "yaw_deg": 0.019145607007409637,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.41252192327357307,
+                0.0026270939853005933
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.4299999999997333,
+          "error": "COLLISION@5",
+          "torque_util": 0.15577511151191561,
+          "vel_util": 0.5,
+          "offset_mm": 9.295661140686502,
+          "success": false
+        },
+        {
+          "err_mm": [
+            2.091343862264276,
+            5.192583934515291
+          ],
+          "pocket": 1,
+          "xy_err_mm": 2.388184381806997,
+          "z_err_mm": -0.010075807484549726,
+          "tilt_deg": 0.0003444064051328921,
+          "yaw_deg": 1.0312950038154511,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.39170964796657415,
+                0.0029649287011389407
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.232000000000082,
+          "error": null,
+          "torque_util": 0.16157301606570407,
+          "vel_util": 0.5,
+          "offset_mm": 5.597914528395087,
+          "success": true
+        },
+        {
+          "err_mm": [
+            9.817873745401464,
+            -11.011600934473371
+          ],
+          "pocket": 2,
+          "xy_err_mm": 6.040601833925137,
+          "z_err_mm": 15.964211947701672,
+          "tilt_deg": 11.08751815598464,
+          "yaw_deg": 0.19310037326943785,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.42428995215088516,
+                -0.0015581289861394503
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.351999999999742,
+          "error": "COLLISION@5",
+          "torque_util": 0.169280316862038,
+          "vel_util": 0.4996694761286796,
+          "offset_mm": 14.752830237643817,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -9.555552626788568,
+            11.275439233030497
+          ],
+          "pocket": 3,
+          "xy_err_mm": 5.341764842420387,
+          "z_err_mm": 9.53919445126164,
+          "tilt_deg": 32.74181927359141,
+          "yaw_deg": 0.989760756946616,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3514434650571672,
+                0.019153537172485944
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.384000000000133,
+          "error": null,
+          "torque_util": 0.18280536326674407,
+          "vel_util": 0.5,
+          "offset_mm": 14.779855070368237,
+          "success": false
+        },
+        {
+          "err_mm": [
+            7.10635815180504,
+            -3.3875012238569138
+          ],
+          "pocket": 0,
+          "xy_err_mm": 1.8576614394457034,
+          "z_err_mm": 14.278129300337033,
+          "tilt_deg": 13.454222260333335,
+          "yaw_deg": 0.8999584713911517,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.39016436145706457,
+                0.015383001348590254
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.5349999999997217,
+          "error": "COLLISION@5",
+          "torque_util": 0.16160398160866524,
+          "vel_util": 0.49950629477213865,
+          "offset_mm": 7.872451379548694,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -8.760136788260942,
+            3.525748220272053
+          ],
+          "pocket": 1,
+          "xy_err_mm": 5.344729288013754,
+          "z_err_mm": 9.573554596212924,
+          "tilt_deg": 33.009667731310415,
+          "yaw_deg": 0.9995646574540942,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3631207075108199,
+                0.009115675137259485
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.342000000000119,
+          "error": null,
+          "torque_util": 0.16601382357323347,
+          "vel_util": 0.5,
+          "offset_mm": 9.443034314339544,
+          "success": false
+        },
+        {
+          "err_mm": [
+            10.129260051022186,
+            -6.985541591957457
+          ],
+          "pocket": 2,
+          "xy_err_mm": 1.3752116253747864,
+          "z_err_mm": 8.850652234104,
+          "tilt_deg": 28.282316960302946,
+          "yaw_deg": 1.475700862338769,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.39886759573817543,
+                -0.000532572193213782
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.414000000000143,
+          "error": null,
+          "torque_util": 0.17370774005669232,
+          "vel_util": 0.4997127674912056,
+          "offset_mm": 12.304458562415535,
+          "success": false
+        },
+        {
+          "err_mm": [
+            5.449807605517329,
+            -7.574612393379316
+          ],
+          "pocket": 3,
+          "xy_err_mm": 1.8351029846637674,
+          "z_err_mm": 14.816918835840381,
+          "tilt_deg": 11.979436917108774,
+          "yaw_deg": 0.7274833657008841,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4254206635026623,
+                0.006343812404886229
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.1649999999997624,
+          "error": "COLLISION@5",
+          "torque_util": 0.18058280410454217,
+          "vel_util": 0.49945931336746435,
+          "offset_mm": 9.331406959676022,
+          "success": false
+        },
+        {
+          "err_mm": [
+            5.369301473037535,
+            -8.646058686212156
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.7551051163346435,
+          "z_err_mm": 13.999134895808924,
+          "tilt_deg": 13.269837041059885,
+          "yaw_deg": 0.05111983800518516,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38579776137346167,
+                -0.0011912676418783623
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.4819999999997275,
+          "error": "COLLISION@5",
+          "torque_util": 0.15607511854440786,
+          "vel_util": 0.49974807910715985,
+          "offset_mm": 10.177609204218241,
+          "success": false
+        },
+        {
+          "err_mm": [
+            11.792797053006431,
+            -10.827586479896498
+          ],
+          "pocket": 1,
+          "xy_err_mm": 5.877399664671767,
+          "z_err_mm": 13.98924803028509,
+          "tilt_deg": 17.348249427467078,
+          "yaw_deg": 0.10253350288655128,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.42896000190866296,
+                -0.0007444905374506938
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.167999999999762,
+          "error": "COLLISION@5",
+          "torque_util": 0.14996812980257596,
+          "vel_util": 0.4994593133674644,
+          "offset_mm": 16.009581234780473,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -3.419173533799709,
+            3.387913814072645
+          ],
+          "pocket": 2,
+          "xy_err_mm": 3.073818996894099,
+          "z_err_mm": -0.010268758042553117,
+          "tilt_deg": 0.0007765839858711709,
+          "yaw_deg": 0.7253076545410622,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.43297975862246274,
+                0.010958265649156864
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.390000000000135,
+          "error": null,
+          "torque_util": 0.1617929315238025,
+          "vel_util": 0.4997127674912056,
+          "offset_mm": 4.813388376790383,
+          "success": false
+        },
+        {
+          "err_mm": [
+            2.909102251783839,
+            -7.904244168926305
+          ],
+          "pocket": 3,
+          "xy_err_mm": 3.012319874497437,
+          "z_err_mm": -0.010268912971150845,
+          "tilt_deg": 0.0007770569142515389,
+          "yaw_deg": 1.1196758847815431,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4172353797752629,
+                -0.017413810408492124
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.124000000000046,
+          "error": null,
+          "torque_util": 0.2211320579343438,
+          "vel_util": 0.5,
+          "offset_mm": 8.422585813949249,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -9.614714230126241,
+            -4.713797537416001
+          ],
+          "pocket": 0,
+          "xy_err_mm": 3.9693918547387077,
+          "z_err_mm": 9.351032827434548,
+          "tilt_deg": 31.38158338335797,
+          "yaw_deg": 1.5149795345902461,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3622392772814868,
+                -0.008263627736666009
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.493000000000169,
+          "error": null,
+          "torque_util": 0.1664493141960003,
+          "vel_util": 0.5,
+          "offset_mm": 10.708063174577408,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -6.715080332697177,
+            5.690793501046301
+          ],
+          "pocket": 1,
+          "xy_err_mm": 4.0216698888570015,
+          "z_err_mm": 9.299164606280359,
+          "tilt_deg": 31.029720536583,
+          "yaw_deg": 1.9144635522853548,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38320854790013,
+                0.0022215146656276224
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.266000000000093,
+          "error": null,
+          "torque_util": 0.16335970849995807,
+          "vel_util": 0.5,
+          "offset_mm": 8.802126705866451,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -3.818748564044956,
+            4.404210533135412
+          ],
+          "pocket": 2,
+          "xy_err_mm": 3.5594812217597993,
+          "z_err_mm": -0.010080096223136215,
+          "tilt_deg": 0.0002306311125928221,
+          "yaw_deg": 0.8810248379441958,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.40305696458071866,
+                -0.0009586101966376831
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.426000000000147,
+          "error": null,
+          "torque_util": 0.1734999134657747,
+          "vel_util": 0.5,
+          "offset_mm": 5.829229024114284,
+          "success": false
+        },
+        {
+          "err_mm": [
+            11.354210476085903,
+            4.6111324997750245
+          ],
+          "pocket": 3,
+          "xy_err_mm": 5.485866851247605,
+          "z_err_mm": 13.690607330422544,
+          "tilt_deg": 17.95447105410536,
+          "yaw_deg": 0.42068188527712636,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4143874028963848,
+                0.0013685165545273634
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.1909999999997596,
+          "error": "COLLISION@5",
+          "torque_util": 0.1918863813269242,
+          "vel_util": 0.4992698065961251,
+          "offset_mm": 12.254821029527147,
+          "success": false
+        },
+        {
+          "err_mm": [
+            -3.5109639581822556,
+            4.657742730829121
+          ],
+          "pocket": 0,
+          "xy_err_mm": 3.2437342430381846,
+          "z_err_mm": -0.010268726662848726,
+          "tilt_deg": 0.0007764957491042771,
+          "yaw_deg": 0.8778020157313335,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.42459672913338564,
+                -0.004662116305446938
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.411000000000142,
+          "error": null,
+          "torque_util": 0.15172452147546983,
+          "vel_util": 0.5,
+          "offset_mm": 5.832789663809777,
+          "success": false
+        },
+        {
+          "err_mm": [
+            9.359628439061932,
+            -0.6909234759997993
+          ],
+          "pocket": 1,
+          "xy_err_mm": 5.378587622645497,
+          "z_err_mm": 15.328063421054388,
+          "tilt_deg": 12.583707562688973,
+          "yaw_deg": 0.29459608360417633,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.37193012113669155,
+                0.004839113243485815
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.2629999999997517,
+          "error": "COLLISION@5",
+          "torque_util": 0.16512624549355856,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 9.38509561842521,
+          "success": false
+        },
+        {
+          "err_mm": [
+            1.8184514925682294,
+            -5.155668570464525
+          ],
+          "pocket": 2,
+          "xy_err_mm": 1.9634276320684343,
+          "z_err_mm": -0.010268913670397062,
+          "tilt_deg": 0.0007770531619848227,
+          "yaw_deg": 0.959561702859105,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.37082386062691947,
+                0.00034033504154562
+              ],
+              "stage": "all",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.455000000000156,
+          "error": null,
+          "torque_util": 0.18160684854943754,
+          "vel_util": 0.5,
+          "offset_mm": 5.4669629813360965,
+          "success": true
+        },
+        {
+          "err_mm": [
+            4.0725497560762385,
+            -7.07898035256604
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.746395283705983,
+          "z_err_mm": 14.551220651752129,
+          "tilt_deg": 11.89013372585904,
+          "yaw_deg": 0.7608539232311458,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3711966075818695,
+                0.0070810081321212364
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.258999999999752,
+          "error": "COLLISION@5",
+          "torque_util": 0.20349216108151796,
+          "vel_util": 0.5,
+          "offset_mm": 8.166861352302528,
+          "success": false
+        },
+        {
+          "err_mm": [
+            5.427598200405676,
+            10.715013013025839
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.8214367059747905,
+          "z_err_mm": 14.200966279360294,
+          "tilt_deg": 12.938721967827094,
+          "yaw_deg": 0.6062323192786181,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4286838462319599,
+                0.012685483723721708
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.4449999999997316,
+          "error": "COLLISION@5",
+          "torque_util": 0.14970322031408334,
+          "vel_util": 0.4997633416196912,
+          "offset_mm": 12.011258306037712,
+          "success": false
+        },
+        {
+          "err_mm": [
+            5.643875511517866,
+            -8.06277162552539
+          ],
+          "pocket": 1,
+          "xy_err_mm": 2.031830562628407,
+          "z_err_mm": 14.848568846925787,
+          "tilt_deg": 11.932119980747709,
+          "yaw_deg": 0.714533530472778,
+          "ok": false,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3820764766539883,
+                -0.008628090975953545
+              ],
+              "stage": "all",
+              "error": "COLLISION@5"
+            }
+          ],
+          "cycle_s": 3.195999999999759,
+          "error": "COLLISION@5",
+          "torque_util": 0.1637898474220144,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 9.841829965757801,
+          "success": false
+        }
+      ]
+    },
+    "recover": {
+      "success": 30,
+      "xy_mean": 0.4510988897921387,
+      "xy_max": 1.6345534322867261,
+      "cycle_mean": 9.286900000000141,
+      "attempts_mean": 1.9333333333333333,
+      "retry_cases": 28,
+      "trials": [
+        {
+          "err_mm": [
+            -11.807868950261586,
+            -2.7388187787579668
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.3326789103937469,
+          "z_err_mm": -0.010032370573870297,
+          "tilt_deg": 0.0001554524646406786,
+          "yaw_deg": 1.2242618632466247,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.36067268391204355,
+                0.013893751581960335
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 11.873766653181017,
+              "dy_mm": 0.3571607469839665,
+              "dz_mm": -0.048369684630927834,
+              "tilt_deg": 0.4729706538589843
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.37210502914567695,
+                0.014783979032021001
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -6.304448713079225e-05,
+              "dy_mm": -0.00031041774832193947,
+              "dz_mm": -0.015317098987194244,
+              "tilt_deg": 0.12431927628434554
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.790000000000013,
+          "error": null,
+          "torque_util": 0.16614637505635738,
+          "vel_util": 0.5,
+          "offset_mm": 12.121340579714317,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -10.019505225392717,
+            -0.05036194169371555
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.5837778290868959,
+          "z_err_mm": -0.01037228293809811,
+          "tilt_deg": 0.0011267189058670516,
+          "yaw_deg": 2.009561119254954,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.401518682369012,
+                -0.006929212158510061
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 10.019287039617964,
+              "dy_mm": 0.003822110407608083,
+              "dz_mm": -0.040539733294708835,
+              "tilt_deg": 0.14781274459160348
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.4108466926363084,
+                -0.007508265530802988
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.447503493265614e-05,
+              "dy_mm": -0.00026779085717226064,
+              "dz_mm": -0.015022452476309844,
+              "tilt_deg": 0.1292365866609661
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.40000000000023,
+          "error": null,
+          "torque_util": 0.16197233297696176,
+          "vel_util": 0.4995062947721386,
+          "offset_mm": 10.019631793975394,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -1.2301047970458097,
+            4.930280242207893
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.9408381406311285,
+          "z_err_mm": -0.010380323248959655,
+          "tilt_deg": 0.0010513008277987833,
+          "yaw_deg": 0.6415027013371812,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4271740316759914,
+                0.011984410685138985
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": 1.2221397060670491,
+              "dy_mm": -0.0035167838249427347,
+              "dz_mm": 0.14892338274691275,
+              "tilt_deg": 0.4590615945379824
+            },
+            {
+              "attempt": 1,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.414000000000143,
+          "error": null,
+          "torque_util": 0.1612004026993492,
+          "vel_util": 0.4997312911508949,
+          "offset_mm": 5.081419199241554,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -4.853076307188123,
+            2.9103525734927924
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.517989955137426,
+          "z_err_mm": -0.010146992461101956,
+          "tilt_deg": 0.0004240625890110587,
+          "yaw_deg": 2.4689467807857426,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38819734718052656,
+                0.017467787907750137
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 4.823842902041187,
+              "dy_mm": 0.13019835049781978,
+              "dz_mm": 0.06511892032651234,
+              "tilt_deg": 0.8434757241743776
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3921756783424264,
+                0.016963438934517003
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -3.2816717787653715e-05,
+              "dy_mm": -0.0002589504714857471,
+              "dz_mm": -0.015227279890006606,
+              "tilt_deg": 0.1310195826120421
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.49000000000018,
+          "error": null,
+          "torque_util": 0.1849722836862154,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 5.6588427920756725,
+          "success": true
+        },
+        {
+          "err_mm": [
+            1.4616562323947413,
+            -9.843654004240856
+          ],
+          "pocket": 0,
+          "xy_err_mm": 1.6345534322867261,
+          "z_err_mm": -0.010208424463503674,
+          "tilt_deg": 0.0006160975212749494,
+          "yaw_deg": 0.9363451642396186,
+          "ok": true,
+          "attempts": 1,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4027102221529437,
+                0.002628726519665142
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -1.449606798474945,
+              "dy_mm": -0.009958857836183613,
+              "dz_mm": 0.010137828833550744,
+              "tilt_deg": 0.12215081549468225
+            },
+            {
+              "attempt": 1,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 5.453000000000156,
+          "error": null,
+          "torque_util": 0.15873022373148749,
+          "vel_util": 0.49974807910715985,
+          "offset_mm": 9.951580934550323,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -11.785423582043252,
+            -2.8252686362115327
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.4955564756221559,
+          "z_err_mm": -0.010080049529487267,
+          "tilt_deg": 0.00023049674855295672,
+          "yaw_deg": 1.0808107829546785,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.37354366547639234,
+                -0.012090830094633458
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 11.784404027996908,
+              "dy_mm": -0.030260490913642038,
+              "dz_mm": -0.03235805838433525,
+              "tilt_deg": 0.3570213535622605
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3848410388279745,
+                -0.01165623253522278
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -6.261430501863785e-05,
+              "dy_mm": -0.0003265595261859461,
+              "dz_mm": -0.015338531694858437,
+              "tilt_deg": 0.13616047860400737
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.438000000000208,
+          "error": null,
+          "torque_util": 0.17267691051570508,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 12.119337930553057,
+          "success": true
+        },
+        {
+          "err_mm": [
+            9.527023766506307,
+            -11.305721513707145
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.3707969374363802,
+          "z_err_mm": -0.010380117892672125,
+          "tilt_deg": 0.0010509343234062275,
+          "yaw_deg": 1.6740994444024224,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38724877635164073,
+                -0.0010595857948013255
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -9.473616295770814,
+              "dy_mm": -0.012372317048914977,
+              "dz_mm": 0.08045217712368546,
+              "tilt_deg": 0.11040959810549346
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.37733679644079315,
+                -0.0016919838329331521
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.700557071357636e-05,
+              "dy_mm": -0.00016066935269666745,
+              "dz_mm": -0.01518354252552645,
+              "tilt_deg": 0.12941714583625266
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.659000000000086,
+          "error": null,
+          "torque_util": 0.18134087063894655,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 14.784570362140284,
+          "success": true
+        },
+        {
+          "err_mm": [
+            11.075989884421396,
+            5.884935747133191
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.523928722107207,
+          "z_err_mm": -0.010268703070637208,
+          "tilt_deg": 0.0007765821085975384,
+          "yaw_deg": 3.0738798197298323,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.41065617843670765,
+                0.016532243479062778
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -11.197153995023356,
+              "dy_mm": -0.15763089504665373,
+              "dz_mm": 0.1283704505340988,
+              "tilt_deg": 0.8544662256098922
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.39932641647595113,
+                0.015161225362321864
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -5.537125785659569e-05,
+              "dy_mm": -0.00021307808530796057,
+              "dz_mm": -0.015375604306616664,
+              "tilt_deg": 0.13222235303479518
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.483000000000184,
+          "error": null,
+          "torque_util": 0.18440039559945498,
+          "vel_util": 0.49940529294586483,
+          "offset_mm": 12.542329156408341,
+          "success": true
+        },
+        {
+          "err_mm": [
+            5.365289297154796,
+            -7.5909806217843325
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.3406860525950347,
+          "z_err_mm": -0.010268582136513382,
+          "tilt_deg": 0.0007760943329947846,
+          "yaw_deg": 1.485555542114838,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.41252192327357307,
+                0.0026270939853005933
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -5.35338515339312,
+              "dy_mm": 0.0012319506481964226,
+              "dz_mm": 0.021335785195336632,
+              "tilt_deg": 0.05103746758844316
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.40668809406391554,
+                0.002036171015613468
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.666034553180154e-05,
+              "dy_mm": -0.00013587993679992257,
+              "dz_mm": -0.015019101691160497,
+              "tilt_deg": 0.12907130075894555
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.673000000000078,
+          "error": null,
+          "torque_util": 0.15577511151191561,
+          "vel_util": 0.5,
+          "offset_mm": 9.295661140686502,
+          "success": true
+        },
+        {
+          "err_mm": [
+            2.091343862264276,
+            5.192583934515291
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.5187694988879302,
+          "z_err_mm": -0.010268785370359801,
+          "tilt_deg": 0.0007767796667573383,
+          "yaw_deg": 2.6171299000364883,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.39170964796657415,
+                0.0029649287011389407
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -2.15173461424778,
+              "dy_mm": -0.011926238623973223,
+              "dz_mm": 0.09047894313371496,
+              "tilt_deg": 0.7332554972050147
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.38924580597713043,
+                0.0018778819327576152
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -2.539468013651458e-05,
+              "dy_mm": -0.00022285647053015695,
+              "dz_mm": -0.015077094287607729,
+              "tilt_deg": 0.1316680827407804
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.455000000000199,
+          "error": null,
+          "torque_util": 0.16157301606570407,
+          "vel_util": 0.4995062947721386,
+          "offset_mm": 5.597914528395087,
+          "success": true
+        },
+        {
+          "err_mm": [
+            9.817873745401464,
+            -11.011600934473371
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.38472452560648895,
+          "z_err_mm": -0.010268905063753886,
+          "tilt_deg": 0.0007770489406631088,
+          "yaw_deg": 1.4517988585049366,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.42428995215088516,
+                -0.0015581289861394503
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -9.77571092931967,
+              "dy_mm": 0.013711793761200667,
+              "dz_mm": 0.041325918492124414,
+              "tilt_deg": 0.019087363071583905
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.41407298926889763,
+                -0.0020993428469786037
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -5.857364782091423e-05,
+              "dy_mm": -0.0003301904804918314,
+              "dz_mm": -0.01516469863363512,
+              "tilt_deg": 0.12887300540773533
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.59800000000012,
+          "error": null,
+          "torque_util": 0.1782073233602539,
+          "vel_util": 0.5,
+          "offset_mm": 14.752830237643817,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -9.555552626788568,
+            11.275439233030497
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.21710373410491277,
+          "z_err_mm": -0.010268869764046284,
+          "tilt_deg": 0.0007769068094473272,
+          "yaw_deg": 0.11093173671029888,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3514434650571672,
+                0.019153537172485944
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 9.450772476821745,
+              "dy_mm": -0.19199155405228222,
+              "dz_mm": 0.2466636591210436,
+              "tilt_deg": 0.44472660295802363
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.36002809719709383,
+                0.01834754117718336
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -1.2261655579770547e-06,
+              "dy_mm": 0.0007671787720479883,
+              "dz_mm": -0.015090719249516438,
+              "tilt_deg": 0.1301393057638885
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.574000000000133,
+          "error": null,
+          "torque_util": 0.19084463235324686,
+          "vel_util": 0.5,
+          "offset_mm": 14.779855070368237,
+          "success": true
+        },
+        {
+          "err_mm": [
+            7.10635815180504,
+            -3.3875012238569138
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.32985282502245133,
+          "z_err_mm": -0.010075851870211538,
+          "tilt_deg": 0.00034481358692863527,
+          "yaw_deg": 1.6390730728118967,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.39016436145706457,
+                0.015383001348590254
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -7.075205791601979,
+              "dy_mm": -0.022595934361824277,
+              "dz_mm": 0.0013868270501149471,
+              "tilt_deg": 0.05987606571194689
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3826568756128466,
+                0.014991227323989581
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.944747666879579e-05,
+              "dy_mm": -0.0001700476856773131,
+              "dz_mm": -0.015174670309120453,
+              "tilt_deg": 0.12897140126018228
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.751000000000035,
+          "error": null,
+          "torque_util": 0.16160398160866524,
+          "vel_util": 0.49978998215079884,
+          "offset_mm": 7.872451379548694,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -8.760136788260942,
+            3.525748220272053
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.2020970119121099,
+          "z_err_mm": -0.010498714019951949,
+          "tilt_deg": 0.0014438524050257705,
+          "yaw_deg": 0.014226338184691656,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3631207075108199,
+                0.009115675137259485
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 8.715490673645354,
+              "dy_mm": -0.242741284019991,
+              "dz_mm": 0.14118738701884848,
+              "tilt_deg": 0.6217736903304358
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3711246848342109,
+                0.00802098660222798
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -1.9834752174041625e-05,
+              "dy_mm": 9.364777558105997e-05,
+              "dz_mm": -0.015159892167798672,
+              "tilt_deg": 0.1280108404659227
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.52400000000016,
+          "error": null,
+          "torque_util": 0.16601382357323347,
+          "vel_util": 0.5,
+          "offset_mm": 9.443034314339544,
+          "success": true
+        },
+        {
+          "err_mm": [
+            10.129260051022186,
+            -6.985541591957457
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.21580579651757884,
+          "z_err_mm": -0.010268860904383281,
+          "tilt_deg": 0.0007768781924277726,
+          "yaw_deg": 0.040046482739086287,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.39886759573817543,
+                -0.000532572193213782
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -10.106320824994686,
+              "dy_mm": 0.13814614985019227,
+              "dz_mm": -0.014106175419720257,
+              "tilt_deg": 0.24137713222786888
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3881378193808976,
+                -0.0005785836617844005
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -0.00010721145576875202,
+              "dy_mm": -0.00018291744175347353,
+              "dz_mm": -0.015142004485629856,
+              "tilt_deg": 0.12916691538149597
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.646000000000093,
+          "error": null,
+          "torque_util": 0.17749005709748664,
+          "vel_util": 0.4997127674912056,
+          "offset_mm": 12.304458562415535,
+          "success": true
+        },
+        {
+          "err_mm": [
+            5.449807605517329,
+            -7.574612393379316
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.574833782800448,
+          "z_err_mm": -0.01049837900712891,
+          "tilt_deg": 0.0014429092889172287,
+          "yaw_deg": 1.464241281090672,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4254206635026623,
+                0.006343812404886229
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -5.43686334143062,
+              "dy_mm": 0.002736350398606542,
+              "dz_mm": 0.016619799738076813,
+              "tilt_deg": 0.03820713010303255
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.4194365768570032,
+                0.005729459385326916
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.6963556321610866e-05,
+              "dy_mm": -0.00034795085378843543,
+              "dz_mm": -0.014994284309899353,
+              "tilt_deg": 0.12150948978958442
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.409000000000225,
+          "error": null,
+          "torque_util": 0.18574500010144335,
+          "vel_util": 0.49945931336746435,
+          "offset_mm": 9.331406959676022,
+          "success": true
+        },
+        {
+          "err_mm": [
+            5.369301473037535,
+            -8.646058686212156
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.33432341332251525,
+          "z_err_mm": -0.01026854070909633,
+          "tilt_deg": 0.0007759806780986032,
+          "yaw_deg": 1.6711599659815946,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38579776137346167,
+                -0.0011912676418783623
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -5.350892393730988,
+              "dy_mm": -0.013479091986126016,
+              "dz_mm": 0.032714821101481606,
+              "tilt_deg": 0.08363725987646495
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3799747055393085,
+                -0.0018285902889340088
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -3.9440440247062725e-05,
+              "dy_mm": -0.00014334745643816184,
+              "dz_mm": -0.015029043673786546,
+              "tilt_deg": 0.12578161631418996
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.729000000000047,
+          "error": null,
+          "torque_util": 0.15607511854440786,
+          "vel_util": 0.5,
+          "offset_mm": 10.177609204218241,
+          "success": true
+        },
+        {
+          "err_mm": [
+            11.792797053006431,
+            -10.827586479896498
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.5812076821332585,
+          "z_err_mm": -0.010080459313194234,
+          "tilt_deg": 0.00023171580340982262,
+          "yaw_deg": 1.5829812582642475,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.42896000190866296,
+                -0.0007444905374506938
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -11.761194526670849,
+              "dy_mm": 0.038865895454364426,
+              "dz_mm": 0.03312106871083964,
+              "tilt_deg": 0.019460034400851766
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.41678082689704093,
+                -0.0012587412165312292
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -5.9940997609864155e-05,
+              "dy_mm": -0.000273455591097687,
+              "dz_mm": -0.015163890369429556,
+              "tilt_deg": 0.12910154371595686
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.397000000000231,
+          "error": null,
+          "torque_util": 0.20420601921108048,
+          "vel_util": 0.5,
+          "offset_mm": 16.009581234780473,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -3.419173533799709,
+            3.387913814072645
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.36880705268322794,
+          "z_err_mm": -0.01007569254501961,
+          "tilt_deg": 0.00034400615774809237,
+          "yaw_deg": 2.323525976946115,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.43297975862246274,
+                0.010958265649156864
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 3.328840874853578,
+              "dy_mm": 0.0494301813971712,
+              "dz_mm": 0.11687989725400749,
+              "tilt_deg": 0.5236221350735485
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.43579163089898465,
+                0.010145782416828458
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -3.436196899242461e-05,
+              "dy_mm": -0.0002190887873863845,
+              "dz_mm": -0.01500418488536992,
+              "tilt_deg": 0.13025726312857908
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.611000000000113,
+          "error": null,
+          "torque_util": 0.16178561301827155,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 4.813388376790383,
+          "success": true
+        },
+        {
+          "err_mm": [
+            2.909102251783839,
+            -7.904244168926305
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.4763941234252891,
+          "z_err_mm": -0.01000653571395227,
+          "tilt_deg": 1.8744172150678372e-05,
+          "yaw_deg": 0.8956586291644086,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4172353797752629,
+                -0.017413810408492124
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -2.884285705660239,
+              "dy_mm": 0.005193040397047377,
+              "dz_mm": 0.030624190002603857,
+              "tilt_deg": 0.1231233747912218
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.41387046947736206,
+                -0.017252562612326883
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -6.29522997619425e-05,
+              "dy_mm": -0.0001661639568092954,
+              "dz_mm": -0.015349726099622707,
+              "tilt_deg": 0.13121814033005147
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.360000000000252,
+          "error": null,
+          "torque_util": 0.22193041295035804,
+          "vel_util": 0.5,
+          "offset_mm": 8.422585813949249,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -9.614714230126241,
+            -4.713797537416001
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.1945963503593895,
+          "z_err_mm": -0.010268871768248644,
+          "tilt_deg": 0.0007769124389008676,
+          "yaw_deg": 0.12546914493551498,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3622392772814868,
+                -0.008263627736666009
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 9.661479548324303,
+              "dy_mm": 0.03959309085446727,
+              "dz_mm": -0.0008229929465419783,
+              "tilt_deg": 0.13014133044705428
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3713073922030932,
+                -0.008007905470651123
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -0.0013791748290636896,
+              "dy_mm": 7.265970235204033e-06,
+              "dz_mm": -0.015201328026265282,
+              "tilt_deg": 0.13058384327532532
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.721000000000052,
+          "error": null,
+          "torque_util": 0.1664493141960003,
+          "vel_util": 0.5,
+          "offset_mm": 10.708063174577408,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -6.715080332697177,
+            5.690793501046301
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.15229277346224504,
+          "z_err_mm": -0.010498583777024395,
+          "tilt_deg": 0.0014434742225612877,
+          "yaw_deg": 0.7160592473472533,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.38320854790013,
+                0.0022215146656276224
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 6.687122585915195,
+              "dy_mm": -0.12241166032615249,
+              "dz_mm": 0.1440942598110173,
+              "tilt_deg": 0.48088245100935834
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3892244756329497,
+                0.0013304651383468642
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -2.9380282207114305e-05,
+              "dy_mm": 0.00017667843896403135,
+              "dz_mm": -0.015142596167111444,
+              "tilt_deg": 0.13202661380335276
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.460000000000196,
+          "error": null,
+          "torque_util": 0.16335970849995807,
+          "vel_util": 0.5,
+          "offset_mm": 8.802126705866451,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -3.818748564044956,
+            4.404210533135412
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.3731105097975696,
+          "z_err_mm": -0.01026887539337662,
+          "tilt_deg": 0.0007769940613938372,
+          "yaw_deg": 2.034129552584723,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.40305696458071866,
+                -0.0009586101966376831
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 3.7698002164119337,
+              "dy_mm": -0.0027221392721035395,
+              "dz_mm": 0.07906730525125694,
+              "tilt_deg": 0.7601627397564038
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.4063949273508525,
+                -0.0020321977465853347
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -3.6688129478879006e-05,
+              "dy_mm": -0.0002692534135876473,
+              "dz_mm": -0.015218729566779388,
+              "tilt_deg": 0.12876076894435465
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.640000000000096,
+          "error": null,
+          "torque_util": 0.1747502257062262,
+          "vel_util": 0.5,
+          "offset_mm": 5.829229024114284,
+          "success": true
+        },
+        {
+          "err_mm": [
+            11.354210476085903,
+            4.6111324997750245
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.5649653962915409,
+          "z_err_mm": -0.01014697998250047,
+          "tilt_deg": 0.00042404969691909515,
+          "yaw_deg": 2.8550651231710376,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4143874028963848,
+                0.0013685165545273634
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -11.419009966416926,
+              "dy_mm": -0.11200633116883497,
+              "dz_mm": 0.08036683737877581,
+              "tilt_deg": 0.7101022639589577
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.40281703416496584,
+                0.0001504723349419056
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -5.77830057135742e-05,
+              "dy_mm": -0.00019871570441899554,
+              "dz_mm": -0.015366874772743122,
+              "tilt_deg": 0.131871494215041
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.433000000000211,
+          "error": null,
+          "torque_util": 0.2026950105741705,
+          "vel_util": 0.499269806596125,
+          "offset_mm": 12.254821029527147,
+          "success": true
+        },
+        {
+          "err_mm": [
+            -3.5109639581822556,
+            4.657742730829121
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.34029453519671327,
+          "z_err_mm": -0.010268412258040982,
+          "tilt_deg": 0.0007756288059584398,
+          "yaw_deg": 2.0750467693714114,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.42459672913338564,
+                -0.004662116305446938
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": 3.4601476272889675,
+              "dy_mm": -0.00687961665532099,
+              "dz_mm": 0.06318121483867012,
+              "tilt_deg": 0.7148833422491963
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.4276516875427949,
+                -0.005708568883812464
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.240052026149854e-05,
+              "dy_mm": -0.00023493967130083782,
+              "dz_mm": -0.015211749544469244,
+              "tilt_deg": 0.13252546549954416
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.627000000000104,
+          "error": null,
+          "torque_util": 0.15172452147546983,
+          "vel_util": 0.4997127674912056,
+          "offset_mm": 5.832789663809777,
+          "success": true
+        },
+        {
+          "err_mm": [
+            9.359628439061932,
+            -0.6909234759997993
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.1978565047869156,
+          "z_err_mm": -0.010268834363114099,
+          "tilt_deg": 0.0007768021880123125,
+          "yaw_deg": 0.20607639866401684,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.37193012113669155,
+                0.004839113243485815
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -9.359657718958413,
+              "dy_mm": 0.058610496962391116,
+              "dz_mm": -0.004562777811079055,
+              "tilt_deg": 0.09113893198585075
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.36215710814900465,
+                0.004916168346491637
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -0.00010776730674511015,
+              "dy_mm": -0.00038573948018313237,
+              "dz_mm": -0.01519286533285813,
+              "tilt_deg": 0.1331363676039671
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.517000000000165,
+          "error": null,
+          "torque_util": 0.16512624549355856,
+          "vel_util": 0.5,
+          "offset_mm": 9.38509561842521,
+          "success": true
+        },
+        {
+          "err_mm": [
+            1.8184514925682294,
+            -5.155668570464525
+          ],
+          "pocket": 2,
+          "xy_err_mm": 0.36782641995161725,
+          "z_err_mm": -0.010268889251291435,
+          "tilt_deg": 0.0007770179836031351,
+          "yaw_deg": 1.7224028806906446,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.37082386062691947,
+                0.00034033504154562
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -1.7973277913500563,
+              "dy_mm": -0.013684462839706936,
+              "dz_mm": 0.00748026296631954,
+              "tilt_deg": 0.04655557606165254
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3685076254026837,
+                -0.00027545647774279686
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -3.769234968586943e-05,
+              "dy_mm": -0.00013331710960987238,
+              "dz_mm": -0.01502907500880446,
+              "tilt_deg": 0.12886399488574313
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.68700000000007,
+          "error": null,
+          "torque_util": 0.1822277711159394,
+          "vel_util": 0.5,
+          "offset_mm": 5.4669629813360965,
+          "success": true
+        },
+        {
+          "err_mm": [
+            4.0725497560762385,
+            -7.07898035256604
+          ],
+          "pocket": 3,
+          "xy_err_mm": 0.5140076172573579,
+          "z_err_mm": -0.010268888478548455,
+          "tilt_deg": 0.0007770161073780425,
+          "yaw_deg": 1.7344950111906243,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3711966075818695,
+                0.0070810081321212364
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -4.057205436619693,
+              "dy_mm": -0.0018651860019614289,
+              "dz_mm": 0.024916283802162154,
+              "tilt_deg": 0.08313393733332794
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.3666599728939594,
+                0.006433033004549615
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.4320217051918576e-05,
+              "dy_mm": -0.0001770796509590819,
+              "dz_mm": -0.015181758496907172,
+              "tilt_deg": 0.12917014791012804
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.517000000000165,
+          "error": null,
+          "torque_util": 0.20032745152648898,
+          "vel_util": 0.4995474089392321,
+          "offset_mm": 8.166861352302528,
+          "success": true
+        },
+        {
+          "err_mm": [
+            5.427598200405676,
+            10.715013013025839
+          ],
+          "pocket": 0,
+          "xy_err_mm": 0.32825215341522407,
+          "z_err_mm": -0.01026852223354191,
+          "tilt_deg": 0.0007759299507062154,
+          "yaw_deg": 1.6988252887454962,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.4286838462319599,
+                0.012685483723721708
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -5.502093376786976,
+              "dy_mm": 0.04136786273994768,
+              "dz_mm": 0.19796855438786176,
+              "tilt_deg": 0.6218879882383341
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.42276385746125256,
+                0.011819731575168147
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -4.282234600250234e-05,
+              "dy_mm": -0.00016357768376981663,
+              "dz_mm": -0.015209239052627055,
+              "tilt_deg": 0.12979361867158307
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.711000000000057,
+          "error": null,
+          "torque_util": 0.14970322031408334,
+          "vel_util": 0.49945931336746435,
+          "offset_mm": 12.011258306037712,
+          "success": true
+        },
+        {
+          "err_mm": [
+            5.643875511517866,
+            -8.06277162552539
+          ],
+          "pocket": 1,
+          "xy_err_mm": 0.5550385315326729,
+          "z_err_mm": -0.010268912684657794,
+          "tilt_deg": 0.0007770742682494182,
+          "yaw_deg": 1.5688513034929983,
+          "ok": true,
+          "attempts": 2,
+          "log": [
+            {
+              "attempt": 1,
+              "cmd_pick": [
+                0.3820764766539883,
+                -0.008628090975953545
+              ],
+              "stage": "pick",
+              "error": "INHAND_OFFSET",
+              "dx_mm": -5.631234832740139,
+              "dy_mm": 0.0059901138663616404,
+              "dz_mm": 0.019436424985475043,
+              "tilt_deg": 0.04884019491719089
+            },
+            {
+              "attempt": 2,
+              "cmd_pick": [
+                0.375946892775991,
+                -0.009194739436761334
+              ],
+              "stage": "pick",
+              "error": null,
+              "dx_mm": -0.00016063663671461725,
+              "dy_mm": -0.00014953201528389304,
+              "dz_mm": -0.015256891572668074,
+              "tilt_deg": 0.1280279170532393
+            },
+            {
+              "attempt": 2,
+              "stage": "place",
+              "error": null
+            }
+          ],
+          "cycle_s": 9.440000000000207,
+          "error": null,
+          "torque_util": 0.1637898474220144,
+          "vel_util": 0.49999999999999994,
+          "offset_mm": 9.841829965757801,
+          "success": true
+        }
+      ]
+    }
+  },
+  "demo": {
+    "xy_err_mm": 0.37684897715674437,
+    "z_err_mm": -0.010268895102610864,
+    "tilt_deg": 0.0007770362765603709,
+    "yaw_deg": 1.7941848506713214,
+    "ok": true,
+    "attempts": 2,
+    "log": [
+      {
+        "attempt": 1,
+        "cmd_pick": [
+          0.41200000000000003,
+          0.0
+        ],
+        "stage": "pick",
+        "error": "INHAND_OFFSET",
+        "dx_mm": -12.000386543765561,
+        "dy_mm": -0.009326325507130105,
+        "dz_mm": 0.004969788877068337,
+        "tilt_deg": 0.1064774206895216
+      },
+      {
+        "attempt": 2,
+        "cmd_pick": [
+          0.3996494090268165,
+          -0.0006631218918344765
+        ],
+        "stage": "pick",
+        "error": null,
+        "dx_mm": -5.861946306140453e-05,
+        "dy_mm": -0.0010694649059391848,
+        "dz_mm": -0.015190578835061475,
+        "tilt_deg": 0.13024513738652146
+      },
+      {
+        "attempt": 2,
+        "stage": "place",
+        "error": null
+      }
+    ],
+    "cycle_s": 9.643000000000095,
+    "error": null,
+    "torque_util": 0.19819274060550907,
+    "vel_util": 0.49969226035503417,
+    "offset_mm": 12.00000000000001,
+    "success": true
+  },
+  "demo_results": [
+    {
+      "index": 0,
+      "id": "above_src",
+      "cmd": "move_j",
+      "t_start": 0.0,
+      "tcp_err_mm": 0.03278657827590469,
+      "duration": 0.4604987648461411,
+      "vel_ratio": 0.47619047619047616,
+      "torque_ratio": 0.14983591932896098,
+      "tcp_target": [
+        0.41200000000000003,
+        0.0,
+        0.25
+      ],
+      "tcp_end": [
+        0.41201448869187346,
+        1.7337604911628999e-06,
+        0.24997063962538732
+      ],
+      "target_err_mm": 0.03278657827588501,
+      "t_end": 0.6600000000000005,
+      "status": "ok"
+    },
+    {
+      "index": 1,
+      "id": "descend_src",
+      "cmd": "move_l",
+      "t_start": 0.6600000000000005,
+      "tcp_err_mm": 0.005771304636045941,
+      "duration": 0.8331376031819993,
+      "vel_ratio": 0.261157547898484,
+      "torque_ratio": 0.09947340830410094,
+      "tcp_target": [
+        0.41200000000000003,
+        0.0,
+        0.125
+      ],
+      "tcp_end": [
+        0.4120000294184573,
+        6.408850734248255e-09,
+        0.12500577122881562
+      ],
+      "target_err_mm": 0.005771307352866348,
+      "t_end": 1.4929999999999464,
+      "status": "ok"
+    },
+    {
+      "index": 2,
+      "id": "grip",
+      "cmd": "grip",
+      "t_start": 1.4929999999999464,
+      "holding": true,
+      "stroke_mm": 15.010070664797146,
+      "fL_N": 39.95607470979204,
+      "fR_N": 40.044703512171466,
+      "t_end": 1.9929999999998913,
+      "status": "ok"
+    },
+    {
+      "index": 3,
+      "id": "lift",
+      "cmd": "move_l",
+      "t_start": 1.9929999999998913,
+      "tcp_err_mm": 0.3990228898398937,
+      "duration": 0.8333074088986536,
+      "vel_ratio": 0.2611561199338297,
+      "torque_ratio": 0.09947522421544193,
+      "tcp_target": [
+        0.41200000000000003,
+        0.0,
+        0.25
+      ],
+      "tcp_end": [
+        0.41171128186903794,
+        -0.00012004446717143368,
+        0.24975210801346193
+      ],
+      "target_err_mm": 0.3990228943738839,
+      "t_end": 2.8259999999998,
+      "status": "ok"
+    },
+    {
+      "index": 0,
+      "id": "above_src",
+      "cmd": "move_j",
+      "t_start": 4.790999999999935,
+      "tcp_err_mm": 0.05741134812516336,
+      "duration": 0.1,
+      "vel_ratio": 0.19197029486586115,
+      "torque_ratio": 0.19819274060550907,
+      "tcp_target": [
+        0.3996494090268165,
+        -0.0006631218918344765,
+        0.25
+      ],
+      "tcp_end": [
+        0.3997067323288252,
+        -0.0006601132546938336,
+        0.2500010247160314
+      ],
+      "target_err_mm": 0.057411348125340364,
+      "t_end": 4.890999999999968,
+      "status": "ok"
+    },
+    {
+      "index": 1,
+      "id": "descend_src",
+      "cmd": "move_l",
+      "t_start": 4.890999999999968,
+      "tcp_err_mm": 0.005979954227129713,
+      "duration": 0.8333402526398273,
+      "vel_ratio": 0.26400200628589615,
+      "torque_ratio": 0.09961567419306716,
+      "tcp_target": [
+        0.3996494090268165,
+        -0.0006631218918344765,
+        0.125
+      ],
+      "tcp_end": [
+        0.3996494219484346,
+        -0.0006631164053748733,
+        0.12500597994059104
+      ],
+      "target_err_mm": 0.0059799570685588445,
+      "t_end": 5.724000000000246,
+      "status": "ok"
+    },
+    {
+      "index": 2,
+      "id": "grip",
+      "cmd": "grip",
+      "t_start": 5.724000000000246,
+      "holding": true,
+      "stroke_mm": 14.871778698582121,
+      "fL_N": 39.90112465184451,
+      "fR_N": 39.75357158275262,
+      "t_end": 6.224000000000413,
+      "status": "ok"
+    },
+    {
+      "index": 3,
+      "id": "lift",
+      "cmd": "move_l",
+      "t_start": 6.224000000000413,
+      "tcp_err_mm": 0.4676958224706935,
+      "duration": 0.8332976500099288,
+      "vel_ratio": 0.264020826432214,
+      "torque_ratio": 0.09961637104793934,
+      "tcp_target": [
+        0.3996494090268165,
+        -0.0006631218918344765,
+        0.25
+      ],
+      "tcp_end": [
+        0.3992848388230008,
+        -0.0007687482661677208,
+        0.2497267400094787
+      ],
+      "target_err_mm": 0.4676958273116257,
+      "t_end": 7.057000000000691,
+      "status": "ok"
+    },
+    {
+      "index": 0,
+      "id": "transport",
+      "cmd": "move_j",
+      "t_start": 7.057000000000691,
+      "tcp_err_mm": 0.569213805247692,
+      "duration": 0.5742423153156954,
+      "vel_ratio": 0.49969226035503417,
+      "torque_ratio": 0.1757108227810264,
+      "tcp_target": [
+        0.495,
+        -0.21500000000000002,
+        0.25
+      ],
+      "tcp_end": [
+        0.4945944169303981,
+        -0.2153116824698435,
+        0.24975027861979976
+      ],
+      "target_err_mm": 0.5692138052476953,
+      "t_end": 7.631000000000883,
+      "status": "ok"
+    },
+    {
+      "index": 1,
+      "id": "descend_dst",
+      "cmd": "move_l",
+      "t_start": 7.631000000000883,
+      "tcp_err_mm": 0.3247206125463681,
+      "duration": 0.8050090801516223,
+      "vel_ratio": 0.22988092003523486,
+      "torque_ratio": 0.16073363742080007,
+      "tcp_target": [
+        0.495,
+        -0.21500000000000002,
+        0.129
+      ],
+      "tcp_end": [
+        0.49493490992128375,
+        -0.21528245398187212,
+        0.1291463779581843
+      ],
+      "target_err_mm": 0.3247206135509288,
+      "t_end": 8.436000000000764,
+      "status": "ok"
+    },
+    {
+      "index": 2,
+      "id": "release",
+      "cmd": "release",
+      "t_start": 8.436000000000764,
+      "t_end": 8.836000000000542,
+      "status": "ok"
+    },
+    {
+      "index": 3,
+      "id": "retreat",
+      "cmd": "move_l",
+      "t_start": 8.836000000000542,
+      "tcp_err_mm": 0.006067885497902033,
+      "duration": 0.8066666666355597,
+      "vel_ratio": 0.22993080613269085,
+      "torque_ratio": 0.16066494467008957,
+      "tcp_target": [
+        0.495,
+        -0.21500000000000002,
+        0.25
+      ],
+      "tcp_end": [
+        0.4950000440547077,
+        -0.21500001238282146,
+        0.24999393228795186
+      ],
+      "target_err_mm": 0.00606788461085871,
+      "t_end": 9.643000000000095,
+      "status": "ok"
+    }
+  ],
+  "frames": 160,
+  "gif_MB": 3.334029,
+  "mp4_MB": 0.460608
+}
