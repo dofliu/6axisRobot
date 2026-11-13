@@ -19,6 +19,8 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/pbsim.py`：PyBullet 介面（`PBRobot`）。數值比對請用不含地面的實例；渲染才加地面（`plane=True`，含工廠地坪貼圖）；`render()` 已含光影/陰影/反鋸齒，展示動畫請沿用
 * `sixaxis/tasks.py`、`sixaxis/stacking.py`、`sixaxis/tracking.py`：Phase 2 任務產生器與量測（搬運/取放/疊棧碼垛、堆疊穩定判據、
   輸送帶追蹤抓取：α-β 估測 + CLIK 線上追蹤）。注意：報告腳本與 pytest 不可同時執行（都會重寫 `robots/ur5_gripper.urdf`）
+* `sixaxis/welding.py`：Phase 2 連續路徑製程（T105 銲接）：銲槍工具 `robots/ur5_torch.urdf`、焊道 `Seam`/`turtle_seam`、work/travel 角姿態、
+  等速時間律、`WeldCell`（自動選 roll、碰撞預檢、量測）；T106 噴塗可沿用。其報告腳本與 pytest 同樣不可同時執行（重寫 `robots/ur5_torch.urdf`）
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程
