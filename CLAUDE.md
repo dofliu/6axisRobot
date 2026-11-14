@@ -20,7 +20,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/tasks.py`、`sixaxis/stacking.py`、`sixaxis/tracking.py`：Phase 2 任務產生器與量測（搬運/取放/疊棧碼垛、堆疊穩定判據、
   輸送帶追蹤抓取：α-β 估測 + CLIK 線上追蹤）。注意：報告腳本與 pytest 不可同時執行（都會重寫 `robots/ur5_gripper.urdf`）
 * `sixaxis/welding.py`：Phase 2 連續路徑製程（T105 銲接）：銲槍工具 `robots/ur5_torch.urdf`、焊道 `Seam`/`turtle_seam`、work/travel 角姿態、
-  等速時間律、`WeldCell`（自動選 roll、碰撞預檢、量測）；T106 噴塗可沿用。其報告腳本與 pytest 同樣不可同時執行（重寫 `robots/ur5_torch.urdf`）
+  等速時間律、`WeldCell`（自動選 roll、碰撞預檢、量測；工具 URDF/TCP 可由 `tool_writer`、`t_tcp` 替換）。其報告腳本與 pytest 同樣不可同時執行（重寫 `robots/ur5_torch.urdf`）
+* `sixaxis/spraying.py`：T106 噴塗：直式噴槍 `robots/ur5_spray.urdf`、beta 分佈點源沉積模型 `SprayModel`（解析單道/多道、CV 與道距）、
+  面板 `Panel`、光柵路徑 `raster_path`、固定姿態規劃 `plan_spray`、`SprayCell(WeldCell)`（扳機、膜厚積分、量測）。報告腳本與 pytest 不可同時執行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

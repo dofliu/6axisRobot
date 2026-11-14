@@ -501,11 +501,15 @@ class WeldCell:
     """手臂 + 銲槍 + 工作台 + 工件（靜態）。step() 以力矩控制追蹤關節參考並記錄。"""
 
     def __init__(self, render: bool = False, dt: float = 1e-3, controller: str = "ctc", wn: float = WN,
-                 wn_pd: float = 30.0):
+                 wn_pd: float = 30.0, tool_writer=None, t_tcp=None):
+        """tool_writer(robot) → URDF 路徑（工具連桿 7、TCP 連桿 8）、t_tcp 為法蘭→TCP 的 4×4；
+        預設為銲槍（T106 噴槍沿用本工作站）。"""
         if controller not in ("ctc", "pd"):
             raise ValueError("controller 需為 'ctc' 或 'pd'")
         self.r = SixAxisRobot()
-        self.sim = PBRobot(self.r, urdf=write_arm_with_torch(self.r), plane=render)
+        self.T_tcp = T_TCP if t_tcp is None else np.asarray(t_tcp, float)
+        self.T_tcp_inv = np.linalg.inv(self.T_tcp)
+        self.sim = PBRobot(self.r, urdf=(tool_writer or write_arm_with_torch)(self.r), plane=render)
         self.cid, self.dt, self.controller, self.wn, self.wn_pd = self.sim.cid, dt, controller, wn, wn_pd
         self.sim.make_frictionless()
         pb.setTimeStep(dt, physicsClientId=self.cid)
@@ -514,7 +518,7 @@ class WeldCell:
         Th = np.eye(4)
         Th[:3, :3] = np.diag([1.0, -1.0, -1.0])
         Th[:3, 3] = HOME_TCP
-        self.q_home = self.r.ik(Th @ T_TCP_INV, Q_SEED)[0]
+        self.q_home = self.r.ik(Th @ self.T_tcp_inv, Q_SEED)[0]
         self.sim.set_state(self.q_home)
         self._ref = (self.q_home.copy(), np.zeros(6), np.zeros(6))
         self.t, self.arc = 0.0, False
