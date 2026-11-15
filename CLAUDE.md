@@ -23,6 +23,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
   等速時間律、`WeldCell`（自動選 roll、碰撞預檢、量測；工具 URDF/TCP 可由 `tool_writer`、`t_tcp` 替換）。其報告腳本與 pytest 同樣不可同時執行（重寫 `robots/ur5_torch.urdf`）
 * `sixaxis/spraying.py`：T106 噴塗：直式噴槍 `robots/ur5_spray.urdf`、beta 分佈點源沉積模型 `SprayModel`（解析單道/多道、CV 與道距）、
   面板 `Panel`、光柵路徑 `raster_path`、固定姿態規劃 `plan_spray`、`SprayCell(WeldCell)`（扳機、膜厚積分、量測）。報告腳本與 pytest 不可同時執行
+* `sixaxis/screwing.py`：T107 鎖螺絲：電動起子 `robots/ur5_driver.urdf`、`ThreadModel`（VDI 2230 扭力–夾緊力、柔度法接合剛性）、`Nutrunner`（主軸動力學 10 kHz 子步、
+  二段式扭力/扭力–轉角策略、監控窗）、`bench_test`（無手臂接合模擬台）、`ScrewCell(WeldCell)`（浮動起子頭彈簧、入孔捕捉/螺旋搜尋、跟隨進給、
+  反作用外力與前饋）。報告腳本與 pytest 不可同時執行（重寫 `robots/ur5_driver.urdf`）
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程
