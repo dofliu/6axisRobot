@@ -26,6 +26,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/screwing.py`：T107 鎖螺絲：電動起子 `robots/ur5_driver.urdf`、`ThreadModel`（VDI 2230 扭力–夾緊力、柔度法接合剛性）、`Nutrunner`（主軸動力學 10 kHz 子步、
   二段式扭力/扭力–轉角策略、監控窗）、`bench_test`（無手臂接合模擬台）、`ScrewCell(WeldCell)`（浮動起子頭彈簧、入孔捕捉/螺旋搜尋、跟隨進給、
   反作用外力與前饋）。報告腳本與 pytest 不可同時執行（重寫 `robots/ur5_driver.urdf`）
+* `sixaxis/finishing.py`：T108 去毛邊/拋光：研磨主軸 `robots/ur5_polisher.urdf`、工件高度場 `Surface`（形狀誤差/毛邊稜）、
+  `PadModel`（Winkler 墊接觸、Coulomb 摩擦、Preston 移除）、`FinishCell(WeldCell)`（法向力導納外環 + 計算力矩內環、F/T 感測雜訊/低通、
+  力前饋、位置控制基準）、理論 `loop_model`/`predict_touchdown`（含伺服柔度 Λ_n）/`routh_kcrit`/`pass_depth`。報告腳本與 pytest 不可同時執行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

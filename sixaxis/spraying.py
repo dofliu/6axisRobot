@@ -276,8 +276,10 @@ def gun_axis(panel: Panel, prm: SprayParams) -> np.ndarray:
 
 
 def plan_spray(robot: SixAxisRobot, seam: Seam, R_tool: np.ndarray, speed: float, q_seed, t_ramp: float = 0.4,
-               dt: float = 0.01, prm=None) -> WeldPlan:
-    """噴嘴路徑（固定姿態）→ 關節軌跡：等速時間律取樣、逐點數值 IK（前一點為初值）、q̇ = J⁻¹·[v; 0]。"""
+               dt: float = 0.01, prm=None, t_tool_inv=None) -> WeldPlan:
+    """噴嘴路徑（固定姿態）→ 關節軌跡：等速時間律取樣、逐點數值 IK（前一點為初值）、q̇ = J⁻¹·[v; 0]。
+    t_tool_inv：TCP→法蘭的 4×4（預設噴槍；T108 研磨主軸沿用）。"""
+    T_inv = T_GUN_INV if t_tool_inv is None else np.asarray(t_tool_inv, float)
     prof = SpeedProfile(seam.length, speed, t_ramp)
     n = max(int(round(prof.T / dt)), 2)
     t = np.linspace(0.0, prof.T, n + 1)
@@ -286,7 +288,7 @@ def plan_spray(robot: SixAxisRobot, seam: Seam, R_tool: np.ndarray, speed: float
     Tt = np.eye(4)
     Tt[:3, :3] = R_tool
     Tt[:3, 3] = P[0]
-    sols = robot.ik(Tt @ T_GUN_INV, q_seed)
+    sols = robot.ik(Tt @ T_inv, q_seed)
     if not sols:
         z = np.zeros((n + 1, 6))
         return WeldPlan(seam, prm, prof.T, t, z, z.copy(), n + 1, 0, 0, 0, False)
@@ -295,7 +297,7 @@ def plan_spray(robot: SixAxisRobot, seam: Seam, R_tool: np.ndarray, speed: float
     fail, sig = 0, np.inf
     for k in range(n + 1):
         Tt[:3, 3] = P[k]
-        qk, ok, _ = robot.ik_numeric(Tt @ T_GUN_INV, qk, tol=1e-10, damping=1e-8)
+        qk, ok, _ = robot.ik_numeric(Tt @ T_inv, qk, tol=1e-10, damping=1e-8)
         fail += int(not ok)
         J = robot.jacobian(qk)
         sig = min(sig, float(np.linalg.svd(J, compute_uv=False)[-1]))
