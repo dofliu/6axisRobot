@@ -184,3 +184,20 @@
 - 報告：docs/test-reports/2026-11-16_T108.md；動畫 docs/media/2026-11-16_T108.gif/.mp4。
 - 限制：接觸為 2.5D Winkler 高度場解析模型（非剛體接觸）；K_p、μ、k_e 為代表值；毛邊為頂面窄稜近似；導納參數不隨 k_e 自動調整；穩定邊界附近集中參數模型不可靠。
 - 下一步：T109 軸孔插入 peg-in-hole（力控柔順；沿用導納外環與 F/T 感測）。
+
+## 2026-11-18｜T109 軸孔插入 peg-in-hole
+- 新增 `sixaxis/insertion.py`：力感測器＋RCC 工具（`robots/ur5_peg.urdf`，TCP = 名目銷端）、`Hole`（45° 倒角孔有號距離：頂面/倒角/孔壁/孔底＋孔口兩條稜線）、
+  `PegBody`（銷＋夾爪＋RCC 下板 6 自由度剛體、RCC 柔順中心 L_c 的平移/轉動彈簧–阻尼、罰函數法向力＋Cundall–Strack 錨點切向摩擦（可黏著）、20 kHz 子步）、
+  `InsertCell(WeldCell)`（每步封閉解 IK、計算力矩＋力前饋、position／軸向導納＋側向力歸零、阿基米德螺旋搜孔、MISS／JAM／OVERFORCE 判定、剖視工件網格）、
+  理論 `capture_radius`／`chamfer_ratio`／`chamfer_forces`／`tilt_depth_limit`／`wedge_angle`／`two_point_statics`／`jam_free_tilt`／`jam_depth`；
+  腳本 `scripts/t109_report.py`（4 行程平行掃描、`--anim` 只重做動畫）、`t109_write_md.py`。
+- 測試：`tests/test_insertion.py` 11 項；全套 199 passed、`ruff check` 通過。
+- 關鍵數值（Ø12 銷／Ø12.16 孔、徑向間隙 80 µm、倒角 1 mm、目標深度 20 mm）：倒角台滑動段 F_ax/F_lat 與 (1+μ)/(1−μ) 差 ≤ 0.5 %（μ 0–0.5）、
+  側向力峰值與 K_lat(e − c) 差 +2〜+5 %（e ≥ 0.4 mm）；孔位誤差掃描：RCC＋位置／RCC＋導納在 e ≤ 1.05 mm 成功、≥ 1.2 mm 失敗，與捕捉半徑 w_c + c = 1.08 mm 完全一致，
+  剛性腕僅 e ≤ 0.3 mm（側向力 42 N），加螺旋搜孔 8/8 成功（e = 2.5 mm 搜 3.27 s、週期 7.3 s）；成功插入週期 3.8 s、關節力矩使用率 ≤ 0.18；
+  傾斜銷兩點接觸起始深度與幾何極限一致（2°：5.57 vs 5.58 mm）；RCC（K_rot 15）1° 成功、2–4° 卡死。
+- 發現：推導不卡死傾角 θ_max = 2√(F_z c/(μ K_rot))（兩點接觸靜力 + θ(l) ≈ 2c/l + RCC 回復力矩），以改變 F_d／K_rot／μ 的 13 組模擬驗證成敗 13/13 一致，
+  卡死深度預測比模擬淺 0.2–1.1 mm；柔順中心離開銷端（L_c = 100 mm）在 μ = 0.1、3° 仍卡死而 L_c = 0 成功；e = 2.5 mm 搜孔時銷緣勾入倒角未達落孔門檻，螺旋拖曳 RCC 側向力 15.6 N。
+- 報告：docs/test-reports/2026-11-18_T109.md；動畫 docs/media/2026-11-18_T109.gif/.mp4。
+- 限制：罰函數接觸穿透數十 µm（停止深度偏深）；剛性腕剛性受 1 kHz 顯式耦合穩定性限制（2e5 N/m）；未模擬取料、孔軸誤差、黏滑；不卡死判據為平面小角度 L_c = 0 近似。
+- 下一步：T110 避障路徑規劃（RRT*／碰撞檢查）。

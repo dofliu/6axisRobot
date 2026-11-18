@@ -29,6 +29,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/finishing.py`：T108 去毛邊/拋光：研磨主軸 `robots/ur5_polisher.urdf`、工件高度場 `Surface`（形狀誤差/毛邊稜）、
   `PadModel`（Winkler 墊接觸、Coulomb 摩擦、Preston 移除）、`FinishCell(WeldCell)`（法向力導納外環 + 計算力矩內環、F/T 感測雜訊/低通、
   力前饋、位置控制基準）、理論 `loop_model`/`predict_touchdown`（含伺服柔度 Λ_n）/`routh_kcrit`/`pass_depth`。報告腳本與 pytest 不可同時執行
+* `sixaxis/insertion.py`：T109 軸孔插入：力感測器＋RCC 工具 `robots/ur5_peg.urdf`、`Hole`（倒角孔有號距離、孔口稜線）、`PegBody`（RCC 6 自由度彈簧＋銷體剛體
+  20 kHz 子步、罰函數接觸＋錨點切向摩擦可黏著）、`InsertCell(WeldCell)`（位置/軸向導納＋側向力歸零、螺旋搜孔、MISS/JAM/OVERFORCE 判定、`urdf_path` 可指定暫存 URDF 以平行執行）、
+  準靜態理論 `capture_radius`/`chamfer_ratio`/`chamfer_forces`/`tilt_depth_limit`/`wedge_angle`/`two_point_statics`。報告腳本動畫段與 pytest 不可同時執行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程
