@@ -201,3 +201,20 @@
 - 報告：docs/test-reports/2026-11-18_T109.md；動畫 docs/media/2026-11-18_T109.gif/.mp4。
 - 限制：罰函數接觸穿透數十 µm（停止深度偏深）；剛性腕剛性受 1 kHz 顯式耦合穩定性限制（2e5 N/m）；未模擬取料、孔軸誤差、黏滑；不卡死判據為平面小角度 L_c = 0 近似。
 - 下一步：T110 避障路徑規劃（RRT*／碰撞檢查）。
+
+## 2026-11-19｜T110 避障路徑規劃
+- 新增 `sixaxis/planning.py`：`CollisionChecker`（規劃專用 DIRECT client、私有暫存 URDF 可多行程平行；障礙物 16 個一組複合剛體——PyBullet 3.2.7
+  `createCollisionShapeArray` 實測只保留 16 個子形狀；地板；32 對自碰撞；間隙 f = d − 餘裕 10/5 mm）、保證式邊檢查 `edge_free`
+  （Schwarzer–Saha–Latombe 2005：D = Σ R_i|Δq_i|，f_a + f_b > D 即證明無碰撞，否則二分至 1 mrad）、`RRTStar`（star=False 即 RRT；k-nearest
+  k = ⌈e(1+1/d) log n⌉、Informed 長橢球取樣、多目標 IK 解、rewire 成本傳遞）、`gamma_star`、`shortcut`、`time_path`（逐段 rest-to-rest 五次多項式）；
+  `sixaxis/scenarios.py`（T006 工作站方塊＋牆場景、隨機立柱場景拒絕取樣、`add_to_sim`）；腳本 `scripts/t110_report.py`（4 行程平行）、`t110_write_md.py`。
+- 測試：`tests/test_planning.py` 7 項；全套 206 passed、`ruff check` 通過。
+- 關鍵數值：300 條隨機邊保證式判可行 289 條，以 2 mrad 密集複驗漏判 0、保守誤判 6；平均查詢 104 vs 279 次／邊；Lipschitz 比值最大 0.31（需 ≤ 1）；
+  單次距離查詢 0.49 ms。牆場景（隔板 x 0.36–0.90、高 0.5 m）關節直線穿入隔板 94 mm；RRT* 第一解 6/6（5–45 次迭代）、RRT（η 0.5）2/6；
+  1500 次迭代 Informed RRT* 成本 1.87 rad vs 均勻 3.03 rad；執行（2 段、週期 1.99 s、力矩使用率 0.27）最小間隙 18.8 mm、無接觸、追蹤誤差 ≤ 1.4 mrad。
+  16 個必須規劃的隨機立柱場景：RRT* 13/16、RRT 9/16；13 條路徑物理執行全部無接觸，最小間隙 10.4–20.4 mm。
+- 發現：6 維中半徑版 RRT* 的 r_n 被 η 截斷、鄰居太少，改 k-nearest；基本 RRT 在窄目標區陷入 bug trap；均勻 RRT* 找到第一解後幾乎不再進步，Informed 取樣有效；
+  R_i 上界約保守 3 倍（Lipschitz 實測 0.31）。
+- 報告：docs/test-reports/2026-11-19_T110.md；動畫 docs/media/2026-11-19_T110.gif/.mp4。
+- 限制：方塊靜態障礙物；夾持工件未納入手臂幾何；路徑點停頓（未做平滑後重檢）；3 個窄通道隨機場景兩種規劃器皆未在預算內找到解（未確認是否有解）。
+- 下一步：T111 多物件分類揀選（沿用規劃器並把夾持工件納入碰撞幾何）。

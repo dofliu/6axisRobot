@@ -32,6 +32,10 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/insertion.py`：T109 軸孔插入：力感測器＋RCC 工具 `robots/ur5_peg.urdf`、`Hole`（倒角孔有號距離、孔口稜線）、`PegBody`（RCC 6 自由度彈簧＋銷體剛體
   20 kHz 子步、罰函數接觸＋錨點切向摩擦可黏著）、`InsertCell(WeldCell)`（位置/軸向導納＋側向力歸零、螺旋搜孔、MISS/JAM/OVERFORCE 判定、`urdf_path` 可指定暫存 URDF 以平行執行）、
   準靜態理論 `capture_radius`/`chamfer_ratio`/`chamfer_forces`/`tilt_depth_limit`/`wedge_angle`/`two_point_statics`。報告腳本動畫段與 pytest 不可同時執行
+* `sixaxis/planning.py`、`sixaxis/scenarios.py`：T110 避障規劃：`CollisionChecker`（私有暫存 URDF、障礙物 16 個一組複合體、自碰撞對、
+  間隙 f = d − 餘裕）、保證式邊檢查 `edge_free`（Lipschitz 上界 D = Σ R_i|Δq_i|，f_a + f_b > D 即證明無碰撞，否則二分）、
+  `RRTStar`（star=False 即 RRT；k-nearest、Informed 取樣、多目標 IK 解）、`shortcut`、`time_path`（逐段 rest-to-rest）；
+  `scenarios.wall_scenario`/`random_scenario`/`add_to_sim`（T006 工作站＋額外方塊障礙物）。規劃部分可多行程平行（不改寫 robots/）
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程
