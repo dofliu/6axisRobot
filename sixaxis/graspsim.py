@@ -34,9 +34,9 @@ def tool_pose(tcp_xyz) -> np.ndarray:
 
 class GraspScene:
     def __init__(self, spec: ObjectSpec = CUBE, dt: float = 1e-3, friction: float | None = None,
-                 render: bool = False, workcell: bool = False):
+                 render: bool = False, workcell: bool = False, urdf_path=None):
         self.r = SixAxisRobot()
-        self.sim = make_arm_with_gripper(self.r, plane=render)
+        self.sim = make_arm_with_gripper(self.r, plane=render, urdf_path=urdf_path)
         self.cid, self.dt, self.spec = self.sim.cid, dt, spec
         self.sim.make_frictionless()
         pb.setTimeStep(dt, physicsClientId=self.cid)

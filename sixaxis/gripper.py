@@ -126,8 +126,9 @@ def f_min(mass: float, mu: float, accel: float = 0.0) -> float:
     return mass * (G + accel) / (2.0 * mu)
 
 
-def make_arm_with_gripper(robot: SixAxisRobot | None = None, plane: bool = False) -> PBRobot:
-    path = write_arm_with_gripper(robot)
+def make_arm_with_gripper(robot: SixAxisRobot | None = None, plane: bool = False, urdf_path=None) -> PBRobot:
+    """urdf_path：另指 URDF 輸出路徑（例如暫存檔，讓多行程平行時不共寫 robots/ur5_gripper.urdf）。"""
+    path = write_arm_with_gripper(robot) if urdf_path is None else write_arm_with_gripper(robot, urdf_path)
     return PBRobot(robot, urdf=path, plane=plane)
 
 

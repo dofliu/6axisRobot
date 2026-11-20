@@ -36,6 +36,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
   間隙 f = d − 餘裕）、保證式邊檢查 `edge_free`（Lipschitz 上界 D = Σ R_i|Δq_i|，f_a + f_b > D 即證明無碰撞，否則二分）、
   `RRTStar`（star=False 即 RRT；k-nearest、Informed 取樣、多目標 IK 解）、`shortcut`、`time_path`（逐段 rest-to-rest）；
   `scenarios.wall_scenario`/`random_scenario`/`add_to_sim`（T006 工作站＋額外方塊障礙物）。規劃部分可多行程平行（不改寫 robots/）
+* `sixaxis/sorting.py`：T111 多物件分類揀選：俯視相機 `OverheadCamera`（深度反投影、背景高度圖、最小外接矩形、色度分類、手臂遮擋重拍）、
+  抓取規劃 `grasp_candidates`（指墊/掌體俯視矩形 vs 鄰物與靜態體 2.5D 檢查）、序列 `plan_sequence`（Held–Karp DP／貪婪／掃描，含可抓相依與死結部分解）、
+  `SortCell`（滾動時域：拍照→排序→T110 規劃器＋其餘物件＋夾持工件 `CollisionChecker.attach/set_movable`→放料盤/料箱）。用私有暫存 URDF，可與 pytest 並行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

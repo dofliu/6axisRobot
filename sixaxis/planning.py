@@ -43,7 +43,7 @@ from pathlib import Path
 import numpy as np
 import pybullet as pb
 
-from .gripper import write_arm_with_gripper
+from .gripper import T_TCP, write_arm_with_gripper
 from .robot import SixAxisRobot
 from .trajectory import concat, joint_ptp, min_duration, sample_joint
 
@@ -61,11 +61,16 @@ _SKIP_SELF = {(-1, 0), (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (-1, 1), 
 
 @dataclass(frozen=True)
 class Box:
-    """軸對齊方塊障礙物（世界座標中心、半邊長）。"""
+    """方塊障礙物（世界座標中心、半邊長；yaw = 繞世界 z 軸轉角，預設 0 即軸對齊）。"""
 
     center: tuple
     half: tuple
     name: str = "box"
+    yaw: float = 0.0
+
+    @property
+    def quat(self) -> list:
+        return [0.0, 0.0, float(np.sin(self.yaw / 2)), float(np.cos(self.yaw / 2))]
 
 
 FLOOR = Box((0.0, 0.0, -0.05), (2.0, 2.0, 0.05), "floor")
@@ -82,6 +87,13 @@ def boxes_from_bodies(cid: int, bodies: dict) -> list[Box]:
             c = np.array(pos) + np.array(sd[5])
             out.append(Box(tuple(float(x) for x in c), tuple(float(x) / 2 for x in sd[3]), nm))
     return out
+
+
+def _quat(R) -> list:
+    """旋轉矩陣 → 四元數 [x, y, z, w]（Shepperd 法的穩定分支選擇）。"""
+    from scipy.spatial.transform import Rotation
+
+    return Rotation.from_matrix(np.asarray(R)).as_quat().tolist()
 
 
 # ====================================================================== 碰撞檢查
@@ -101,13 +113,11 @@ class CollisionChecker:
             self.arm = pb.loadURDF(str(path), useFixedBase=True, physicsClientId=self.cid)
         self.n_links = pb.getNumJoints(self.arm, physicsClientId=self.cid)
         # 複合剛體（PyBullet 3.2.7 的 createCollisionShapeArray 實測只保留前 16 個子形狀 → 分批）
-        self.obs = []
-        for i in range(0, len(self.boxes), CHUNK):
-            bs = self.boxes[i:i + CHUNK]
-            col = pb.createCollisionShapeArray(
-                [pb.GEOM_BOX] * len(bs), halfExtents=[list(b.half) for b in bs],
-                collisionFramePositions=[list(b.center) for b in bs], physicsClientId=self.cid)
-            self.obs.append(pb.createMultiBody(0, col, -1, [0, 0, 0], physicsClientId=self.cid))
+        self.static_obs = self._compound(self.boxes)
+        self.movable: list[Box] = []
+        self.movable_obs: list[int] = []
+        self.obs = list(self.static_obs)
+        self.held = None  # (body, T_tcp_obj 4×4)
         if floor:  # 地板獨立成一剛體：base 與 link1 只繞 z 轉，對地距離為常數（外殼貼地），不納入
             col = pb.createCollisionShape(pb.GEOM_BOX, halfExtents=list(FLOOR.half), physicsClientId=self.cid)
             self.floor = pb.createMultiBody(0, col, -1, list(FLOOR.center), physicsClientId=self.cid)
@@ -122,8 +132,50 @@ class CollisionChecker:
         if pb.isConnected(self.cid):
             pb.disconnect(self.cid)
 
+    def _compound(self, boxes) -> list[int]:
+        out = []
+        for i in range(0, len(boxes), CHUNK):
+            bs = boxes[i:i + CHUNK]
+            col = pb.createCollisionShapeArray(
+                [pb.GEOM_BOX] * len(bs), halfExtents=[list(b.half) for b in bs],
+                collisionFramePositions=[list(b.center) for b in bs],
+                collisionFrameOrientations=[b.quat for b in bs], physicsClientId=self.cid)
+            out.append(pb.createMultiBody(0, col, -1, [0, 0, 0], physicsClientId=self.cid))
+        return out
+
+    # --- 可變障礙物與夾持物（T111：工作台上其餘物件、夾持中的工件）
+    def set_movable(self, boxes: list[Box]):
+        """替換「可移動障礙物」集合（例如尚未揀選的物件）；靜態場景不變。"""
+        for b in self.movable_obs:
+            pb.removeBody(b, physicsClientId=self.cid)
+        self.movable = list(boxes)
+        self.movable_obs = self._compound(self.movable) if self.movable else []
+        self.obs = list(self.static_obs) + self.movable_obs
+
+    def attach(self, half, T_tcp_obj=None):
+        """把夾持工件（方塊近似，半邊長 half，相對 TCP 的位姿 T_tcp_obj）併入手臂幾何。
+        距離函數加入：工件–障礙物/地板、工件–手臂連桿 −1…4（link6 與夾爪剛性相連，不檢查）。
+        Lipschitz 上界：工件屬於末端剛體，ρ_6 取 max(原值, ‖法蘭→工件 AABB 角點‖) → R_i 隨之放大（保守）。"""
+        self.detach()
+        col = pb.createCollisionShape(pb.GEOM_BOX, halfExtents=[float(h) for h in half],
+                                      physicsClientId=self.cid)
+        body = pb.createMultiBody(0, col, -1, [0, 0, -5], physicsClientId=self.cid)
+        T = np.eye(4) if T_tcp_obj is None else np.asarray(T_tcp_obj, float)
+        T_fo = T_TCP @ T
+        corners = np.array([[x, y, z] for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)]) * np.asarray(half)
+        rho_h = float(np.max(np.linalg.norm(corners @ T_fo[:3, :3].T + T_fo[:3, 3], axis=1)))
+        self.held = (body, T_fo)
+        self._lever_base = self.lever.copy()
+        self.lever = self._lever_bounds(extra_rho6=rho_h)
+
+    def detach(self):
+        if self.held is not None:
+            pb.removeBody(self.held[0], physicsClientId=self.cid)
+            self.held = None
+            self.lever = self._lever_base
+
     # --- 幾何上界 R_i
-    def _lever_bounds(self) -> np.ndarray:
+    def _lever_bounds(self, extra_rho6: float = 0.0) -> np.ndarray:
         self._set(np.zeros(6))
         rho = np.zeros(6)
         for k in range(self.n_links):
@@ -135,6 +187,7 @@ class CollisionChecker:
             corners = np.array([[x, y, z] for x in (lo[0], hi[0]) for y in (lo[1], hi[1])
                                 for z in (lo[2], hi[2])])
             rho[min(k, 5)] = max(rho[min(k, 5)], float(np.max(np.linalg.norm(corners - o, axis=1))))
+        rho[5] = max(rho[5], extra_rho6)
         off = np.array([np.linalg.norm(p) for p in self.r.pF[:6]])
         R = np.zeros(6)
         for i in range(6):
@@ -145,6 +198,10 @@ class CollisionChecker:
     def _set(self, q):
         for j in range(6):
             pb.resetJointState(self.arm, j, float(q[j]), physicsClientId=self.cid)
+        if self.held is not None:
+            T = self.r.fk(q) @ self.held[1]
+            pb.resetBasePositionAndOrientation(self.held[0], T[:3, 3].tolist(), _quat(T[:3, :3]),
+                                               physicsClientId=self.cid)
 
     def in_bounds(self, q) -> bool:
         return bool(np.all(q >= self.lower) and np.all(q <= self.upper))
@@ -160,7 +217,19 @@ class CollisionChecker:
         if self.floor is not None:
             pts = pb.getClosestPoints(self.arm, self.floor, d_obs, physicsClientId=self.cid)
             d_obs = min([c[8] for c in pts if c[3] > 0] + [d_obs])
+        if self.held is not None:
+            hb = self.held[0]
+            for ob in self.obs + ([self.floor] if self.floor is not None else []):
+                pts = pb.getClosestPoints(hb, ob, d_obs, physicsClientId=self.cid)
+                d_obs = min([c[8] for c in pts] + [d_obs])
         d_self = D_MAX
+        if self.held is not None:
+            for a in range(-1, 5):
+                if not pb.getCollisionShapeData(self.arm, a, physicsClientId=self.cid):
+                    continue
+                p = pb.getClosestPoints(self.held[0], self.arm, d_self, linkIndexB=a,
+                                        physicsClientId=self.cid)
+                d_self = min([c[8] for c in p] + [d_self])
         for a, b in self.self_pairs:
             p = pb.getClosestPoints(self.arm, self.arm, d_self, linkIndexA=a, linkIndexB=b,
                                     physicsClientId=self.cid)
