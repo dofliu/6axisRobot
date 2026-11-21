@@ -39,6 +39,10 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/sorting.py`：T111 多物件分類揀選：俯視相機 `OverheadCamera`（深度反投影、背景高度圖、最小外接矩形、色度分類、手臂遮擋重拍）、
   抓取規劃 `grasp_candidates`（指墊/掌體俯視矩形 vs 鄰物與靜態體 2.5D 檢查）、序列 `plan_sequence`（Held–Karp DP／貪婪／掃描，含可抓相依與死結部分解）、
   `SortCell`（滾動時域：拍照→排序→T110 規劃器＋其餘物件＋夾持工件 `CollisionChecker.attach/set_movable`→放料盤/料箱）。用私有暫存 URDF，可與 pytest 並行
+* `sixaxis/tending.py`：T112 機台上下料：`Machine`（運動學自動門梯形曲線＋光幕、稜柱關節虎鉗（力上限＝夾緊力、鉗口位置窗＋座面檢知）、
+  主軸循環＋側向切削力、加工結束換成品、PLC 信號與互鎖/預約啟動）、`TendCell`（S1 依序／S2 緩衝交換、門洞教導直線、切屑/空格恢復；
+  大範圍移動用 T110 檢查，`goto_tcp` 固定 ψ 不用對稱解——ψ+π 解使工具自轉 180° 時夾爪夾持異常）、`cycle_model`/`period_terms`、
+  `vise_capture_test`/`clamp_hold_test`（無手臂）。`PBRobot.render(eye=...)` 可指定相機位置。用私有暫存 URDF，可與 pytest 並行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

@@ -130,16 +130,20 @@ class PBRobot:
         supersample: int = 2,
         shadow: bool = True,
         fov: float = 45,
+        eye=None,
     ):
         """TinyRenderer 離屏渲染（無 GPU）。supersample 倍率渲染後以 Lanczos 縮小做反鋸齒；
-        光源位於相機左上後方，含陰影與高光。"""
+        光源位於相機左上後方，含陰影與高光。eye 給定時改用 eye→target 視線（z 向上），yaw 只決定光源方位。"""
         from PIL import Image
 
         w, h = size
         W, H = w * supersample, h * supersample
-        view = pb.computeViewMatrixFromYawPitchRoll(
-            target, distance, yaw, pitch, 0, 2, physicsClientId=self.cid
-        )
+        if eye is None:
+            view = pb.computeViewMatrixFromYawPitchRoll(
+                target, distance, yaw, pitch, 0, 2, physicsClientId=self.cid
+            )
+        else:
+            view = pb.computeViewMatrix(list(eye), list(target), [0, 0, 1], physicsClientId=self.cid)
         proj = pb.computeProjectionMatrixFOV(fov, w / h, 0.05, 10, physicsClientId=self.cid)
         ly = np.deg2rad(yaw - 40)
         light = [float(np.sin(ly) * 1.2), float(-np.cos(ly) * 1.2), 2.5]
