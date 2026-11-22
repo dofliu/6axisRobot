@@ -256,3 +256,20 @@
 - 報告：docs/test-reports/2026-11-21_T112.md；動畫 docs/media/2026-11-21_T112.gif/.mp4。
 - 限制：加工以定時循環＋定值切削力表示；門/光幕無反應時間；鉗口無倒角、y 不定位；單夾爪（未模擬雙夾爪換料）；確定性模擬。
 - 下一步：Phase 2 全部完成，進入 Phase 3：T201 Gymnasium 環境 reach（觀測/動作/獎勵、與規劃控制基準比較）。
+
+## 2026-11-22｜T201 Gymnasium 環境：reach
+- 新增 `sixaxis/rlenv.py`：`ReachEnv`（註冊 `SixAxisReach-v0`）：PyBullet 手臂＋地面、2 ms 物理子步、20 Hz 策略、100 步截斷；
+  動作 joint（關節速度 ±1 rad/s）或 ee（末端線速度 ±0.3 m/s，姿態保持＋阻尼最小平方）→ q_ref 積分（防飽和窗 0.3 rad）→
+  計算力矩內環 τ = ID(q, q̇, K_p e + K_d ė)（ω_n = 25、臨界阻尼、τ_max 飽和）；觀測 27 維；dense（−d − 0.01‖a‖² + 5·成功 − 10·碰撞）/sparse 獎勵；
+  成功 = d < 2 cm 且 ‖ṗ‖ < 0.1 m/s；碰撞（link2–6 撞地、非相鄰連桿自碰）終止；目標於前方方塊取樣並要求工具朝下 IK 可達。
+  基準 `PlannerPolicy`（IK＋關節五次多項式）、`ResolvedRatePolicy`（笛卡兒 P＋DLS）、`RandomPolicy`；`run_episode` 共同指標；`throughput`。
+- 腳本 `scripts/t201_report.py`（4 行程，約 53 s）、`t201_write_md.py`；requirements 加入 gymnasium==1.4.0。
+- 測試：`tests/test_rlenv.py` 13 項（check_env、gym.make、觀測/FK、決定性、零動作保持、速度追蹤、成功/截斷/撞地終止、基準成功、隨機失敗）；
+  全套 236 passed、`ruff check` 通過。
+- 關鍵數值（N = 200 相同目標）：規劃 100 % 成功、平均 1.19 s（P95 1.75 s）；解析率 joint/ee 皆 100 %、1.31 s；隨機 0 %（joint 1 % 撞地）；
+  力矩使用率 ≤ 0.37；規劃成功時間為解析率 91.0 %。靜態 5 s 末誤差 < 0.01 µm。速度步階：六軸誤差相同、與離散理論（半隱式 Euler）逐點差 7e-16 rad，
+  峰值 6.42 mrad（連續理論 7.36）；吞吐量 joint 876／ee 773 步/s（單核）。
+- 發現：link1 外殼與地面 1 mm 接觸 → 初版每回合第一步判碰撞（改排除 base/link1）；dense −d 獎勵的回報排序（解析率 1.27 > 規劃 0.42）與成功時間排序相反。
+- 報告：docs/test-reports/2026-11-22_T201.md；動畫 docs/media/2026-11-22_T201.gif/.mp4。
+- 限制：僅位置目標、無感測雜訊/延遲/動力學隨機化、內環為理想模型。
+- 下一步：T202 PPO/SAC 訓練 reach 與學習曲線（加入 stable-baselines3；checkpoint 存 models/）。

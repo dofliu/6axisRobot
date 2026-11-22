@@ -27,7 +27,7 @@
 - [x] **T112 機台上下料**（`sixaxis/tending.py`：CNC 自動門（梯形曲線＋光幕）、虎鉗（固定鉗口基準、鉗口位置窗＋座面檢知、Coulomb 夾持門檻驗證）、主軸循環與側向切削力、PLC 互鎖/預約啟動、S1 依序／S2 緩衝交換策略、週期模型 T_c = T_open + T_ex + max(T_close + T_m, T_side) 樣本外驗證、切屑/空格故障恢復） 相依：T102、T110
 
 ## Phase 3｜強化學習與主動控制
-- [ ] **T201 Gymnasium 環境：reach**（觀測/動作/獎勵、與規劃控制基準比較） 相依：T007
+- [x] **T201 Gymnasium 環境：reach**（`sixaxis/rlenv.py`：`SixAxisReach-v0`、joint/ee 速度動作＋計算力矩內環、dense/sparse 獎勵、成功/碰撞終止；IK＋五次多項式與解析率 P 控制基準、速度步階離散理論驗證） 相依：T007
 - [ ] **T202 PPO/SAC 訓練 reach 與學習曲線**（checkpoint 存 models/） 相依：T201
 - [ ] **T203 pick**  相依：T202、T102
 - [ ] **T204 place / 完整 pick-and-place** 相依：T203

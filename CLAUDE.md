@@ -43,6 +43,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
   主軸循環＋側向切削力、加工結束換成品、PLC 信號與互鎖/預約啟動）、`TendCell`（S1 依序／S2 緩衝交換、門洞教導直線、切屑/空格恢復；
   大範圍移動用 T110 檢查，`goto_tcp` 固定 ψ 不用對稱解——ψ+π 解使工具自轉 180° 時夾爪夾持異常）、`cycle_model`/`period_terms`、
   `vise_capture_test`/`clamp_hold_test`（無手臂）。`PBRobot.render(eye=...)` 可指定相機位置。用私有暫存 URDF，可與 pytest 並行
+* `sixaxis/rlenv.py`：T201 Gymnasium `ReachEnv`（`gym.make("SixAxisReach-v0")`，需先 `import sixaxis.rlenv`）：20 Hz 策略、2 ms 物理子步、
+  joint（關節速度）/ee（末端線速度＋姿態保持 DLS）動作 → q_ref 積分 → 計算力矩內環（PyBullet ID）；dense/sparse 獎勵、成功（d<2 cm 且停住）/碰撞終止；
+  基準 `PlannerPolicy`（IK＋五次多項式）、`ResolvedRatePolicy`、`RandomPolicy`、`run_episode`（共同指標）、`throughput`。不改寫 robots/，可平行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程
