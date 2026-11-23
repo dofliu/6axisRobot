@@ -46,6 +46,8 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/rlenv.py`：T201 Gymnasium `ReachEnv`（`gym.make("SixAxisReach-v0")`，需先 `import sixaxis.rlenv`）：20 Hz 策略、2 ms 物理子步、
   joint（關節速度）/ee（末端線速度＋姿態保持 DLS）動作 → q_ref 積分 → 計算力矩內環（PyBullet ID）；dense/sparse 獎勵、成功（d<2 cm 且停住）/碰撞終止；
   基準 `PlannerPolicy`（IK＋五次多項式）、`ResolvedRatePolicy`、`RandomPolicy`、`run_episode`（共同指標）、`throughput`。不改寫 robots/，可平行
+* `sixaxis/rltrain.py`：T202 SB3 PPO/SAC 訓練（`train`：固定評估集學習曲線、wall-time 預算、`models/<algo>_<mode>_best/_last.zip` 與 `_log.json`、`resume=True` 續訓；
+  `SB3Policy` 接 `run_episode`、`load`）。需 torch（CPU 版）＋ stable-baselines3；訓練用 `scripts/t202_train.py`（4 組各 1 核平行）。不改寫 robots/，可平行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

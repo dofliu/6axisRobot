@@ -273,3 +273,21 @@
 - 報告：docs/test-reports/2026-11-22_T201.md；動畫 docs/media/2026-11-22_T201.gif/.mp4。
 - 限制：僅位置目標、無感測雜訊/延遲/動力學隨機化、內環為理想模型。
 - 下一步：T202 PPO/SAC 訓練 reach 與學習曲線（加入 stable-baselines3；checkpoint 存 models/）。
+
+## 2026-11-23｜T202 PPO/SAC 訓練 reach 與學習曲線
+- 新增 `sixaxis/rltrain.py`：`train`（SB3 PPO/SAC、Monitor 記錄訓練成功率、固定 50 目標（種子 5000–5049）確定性評估的學習曲線、
+  以（成功率, 回報）存 `models/<組態>_best.zip`、結束存 `_last.zip`＋`_log.json`、wall-time 預算回呼、`resume=True` 續訓）、`SB3Policy`（接 T201 `run_episode`）、`evaluate`、`load`。
+  腳本 `scripts/t202_train.py`（sac/ppo × ee/joint 四組各 1 核平行、各 1800 s）、`t202_report.py`、`t202_write_md.py`；requirements 加入 stable-baselines3==2.9.2、torch==2.15.0（CPU）。
+- 測試：`tests/test_rltrain.py` 9 項（PPO/SAC 短跑＋存檔＋續訓步數累加、時間預算中止、確定性、已存 SAC-ee 模型 20 目標 ≥ 90 % 成功、模型檔 < 50MB 可載入）；
+  全套 245 passed、`ruff check` 通過。
+- 訓練（30 分鐘/組、1 核）：SAC-ee 110,289 步（61 步/s）30,000 步達 90 %；PPO-ee 700,422 步、120,000 步；
+  SAC-joint 114,820 步、80,000 步；PPO-joint 814,036 步、80,000 步（3.1 分鐘）。四組評估集皆 100 %。
+- 關鍵數值（T201 同 200 目標）：四組 100 % 成功、0 碰撞；平均成功時間 SAC-ee 0.85 s、PPO-ee 0.89、SAC-joint 0.57、PPO-joint 0.59
+  vs 規劃 1.19、解析率 1.31（同目標時間比 0.48–0.75）；相對速度上限參考時間比 0.89–1.01
+  （規劃 1.85，理論 1.875/0.9 = 2.08）；末距離 10–14 mm（規劃 3.0）；最大力矩使用率 joint 策略 0.81–0.84（規劃 0.29）。
+  起點擾動 ±0.3 rad：四組仍 100 %。決策 0.3–0.4 ms/步。
+- 發現：成功即終止使「到達後」行為未受訓練——不終止跑滿 5 s 時 PPO-joint 只有 2 % 回合停在容差內（SAC-joint 96 %、ee 兩組 100 %）；
+  dense −d 獎勵＋終止使策略剛跨過 2 cm 門檻即停，並以接近 bang-bang 的關節速度換時間。
+- 報告：docs/test-reports/2026-11-23_T202.md；動畫 docs/media/2026-11-23_T202.gif/.mp4；模型 models/（8 個 zip，每檔 ≤ 3.3 MB）。
+- 限制：單一種子/超參數；無雜訊/延遲/隨機化；SAC 在此 CPU 僅約 60 步/s。
+- 下一步：T203 pick（夾爪抓取環境；改不終止＋停留/抓穩獎勵）。

@@ -28,7 +28,7 @@
 
 ## Phase 3｜強化學習與主動控制
 - [x] **T201 Gymnasium 環境：reach**（`sixaxis/rlenv.py`：`SixAxisReach-v0`、joint/ee 速度動作＋計算力矩內環、dense/sparse 獎勵、成功/碰撞終止；IK＋五次多項式與解析率 P 控制基準、速度步階離散理論驗證） 相依：T007
-- [ ] **T202 PPO/SAC 訓練 reach 與學習曲線**（checkpoint 存 models/） 相依：T201
+- [x] **T202 PPO/SAC 訓練 reach 與學習曲線**（`sixaxis/rltrain.py`：SB3 PPO/SAC × ee/joint 動作、固定評估集學習曲線、時間預算、best/last 存 models/ 可續訓；200 目標與 T201 基準比較、時間最佳性、停留/起點擾動測試） 相依：T201
 - [ ] **T203 pick**  相依：T202、T102
 - [ ] **T204 place / 完整 pick-and-place** 相依：T203
 - [ ] **T205 隨機化物件位置與姿態；domain randomization** 相依：T204
