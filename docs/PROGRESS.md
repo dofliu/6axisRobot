@@ -291,3 +291,22 @@
 - 報告：docs/test-reports/2026-11-23_T202.md；動畫 docs/media/2026-11-23_T202.gif/.mp4；模型 models/（8 個 zip，每檔 ≤ 3.3 MB）。
 - 限制：單一種子/超參數；無雜訊/延遲/隨機化；SAC 在此 CPU 僅約 60 步/s。
 - 下一步：T203 pick（夾爪抓取環境；改不終止＋停留/抓穩獎勵）。
+
+## 2026-11-24｜T203 pick
+- 新增 `sixaxis/rlpick.py`：`PickEnv`（註冊 `SixAxisPick-v0`）：手臂＋T005 平行夾爪（私有暫存 URDF）＋工作台（頂面 0.10 m）＋50 mm/0.2 kg 方塊（x∈[0.35,0.60]、y∈[−0.2,0.2] 隨機）；
+  4 維動作（TCP 線速度 ±0.3 m/s、工具朝下姿態保持＋DLS → q_ref → 8 自由度計算力矩內環；a₄>0 夾爪 40 N 閉合）；觀測 30 維；
+  分段 dense 獎勵（robosuite Lift 式：1−tanh10d ＋ 0.5 grasped ＋ 2 grasped·min(h/0.1,1) ＋ 2 success − 碰撞/掉落 10）；成功（夾住且 h ≥ 10 cm）不終止、跑滿 5 s；
+  每回合重建物件以清除接觸快取（相同種子逐位元重現）。`ScriptedPickPolicy`（APPROACH→DESCEND→CLOSE→LIFT FSM 基準）、`run_pick_episode`。
+  `rltrain.train(task="pick")`、`evaluate` 支援 pick 指標；腳本 `scripts/t203_train.py`（SAC/PPO × 種子 0/1，各 1 核 35 分鐘）、`t203_report.py`、`t203_write_md.py`。
+- 測試：`tests/test_rlpick.py` 12 項（check_env、FK、決定性、姿態保持衰減 θ₀(1−k_RΔt)ⁿ、速度追蹤、腳本成功、夾持力 ≈ 40 N 且不滑、F < F_min 抬不起、掉落終止、隨機失敗、訓練短跑、已存模型 ≥ 80 %）；
+  `test_rltrain` 模型載入測試改依名稱選環境；全套 261 passed、`ruff check` 通過。
+- 訓練：SAC s0 115 k 步（54 步/s）90 k 步達 ≥ 90 %、最佳 98 %；PPO s0 513 k 步、最佳 94 %；PPO s1 493 k 步、250 k 步達 90 %、最佳 98 %；
+  **SAC s1 失敗**：夾住率 85 % 但不抬（局部最優），成功 0 %。
+- 關鍵數值（200 個測試位置）：SAC s0 94.0 %、PPO s0 96.0 %、PPO s1 93.0 %、腳本 100 %、隨機 0 %；成功三組無碰撞（SAC s1 2 %）、掉落 1.0–4.5 %；
+  首次成功 1.18–1.34 s vs 腳本 2.25 s（同位置時間比 0.52–0.59）；最大力矩使用率 RL 0.97–1.00 vs 腳本 0.52；
+  泛化：1 kg 方塊 97–99 %、40×60×80 長方塊 SAC 97 %/PPO 72–79 %、起點擾動 ±0.3 rad 79–93 %；10 s 回合 5–10 s 持續保持 94–98 %。
+  夾持力掃描：F/F_min ≤ 0.9 抬不起、1.5 → 80 %、≥ 2 → 100 %，與含抬升慣性極限 1 + a/g = 1.85（量得 a = 8.29 m/s²）一致。
+- 發現：獎勵不懲罰過度抬升/成功後移動 → RL 抬到 212–395 mm 且持續漂移（5–10 s 高度標準差 10–44 mm）；PPO 學習曲線非單調（s0 最後評估 62 %）。
+- 報告：docs/test-reports/2026-11-24_T203.md；動畫 docs/media/2026-11-24_T203.gif/.mp4；模型 models/*_pick_*（每檔 ≤ 3.3 MB）、models/T203_best.txt。
+- 限制：物件姿態固定、真值感知、二元夾爪、每組單次 35 分鐘/2 種子。
+- 下一步：T204 place / 完整 pick-and-place（放置目標位姿、成功後停住獎勵；可由 T203 最佳模型或腳本示範起步）。

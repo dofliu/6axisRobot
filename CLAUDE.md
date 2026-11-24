@@ -48,6 +48,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
   基準 `PlannerPolicy`（IK＋五次多項式）、`ResolvedRatePolicy`、`RandomPolicy`、`run_episode`（共同指標）、`throughput`。不改寫 robots/，可平行
 * `sixaxis/rltrain.py`：T202 SB3 PPO/SAC 訓練（`train`：固定評估集學習曲線、wall-time 預算、`models/<algo>_<mode>_best/_last.zip` 與 `_log.json`、`resume=True` 續訓；
   `SB3Policy` 接 `run_episode`、`load`）。需 torch（CPU 版）＋ stable-baselines3；訓練用 `scripts/t202_train.py`（4 組各 1 核平行）。不改寫 robots/，可平行
+* `sixaxis/rlpick.py`：T203 Gymnasium `PickEnv`（`gym.make("SixAxisPick-v0")`，需先 `import sixaxis.rlpick`）：手臂＋T005 夾爪（私有暫存 URDF）＋工作台＋方塊，
+  4 維動作（TCP 速度、工具朝下姿態保持＋DLS；a₄>0 夾爪 40 N 閉合）、分段 dense 獎勵（robosuite Lift 式）、成功不終止、碰撞/掉落終止；每回合重建物件以保持決定性；
+  `ScriptedPickPolicy`（FSM 基準）、`run_pick_episode`。`rltrain.train(task="pick")`；訓練 `scripts/t203_train.py`；最佳模型名記於 `models/T203_best.txt`。可平行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

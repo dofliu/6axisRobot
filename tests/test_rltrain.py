@@ -67,7 +67,12 @@ def test_trained_sac_ee_reaches():
 def test_saved_models_load_and_small(path):
     assert path.stat().st_size < 50e6
     m = load(path)
-    env = ReachEnv(action_mode="ee" if "_ee" in path.stem else "joint")
+    if "_pick" in path.stem:  # T203 pick 模型
+        from sixaxis.rlpick import PickEnv
+
+        env = PickEnv()
+    else:
+        env = ReachEnv(action_mode="ee" if "_ee" in path.stem else "joint")
     obs, _ = env.reset(seed=1)
     a = SB3Policy(m)(obs)
     env.close()

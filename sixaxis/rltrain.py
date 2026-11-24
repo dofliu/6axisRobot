@@ -57,10 +57,28 @@ class SB3Policy:
         return a
 
 
-def evaluate(model, env: ReachEnv, seeds) -> dict:
-    """在固定種子集上確定性評估，回傳彙總指標。"""
+def evaluate(model, env, seeds) -> dict:
+    """在固定種子集上確定性評估，回傳彙總指標（reach：T201 指標；pick：另加抓取/抬升/保持指標）。"""
     pol = SB3Policy(model)
-    res = [run_episode(env, pol, s) for s in seeds]
+    if isinstance(env, ReachEnv):
+        res = [run_episode(env, pol, s) for s in seeds]
+    else:
+        from .rlpick import run_pick_episode
+
+        res = [run_pick_episode(env, pol, s) for s in seeds]
+        ts = [r["t_success"] for r in res if r["t_success"] is not None]
+        return {
+            "success_rate": float(np.mean([r["success"] for r in res])),
+            "collision_rate": float(np.mean([r["collision"] for r in res])),
+            "drop_rate": float(np.mean([r["drop"] for r in res])),
+            "grasp_rate": float(np.mean([r["t_grasp"] is not None for r in res])),
+            "return_mean": float(np.mean([r["return"] for r in res])),
+            "hold_frac_mean": float(np.mean([r["hold_frac"] for r in res])),
+            "h_final_mean_mm": 1e3 * float(np.mean([r["h_final"] for r in res])),
+            "d_final_mean_mm": float("nan"),
+            "t_success_mean": float(np.mean(ts)) if ts else None,
+            "tau_ratio_max": float(np.max([r["tau_ratio"] for r in res])),
+        }
     ts = [r["t_success"] for r in res if r["t_success"] is not None]
     return {
         "success_rate": float(np.mean([r["success"] for r in res])),
@@ -99,7 +117,9 @@ def _make_callback(eval_env, eval_seeds, eval_freq, budget_s, name, models_dir, 
                 self.model.save(models_dir / f"{name}_best")
                 log["best"] = dict(m)
             print(f"[{name}] t={m['timesteps']:>8d} wall={m['wall_s']:7.1f}s succ={m['success_rate']:.2f} "
-                  f"ret={m['return_mean']:8.2f} d={m['d_final_mean_mm']:6.1f}mm", flush=True)
+                  f"ret={m['return_mean']:8.2f} d={m['d_final_mean_mm']:6.1f}mm "
+                  f"h={m.get('h_final_mean_mm', 0):6.1f}mm",
+                  flush=True)
 
         def _on_step(self) -> bool:
             if self.model.num_timesteps >= self.next_eval:
@@ -128,9 +148,11 @@ def train(
     hparams: dict | None = None,
     env_kwargs: dict | None = None,
     torch_threads: int = 1,
+    task: str = "reach",
 ) -> dict:
     """訓練一個組態並回傳紀錄（學習曲線、最佳評估、耗時、超參數）。
 
+    task="pick" 時用 T203 `PickEnv`（action_mode 只作名稱用，動作固定為 TCP 速度＋夾爪）。
     resume=True 時讀 models/<name>_last.zip 接續（num_timesteps 累加，學習曲線附加到既有 <name>_log.json）。
     """
     import torch
@@ -144,9 +166,17 @@ def train(
     hp = dict(HPARAMS[algo])
     hp.update(hparams or {})
 
-    env = Monitor(ReachEnv(action_mode=action_mode, **env_kwargs), info_keywords=("success",))
+    if task == "pick":
+        from .rlpick import PickEnv
+
+        def make_env():
+            return PickEnv(**env_kwargs)
+    else:
+        def make_env():
+            return ReachEnv(action_mode=action_mode, **env_kwargs)
+    env = Monitor(make_env(), info_keywords=("success",))
     env.reset(seed=seed)
-    eval_env = ReachEnv(action_mode=action_mode, **env_kwargs)
+    eval_env = make_env()
     log_path = models_dir / f"{name}_log.json"
     cls = _algo(algo)
     last = models_dir / f"{name}_last.zip"
@@ -157,8 +187,9 @@ def train(
     else:
         model = cls("MlpPolicy", env, seed=seed, verbose=0, **hp)
         log, wall0 = {"curve": []}, 0.0
-    log.update({"algo": algo, "action_mode": action_mode, "seed": seed, "hparams": _jsonable(hp),
-                "env_kwargs": env_kwargs, "eval_seeds": [int(s) for s in eval_seeds]})
+    log.update({"task": task, "algo": algo, "action_mode": action_mode, "seed": seed,
+                "hparams": _jsonable(hp), "env_kwargs": env_kwargs,
+                "eval_seeds": [int(s) for s in eval_seeds]})
     t_start = time.perf_counter() - wall0
     budget = wall0 + wall_budget_s
     cb = _make_callback(eval_env, eval_seeds, eval_freq, budget, name, models_dir, log, t_start)
