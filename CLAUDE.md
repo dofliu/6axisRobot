@@ -51,6 +51,10 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/rlpick.py`：T203 Gymnasium `PickEnv`（`gym.make("SixAxisPick-v0")`，需先 `import sixaxis.rlpick`）：手臂＋T005 夾爪（私有暫存 URDF）＋工作台＋方塊，
   4 維動作（TCP 速度、工具朝下姿態保持＋DLS；a₄>0 夾爪 40 N 閉合）、分段 dense 獎勵（robosuite Lift 式）、成功不終止、碰撞/掉落終止；每回合重建物件以保持決定性；
   `ScriptedPickPolicy`（FSM 基準）、`run_pick_episode`。`rltrain.train(task="pick")`；訓練 `scripts/t203_train.py`；最佳模型名記於 `models/T203_best.txt`。可平行
+* `sixaxis/rlplace.py`：T204 Gymnasium `PlaceEnv(PickEnv)`（`gym.make("SixAxisPlace-v0")`，需先 `import sixaxis.rlplace`）：目標條件化取放（36 維觀測＝pick 30 維＋g＋p_obj−g）、
+  分階段取 max 獎勵、success＝at_goal∧夾爪張開∧無指墊接觸（不終止，160 步）；`ScriptedPlacePolicy`、`run_place_episode`、`collect_demos`（加噪腳本示範）。
+  `sixaxis/sacbc.py`：`SACBC`（SB3 SAC 子類：示範專屬緩衝＋Q-filter BC＋TD3+BC 尺度）；`rltrain.train(task="place", algo="sacbc", demo_episodes=N)`。
+  訓練 `scripts/t204_train.py`（`--resume` 接續，SAC 續訓時重新收集示範）；報告 `t204_report.py --interim`（階段）／無參數（最終，寫 `models/T204_best.txt`）。可平行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

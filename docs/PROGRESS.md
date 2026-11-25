@@ -310,3 +310,18 @@
 - 報告：docs/test-reports/2026-11-24_T203.md；動畫 docs/media/2026-11-24_T203.gif/.mp4；模型 models/*_pick_*（每檔 ≤ 3.3 MB）、models/T203_best.txt。
 - 限制：物件姿態固定、真值感知、二元夾爪、每組單次 35 分鐘/2 種子。
 - 下一步：T204 place / 完整 pick-and-place（放置目標位姿、成功後停住獎勵；可由 T203 最佳模型或腳本示範起步）。
+
+## 2026-11-25｜T204 place／完整 pick-and-place（進行中 [~]，第一輪）
+- 新增 `sixaxis/rlplace.py`：`PlaceEnv(PickEnv)`（註冊 `SixAxisPlace-v0`）：目標於台面均勻取樣且距物件 ≥ 12 cm（視覺標記）、觀測 36 維、
+  分階段取 max 獎勵（robosuite PickPlace 式：reach ≤ 1、搬運 [1.5, 4]、到目標鬆爪中 4.5、成功 6）、success = 到目標（xy < 20 mm、靜置、傾角 < 10°）∧ 張開 ∧ 無指墊接觸，不終止、160 步；
+  `ScriptedPlacePolicy`（8 段 FSM）、`run_place_episode`、`collect_demos`。新增 `sixaxis/sacbc.py`（SAC＋示範專屬緩衝＋Q-filter BC，λ = 2.5/mean|Q|；Nair 2018、TD3+BC）；
+  `rltrain` 加 `task="place"`、`algo="sacbc"`、`demo_episodes`（SAC 預填緩衝／SACBC 專屬緩衝）。腳本 `scripts/t204_train.py`、`t204_report.py`（`--interim`）、`t204_write_md.py`。
+- 測試：`tests/test_rlplace.py` 11 項（1 項待最終模型啟用）；`test_rltrain` 模型載入涵蓋 place；全套 277 passed、1 skipped、`ruff check` 通過。
+- 結果：腳本基準 200 組 100 % 成功、首次成功 4.06 s、放置誤差 0.27 mm（P95 0.42）、力矩使用率 ≤ 0.52；15 s 回合/起點擾動/長方塊皆 100 %；隨機 0 %。
+  鬆爪落下 2–80 mm：量得著地前速度與 √(v₀² + 2gh₀) 差 ≤ 0.0123 m/s（< gΔt 取樣界），放置誤差 0.26 → 1.91 mm、無傾倒。
+- 第一輪訓練（約 30–35 分鐘/組，6 行程共用 4 核）：SACBC s0 評估集最佳 26 %（到目標 86 %）、SACBC s1 4 %、SAC＋示範預填 s1 16 %／s0 2 %、SAC 無示範 0 %、PPO 2 %（38.6 萬步）。
+  無示範方法會夾住（≈ 60–74 %）但幾乎不搬到目標；示範（特別是 BC 損失）是關鍵。瓶頸：到目標後不鬆爪（最佳模型 74 % 到目標、26 % 完成）。
+- 報告（階段）：docs/test-reports/2026-11-25_T204.md；動畫 docs/media/2026-11-25_T204.gif/.mp4；checkpoint models/*_place_*（每檔 ≤ 3.4 MB）。
+- 下一步：T204 續訓（`PYTHONPATH=. python3 scripts/t204_train.py --resume sacbc_place_s0 sacbc_place_s1 sac_place_demo_s1`，各 ≈ 35 分鐘）；
+  若鬆爪仍停滯，調整放置階段獎勵差後重訓；收斂後跑 `t204_report.py`（無參數）做 200 組比較、泛化與最終報告，標 [x]。
+

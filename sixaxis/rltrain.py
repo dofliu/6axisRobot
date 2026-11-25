@@ -37,9 +37,16 @@ HPARAMS = {
 }
 
 
+HPARAMS["sacbc"] = dict(HPARAMS["sac"])  # T204：SAC＋示範 Q-filter BC（sixaxis/sacbc.py）
+
+
 def _algo(algo: str):
     from stable_baselines3 import PPO, SAC
 
+    if algo == "sacbc":
+        from .sacbc import SACBC
+
+        return SACBC
     return {"ppo": PPO, "sac": SAC}[algo]
 
 
@@ -60,6 +67,26 @@ class SB3Policy:
 def evaluate(model, env, seeds) -> dict:
     """在固定種子集上確定性評估，回傳彙總指標（reach：T201 指標；pick：另加抓取/抬升/保持指標）。"""
     pol = SB3Policy(model)
+    from .rlplace import PlaceEnv
+
+    if isinstance(env, PlaceEnv):
+        from .rlplace import run_place_episode
+
+        res = [run_place_episode(env, pol, s) for s in seeds]
+        ts = [r["t_success"] for r in res if r["t_success"] is not None]
+        return {
+            "success_rate": float(np.mean([r["success"] for r in res])),
+            "collision_rate": float(np.mean([r["collision"] for r in res])),
+            "drop_rate": float(np.mean([r["drop"] for r in res])),
+            "grasp_rate": float(np.mean([r["t_grasp"] is not None for r in res])),
+            "place_rate": float(np.mean([r["t_place"] is not None for r in res])),
+            "return_mean": float(np.mean([r["return"] for r in res])),
+            "hold_frac_mean": float(np.mean([r["hold_frac"] for r in res])),
+            "e_xy_final_mean_mm": 1e3 * float(np.mean([r["e_xy_final"] for r in res])),
+            "d_final_mean_mm": float("nan"),
+            "t_success_mean": float(np.mean(ts)) if ts else None,
+            "tau_ratio_max": float(np.max([r["tau_ratio"] for r in res])),
+        }
     if isinstance(env, ReachEnv):
         res = [run_episode(env, pol, s) for s in seeds]
     else:
@@ -149,10 +176,15 @@ def train(
     env_kwargs: dict | None = None,
     torch_threads: int = 1,
     task: str = "reach",
+    demo_episodes: int = 0,
+    demo_noise: float = 0.15,
 ) -> dict:
     """訓練一個組態並回傳紀錄（學習曲線、最佳評估、耗時、超參數）。
 
-    task="pick" 時用 T203 `PickEnv`（action_mode 只作名稱用，動作固定為 TCP 速度＋夾爪）。
+    task="pick" 時用 T203 `PickEnv`（action_mode 只作名稱用，動作固定為 TCP 速度＋夾爪）；
+    task="place" 用 T204 `PlaceEnv`。
+    demo_episodes > 0（僅 SAC、非續訓）：學習前以加噪腳本示範（成功回合）預填回放緩衝
+    （DDPGfD／Nair et al. 2018），learning_starts 歸零，示範轉移與自身經驗同等抽樣。
     resume=True 時讀 models/<name>_last.zip 接續（num_timesteps 累加，學習曲線附加到既有 <name>_log.json）。
     """
     import torch
@@ -171,6 +203,11 @@ def train(
 
         def make_env():
             return PickEnv(**env_kwargs)
+    elif task == "place":
+        from .rlplace import PlaceEnv
+
+        def make_env():
+            return PlaceEnv(**env_kwargs)
     else:
         def make_env():
             return ReachEnv(action_mode=action_mode, **env_kwargs)
@@ -185,8 +222,12 @@ def train(
         log = json.loads(log_path.read_text()) if log_path.exists() else {"curve": []}
         wall0 = log["curve"][-1]["wall_s"] if log["curve"] else 0.0
     else:
+        if demo_episodes > 0 and algo == "sac":
+            hp["learning_starts"] = 0
         model = cls("MlpPolicy", env, seed=seed, verbose=0, **hp)
         log, wall0 = {"curve": []}, 0.0
+    if demo_episodes > 0:  # 續訓時回放緩衝未存檔 → 重新收集示範（同種子，決定性）
+        log["demo"] = _prefill(model, make_env, demo_episodes, demo_noise, seed, separate=algo == "sacbc")
     log.update({"task": task, "algo": algo, "action_mode": action_mode, "seed": seed,
                 "hparams": _jsonable(hp), "env_kwargs": env_kwargs,
                 "eval_seeds": [int(s) for s in eval_seeds]})
@@ -199,6 +240,8 @@ def train(
     remaining = max(total_timesteps - model.num_timesteps, 1)
     model.learn(total_timesteps=remaining, callback=cb, reset_num_timesteps=not resume)
     model.save(last)
+    if hasattr(model, "bc_stats"):
+        log["bc_stats"] = model.bc_stats
     log["timesteps"] = int(model.num_timesteps)
     log["wall_s"] = time.perf_counter() - t_start
     log["completed"] = bool(model.num_timesteps >= total_timesteps)
@@ -206,6 +249,27 @@ def train(
     env.close()
     eval_env.close()
     return log
+
+
+def _prefill(model, make_env, n_episodes, noise, seed, separate: bool = False) -> dict:
+    """把加噪腳本示範（只取成功回合）加入 off-policy 模型的回放緩衝；
+    separate=True（SACBC）則放入示範專屬緩衝。"""
+    from .rlplace import collect_demos
+
+    t0 = time.perf_counter()
+    denv = make_env()
+    trans, n_ok, n_try = collect_demos(denv, n_episodes, noise=noise, seed0=20_000 + 1000 * seed)
+    denv.close()
+    if separate:
+        model.set_demos(trans)
+        return {"episodes": n_ok, "tried": n_try, "transitions": len(trans), "noise": noise,
+                "wall_s": time.perf_counter() - t0, "separate": True}
+    rb = model.replay_buffer
+    for o, a, r, o2, term, trunc in trans:
+        rb.add(o[None], o2[None], a[None], np.array([r], np.float32), np.array([term or trunc]),
+               [{"TimeLimit.truncated": bool(trunc and not term)}])
+    return {"episodes": n_ok, "tried": n_try, "transitions": len(trans), "noise": noise,
+            "wall_s": time.perf_counter() - t0}
 
 
 def load(path, algo: str | None = None):

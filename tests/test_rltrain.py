@@ -67,7 +67,11 @@ def test_trained_sac_ee_reaches():
 def test_saved_models_load_and_small(path):
     assert path.stat().st_size < 50e6
     m = load(path)
-    if "_pick" in path.stem:  # T203 pick 模型
+    if "_place" in path.stem:  # T204 place 模型
+        from sixaxis.rlplace import PlaceEnv
+
+        env = PlaceEnv()
+    elif "_pick" in path.stem:  # T203 pick 模型
         from sixaxis.rlpick import PickEnv
 
         env = PickEnv()
