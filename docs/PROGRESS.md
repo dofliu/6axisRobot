@@ -325,3 +325,15 @@
 - 下一步：T204 續訓（`PYTHONPATH=. python3 scripts/t204_train.py --resume sacbc_place_s0 sacbc_place_s1 sac_place_demo_s1`，各 ≈ 35 分鐘）；
   若鬆爪仍停滯，調整放置階段獎勵差後重訓；收斂後跑 `t204_report.py`（無參數）做 200 組比較、泛化與最終報告，標 [x]。
 
+
+## 2026-11-26｜T204 place／完整 pick-and-place（完成 [x]，第二輪續訓＋最終報告）
+- 續訓：`scripts/t204_train.py --resume --budget 2100 sacbc_place_s0 sacbc_place_s1 sac_place_demo_s1`（3 行程共用 4 核，各 ≈ 35 分鐘，回放緩衝重新收集示範）。
+  SAC＋示範預填 s1：9.0 → 22.5 萬步，評估集最佳 16 % → **90 %**（19 萬步首達 90 %，最後 4 次 86–90 % 穩定）；SACBC s1 最佳 78 %、s0 60 %（評估間擺盪大）。
+- 最終評估（`t204_report.py`，200 組測試種子 1000–1199）：SAC＋示範預填 s1 **87.5 %**（曾到目標 89 %、碰撞 1.5 %、掉落 1 %）、首次成功 1.49 s vs 腳本 4.06 s（同任務時間比 0.37、100 % 較快），
+  成功者放置誤差 9.2 mm（P95 15.8）vs 腳本 0.27 mm，最大力矩使用率 1.00 vs 0.52；SACBC s1 64.5 %（到目標 94.5 %，放置誤差 4.5 mm，鬆爪仍是瓶頸）、SACBC s0 46 %；
+  無示範 SAC/PPO 0 %、預填 s0 1 %；腳本 100 %、隨機 0 %。泛化（最佳模型）：起點擾動 ±0.3 rad 73 %、40×60×80 長方塊 58 %、15 s 回合 82 %（腳本皆 100 %）。
+  落下自由落體驗證重跑一致。`models/T204_best.txt` = `sac_place_demo_s1 0.7`，`test_trained_place_model` 啟用。
+- 測試：全套 278 passed、`ruff check` 通過。
+- 報告：docs/test-reports/2026-11-26_T204.md（第一輪階段報告 2026-11-25_T204.md 保留）；動畫 docs/media/2026-11-26_T204.gif/.mp4；新增 `scripts/t204_write_final_md.py`，`t204_report.py` 最終模式改用新日期標籤。
+- 限制：物件姿態固定、真值感知、二元夾爪、每組 ≤ 2 種子、續訓量不等；RL 精度與力矩使用率不如腳本。
+- 下一步：T205 隨機化物件位置與姿態＋domain randomization（可由 T204 最佳模型／示範起步）。

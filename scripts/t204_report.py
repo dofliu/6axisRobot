@@ -29,7 +29,8 @@ from sixaxis.rlplace import PlaceEnv, RandomPlacePolicy, ScriptedPlacePolicy, ru
 from sixaxis.rltrain import EVAL_SEEDS, MODELS, SB3Policy, load  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-TAG = "2026-11-25_T204"
+TAG = "2026-11-25_T204"  # 階段報告（--interim）
+TAG_FINAL = "2026-11-26_T204"  # 最終報告（續訓後）
 MEDIA, DATA = ROOT / "docs/media", ROOT / "docs/test-reports/data"
 SEEDS = list(range(1000, 1200))  # 200 組測試（物件起點＋目標），與學習曲線評估集 5000–5049 不重疊
 RL = ["sacbc_place_s0", "sacbc_place_s1", "sac_place_demo_s0", "sac_place_demo_s1", "sac_place_s0", "ppo_place_s0"]
@@ -525,6 +526,7 @@ if __name__ == "__main__":
         print(json.dumps({n: {k: v for k, v in M["train"][n].items() if k != "hparams"} for n in M["train"]},
                          indent=1))
         sys.exit()
+    TAG = TAG_FINAL
     if "--anim" in sys.argv:
         M = json.loads((DATA / f"{TAG}_metrics.json").read_text(encoding="utf-8"))
     else:
