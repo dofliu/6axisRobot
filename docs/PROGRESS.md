@@ -337,3 +337,17 @@
 - 報告：docs/test-reports/2026-11-26_T204.md（第一輪階段報告 2026-11-25_T204.md 保留）；動畫 docs/media/2026-11-26_T204.gif/.mp4；新增 `scripts/t204_write_final_md.py`，`t204_report.py` 最終模式改用新日期標籤。
 - 限制：物件姿態固定、真值感知、二元夾爪、每組 ≤ 2 種子、續訓量不等；RL 精度與力矩使用率不如腳本。
 - 下一步：T205 隨機化物件位置與姿態＋domain randomization（可由 T204 最佳模型／示範起步）。
+
+## 2026-11-27｜T205 隨機化物件位置與姿態＋domain randomization（進行中 [~]，第一輪）
+- 新增 `sixaxis/rlrand.py`：`RandPlaceEnv(PlaceEnv)`（註冊 `SixAxisRandPlace-v0`）：長方塊（L × w × h，長邊可 > 夾爪開口 80 mm）初始 yaw ~ U[−90°, 90°)；
+  5 維動作（TCP 速度＋繞 z 轉速 ψ̇，R_d = R_z(ψ)R_DOWN、ω = k_R log(R_d Rᵀ) + ψ̇ẑ＋夾爪）；42 維觀測（＋cos/sin 2Δ、尺寸、ψ_ref）；接近獎勵乘 0.6 + 0.4cos²Δ；
+  DR（Tobin 2017／Peng 2018）：w 35–55、L ≤ 100、h 45–60 mm、m 0.1–0.4 kg、μ 0.5–1.0、F_grip 30–50 N、ω_n 20–30 rad/s，物件位置 σ 2 mm／yaw σ 2° 觀測雜訊（`dr=False` 只隨機位姿）。
+  `ScriptedRandPlacePolicy`（方位對齊 FSM，讀含雜訊估測）；夾持幾何 `effective_width`（全寬夾爪）、`strip_extent`/`clear_misalignment`（20 mm 窄指墊帶狀區 LP 角點解）、`pads_hit_box`（實際位姿 SAT）。
+  `PickEnv.reset` 支援 `obj_yaw`、`PlaceEnv._reach_scale` 掛鉤、`collect_demos` 用 `env.demo_policy`、`rltrain.train(task="randplace")`；腳本 `scripts/t205_train.py`、`t205_report.py`、`t205_write_md.py`。
+- 測試：`tests/test_rlrand.py` 12 項（1 項待最終模型）＋ `test_rltrain` 模型載入涵蓋 rand；全套 293 passed、1 skipped、`ruff check` 通過。
+- 結果（200 組 DR 測試）：腳本含方位對齊 100 %（放置誤差 1.6 mm）、不轉夾爪 69.5 %（|Δ₀| 45–90° 僅 42–57 %）、隨機 0 %。
+  夾持幾何（不轉夾爪 114 組）：理想位姿帶狀區理論預測閉合前碰物件 102/114、實際位姿 SAT 106/114（不一致者每側餘隙 ≤ 4.2 mm）；中等 Δ₀ 閉合自我對正（如 35°→2.7°）。
+- 第一輪訓練（4 組各 1 核 ≈ 35 分鐘，12.4–14.4 萬步）：DR 測試成功率 SAC＋示範 s1 40 %（到目標 63 %）、s0 34 %、SACBC 34.5 %（到目標 79.5 %）、無 DR 訓練 63.5 %（標稱環境 60.5 %）。
+  同預算下無 DR 學得較快，DR 價值待收斂後判斷。
+- 報告（階段）：docs/test-reports/2026-11-27_T205.md；動畫 docs/media/2026-11-27_T205.gif/.mp4；checkpoint models/*_rand_*（每檔 ≤ 3.4 MB）。
+- 下一步：T205 續訓（`PYTHONPATH=. python3 scripts/t205_train.py --resume`，4 組各 ≈ 35 分鐘）；收斂後跑 `t205_report.py`（無參數，寫 models/T205_best.txt）出最終報告與 DR 效果分析，標 [x]。

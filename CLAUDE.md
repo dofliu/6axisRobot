@@ -55,6 +55,9 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
   分階段取 max 獎勵、success＝at_goal∧夾爪張開∧無指墊接觸（不終止，160 步）；`ScriptedPlacePolicy`、`run_place_episode`、`collect_demos`（加噪腳本示範）。
   `sixaxis/sacbc.py`：`SACBC`（SB3 SAC 子類：示範專屬緩衝＋Q-filter BC＋TD3+BC 尺度）；`rltrain.train(task="place", algo="sacbc", demo_episodes=N)`。
   訓練 `scripts/t204_train.py`（`--resume` 接續，SAC 續訓時重新收集示範）；報告 `t204_report.py --interim`（階段）／無參數（最終，寫 `models/T204_best.txt`）。可平行
+* `sixaxis/rlrand.py`：T205 Gymnasium `RandPlaceEnv(PlaceEnv)`（`gym.make("SixAxisRandPlace-v0")`，需先 `import sixaxis.rlrand`）：物件 yaw 隨機＋長方塊（長邊可 > 開口 80 mm）、
+  5 維動作（TCP 速度＋繞 z 轉速 ψ̇＋夾爪）、42 維觀測（含 cos/sin 2Δ、尺寸、ψ_ref）、domain randomization（尺寸/質量/摩擦/夾持力/伺服頻寬＋物件位姿觀測雜訊；`dr=False` 只隨機位姿）；
+  `ScriptedRandPlacePolicy`（含方位對齊；`k_psi=0` 為不轉夾爪）、夾持幾何 `effective_width`/`strip_extent`/`clear_misalignment`。`rltrain.train(task="randplace")`；訓練 `scripts/t205_train.py`。可平行
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

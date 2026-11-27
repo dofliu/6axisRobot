@@ -182,7 +182,8 @@ def train(
     """訓練一個組態並回傳紀錄（學習曲線、最佳評估、耗時、超參數）。
 
     task="pick" 時用 T203 `PickEnv`（action_mode 只作名稱用，動作固定為 TCP 速度＋夾爪）；
-    task="place" 用 T204 `PlaceEnv`。
+    task="place" 用 T204 `PlaceEnv`；task="randplace" 用 T205 `RandPlaceEnv`
+    （隨機姿態＋domain randomization）。
     demo_episodes > 0（僅 SAC、非續訓）：學習前以加噪腳本示範（成功回合）預填回放緩衝
     （DDPGfD／Nair et al. 2018），learning_starts 歸零，示範轉移與自身經驗同等抽樣。
     resume=True 時讀 models/<name>_last.zip 接續（num_timesteps 累加，學習曲線附加到既有 <name>_log.json）。
@@ -208,6 +209,11 @@ def train(
 
         def make_env():
             return PlaceEnv(**env_kwargs)
+    elif task == "randplace":
+        from .rlrand import RandPlaceEnv
+
+        def make_env():
+            return RandPlaceEnv(**env_kwargs)
     else:
         def make_env():
             return ReachEnv(action_mode=action_mode, **env_kwargs)

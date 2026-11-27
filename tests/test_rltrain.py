@@ -67,7 +67,11 @@ def test_trained_sac_ee_reaches():
 def test_saved_models_load_and_small(path):
     assert path.stat().st_size < 50e6
     m = load(path)
-    if "_place" in path.stem:  # T204 place 模型
+    if "_rand" in path.stem:  # T205 隨機姿態＋DR 取放模型
+        from sixaxis.rlrand import RandPlaceEnv
+
+        env = RandPlaceEnv(dr="nodr" not in path.stem)
+    elif "_place" in path.stem:  # T204 place 模型
         from sixaxis.rlplace import PlaceEnv
 
         env = PlaceEnv()

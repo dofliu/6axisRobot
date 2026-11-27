@@ -75,6 +75,10 @@ class PlaceEnv(PickEnv):
         self.marker = pb.createMultiBody(0, -1, vis, [0.5, 0.0, TABLE_TOP + 0.0006], physicsClientId=self.cid)
         self.goal = np.array([0.5, 0.0, self.z_obj0])
 
+    def _reach_scale(self, m) -> float:
+        """接近階段獎勵的額外倍率（T205 用於夾爪–物件方位對齊；T204 為 1）。"""
+        return 1.0
+
     # ------------------------------------------------------------ 目標
     def sample_goal(self, obj_xy) -> np.ndarray:
         for _ in range(1000):
@@ -125,7 +129,7 @@ class PlaceEnv(PickEnv):
         if ps["success"]:
             r = self.r_success
         else:
-            r_reach = 1.0 - np.tanh(10.0 * m["d"])
+            r_reach = (1.0 - np.tanh(10.0 * m["d"])) * self._reach_scale(m)
             r_carry = m["grasped"] * (1.5 + 2.5 * (1.0 - np.tanh(5.0 * ps["e_goal"])))
             r_rel = 4.5 * (ps["at_goal"] and not m["grasped"])
             r = max(r_reach, r_carry, r_rel)
@@ -272,11 +276,13 @@ def run_place_episode(env: PlaceEnv, policy, seed: int, record: bool = False, fr
 
 def collect_demos(env: PlaceEnv, n_episodes: int, noise: float = 0.15, seed0: int = 20_000,
                   success_only: bool = True):
-    """以加噪腳本示範收集轉移 (o, a, r, o', terminated, truncated)；預設只保留成功回合。"""
+    """以加噪腳本示範收集轉移 (o, a, r, o', terminated, truncated)；預設只保留成功回合。
+    示範策略類別取 env.demo_policy（T205 子類別覆寫），否則 ScriptedPlacePolicy。"""
     out, n_ok = [], 0
     k = 0
+    cls = getattr(env, "demo_policy", None) or ScriptedPlacePolicy
     while n_ok < n_episodes and k < 4 * n_episodes:
-        pol = ScriptedPlacePolicy(env, noise=noise, seed=seed0 + k)
+        pol = cls(env, noise=noise, seed=seed0 + k)
         obs, _ = env.reset(seed=seed0 + k)
         pol.reset()
         ep, term, trunc, info = [], False, False, {}

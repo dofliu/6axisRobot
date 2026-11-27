@@ -185,7 +185,9 @@ class PickEnv(gym.Env):
         self.obj_xy0 = xy.copy()
         # 每回合重建物件：清除上一回合留下的接觸流形與暖啟動衝量，使相同種子＋動作序列逐位元重現
         pb.removeBody(self.obj, physicsClientId=self.cid)
-        self.obj = self.g.spawn(self.part, [xy[0], xy[1], self.z_obj0])
+        yaw = float(options.get("obj_yaw", 0.0))  # T205：物件繞 z 的初始姿態（預設 0）
+        self.obj = self.g.spawn(self.part, [xy[0], xy[1], self.z_obj0],
+                                pb.getQuaternionFromEuler([0.0, 0.0, yaw]))
         self.q_ref = q0.copy()
         self.grip_cmd = 0.0
         self.k = 0

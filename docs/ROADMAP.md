@@ -31,7 +31,7 @@
 - [x] **T202 PPO/SAC 訓練 reach 與學習曲線**（`sixaxis/rltrain.py`：SB3 PPO/SAC × ee/joint 動作、固定評估集學習曲線、時間預算、best/last 存 models/ 可續訓；200 目標與 T201 基準比較、時間最佳性、停留/起點擾動測試） 相依：T201
 - [x] **T203 pick**（`sixaxis/rlpick.py`：`SixAxisPick-v0` 手臂＋平行夾爪＋工作台＋隨機位置方塊、TCP 速度＋夾爪動作、分段 dense 獎勵、成功不終止；腳本 FSM 基準；SAC/PPO × 2 種子訓練、泛化與夾持摩擦極限驗證） 相依：T202、T102
 - [x] **T204 place / 完整 pick-and-place**（`sixaxis/rlplace.py`：`SixAxisPlace-v0` 目標條件化取放、分階段 max 獎勵、成功＝放好＋鬆爪退離且保持；腳本 FSM 基準 200/200；鬆爪落下自由落體驗證；示範學習 `sixaxis/sacbc.py`（Q-filter BC）；兩輪訓練（續訓）後最佳 SAC＋示範預填 200 組測試 87.5 %，泛化比較） 相依：T203
-- [ ] **T205 隨機化物件位置與姿態；domain randomization** 相依：T204
+- [~] **T205 隨機化物件位置與姿態；domain randomization**（`sixaxis/rlrand.py`：`SixAxisRandPlace-v0` 物件 yaw 隨機＋長方塊、5 維動作含夾爪轉向、DR（尺寸/質量/摩擦/夾持力/伺服頻寬＋觀測雜訊）；腳本基準含/不含方位對齊、窄指墊夾持幾何驗證；第一輪訓練完成，待續訓與最終報告） 相依：T204
 - [ ] **T206 有障礙環境** 相依：T205、T110
 - [ ] **T207 與傳統規劃控制比較報告** 相依：T206
 - [ ] **T208 主動判斷層**：由場景觀測自動決定任務順序/動作、偵測失敗並重試/恢復（抓取失敗重抓、位置偏移重規劃） 相依：T207
