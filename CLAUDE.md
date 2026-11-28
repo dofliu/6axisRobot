@@ -58,6 +58,7 @@ imageio/ffmpeg（GIF/MP4）、matplotlib；Phase 3 加入 Gymnasium + Stable-Bas
 * `sixaxis/rlrand.py`：T205 Gymnasium `RandPlaceEnv(PlaceEnv)`（`gym.make("SixAxisRandPlace-v0")`，需先 `import sixaxis.rlrand`）：物件 yaw 隨機＋長方塊（長邊可 > 開口 80 mm）、
   5 維動作（TCP 速度＋繞 z 轉速 ψ̇＋夾爪）、42 維觀測（含 cos/sin 2Δ、尺寸、ψ_ref）、domain randomization（尺寸/質量/摩擦/夾持力/伺服頻寬＋物件位姿觀測雜訊；`dr=False` 只隨機位姿）；
   `ScriptedRandPlacePolicy`（含方位對齊；`k_psi=0` 為不轉夾爪）、夾持幾何 `effective_width`/`strip_extent`/`clear_misalignment`。`rltrain.train(task="randplace")`；訓練 `scripts/t205_train.py`。可平行
+* `sixaxis/stats.py`：多種子統計（Wilson 成功率區間、種子間平均 ± 標準差與 t 區間、Welch 檢定）；T205 多種子交叉評估 `scripts/t205_seeds.py`
 * `tests/`、`scripts/`（報告/動畫產生）、`docs/`（ROADMAP、PROGRESS、test-reports、media）
 
 ## 每次執行流程

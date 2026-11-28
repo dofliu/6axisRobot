@@ -351,3 +351,18 @@
   同預算下無 DR 學得較快，DR 價值待收斂後判斷。
 - 報告（階段）：docs/test-reports/2026-11-27_T205.md；動畫 docs/media/2026-11-27_T205.gif/.mp4；checkpoint models/*_rand_*（每檔 ≤ 3.4 MB）。
 - 下一步：T205 續訓（`PYTHONPATH=. python3 scripts/t205_train.py --resume`，4 組各 ≈ 35 分鐘）；收斂後跑 `t205_report.py`（無參數，寫 models/T205_best.txt）出最終報告與 DR 效果分析，標 [x]。
+
+## 2026-11-28（台北 18:37 排程，當日無開發紀錄故改為開發執行）｜T205 隨機化物件位置與姿態＋domain randomization（進行中 [~]，第二輪）
+- ROADMAP 擴充（一次性）：T205 完成條件（DR vs 無 DR 交叉評估＋≥ 3 種子平均 ± 標準差／95 % 區間）；T206 拆 T206a/b、T207 細化、T208 拆 T208a–d；新增 Phase 4（T301–T306）與 Phase 5（T401–T404）。
+- 新增 `sixaxis/stats.py`（Wilson score 區間、種子間平均 ± 標準差與 Student t 區間、Welch t 檢定）與 `tests/test_stats.py` 4 項（已知值、對稱、Monte Carlo 涵蓋率 ≈ 0.95、t 區間）。
+- 訓練：新訓 `sac_rand_demo_s2`、`sac_rand_nodr_demo_s1`、`sac_rand_nodr_demo_s2`（3 組各 1 核 2100 s，12.96–13.09 萬步；評估集最佳 48 %／42 %／70 %）；`t205_train.py` 加入這 3 組（不指定名稱時仍只跑第一輪四組）。
+- 交叉評估（`scripts/t205_seeds.py`，200 組測試種子 1000–1199 × DR／標稱環境，等預算 ≈ 35 分鐘）：
+  DR 訓練 3 種子 36.8 ± 3.0 %（DR 環境）／33.0 ± 2.5 %（標稱）；無 DR 訓練 61.8 ± 17.1 %／59.7 ± 12.8 %；腳本 100 %／100 %。
+  Welch：DR − 無 DR = −25.0 pp（p = 0.12）／−26.7 pp（p = 0.06），未達顯著；DR 模型對方位差不敏感（各組 32–44 %），無 DR 模型隨 |Δ₀| 由 ≈ 72 % 降至 43 %。
+  掉落率 DR 1.7 % vs 無 DR 0.3 %；成功者放置誤差 ≈ 12 mm（腳本 1.6 mm）；力矩使用率皆 1.00。
+- 測試：全套 300 passed、1 skipped（364 s）、`ruff check` 通過。
+- 報告（第二輪階段）：docs/test-reports/2026-11-28_T205.md；動畫 docs/media/2026-11-28_T205.gif/.mp4（DR 最佳 vs 無 DR 最佳，同一 DR 任務）；資料 docs/test-reports/data/2026-11-28_T205_seeds.json；
+  新增媒體約 4.7 MB；3 組模型 best/last 各 3.4 MB 共 21 MB（續訓需要 last，T205 完成後只保留 best）。
+- 限制：學習曲線仍上升、未收斂；3 種子 t 區間寬；SACBC 未納入多種子比較。
+- 下一步：6 組續訓（`PYTHONPATH=. python3 scripts/t205_train.py --resume sac_rand_demo_s0 sac_rand_demo_s1 sac_rand_demo_s2`，下次再跑無 DR 三組），
+  各組等量後跑 `t205_seeds.py` 與 `t205_report.py`（最終，寫 models/T205_best.txt，`t205_write_md.py` 需加入新模型名）標 [x]。

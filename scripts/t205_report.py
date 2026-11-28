@@ -50,13 +50,16 @@ TAG = "2026-11-27_T205"  # 階段報告
 TAG_FINAL = "2026-11-27_T205"  # 最終報告日期於收斂後更新
 MEDIA, DATA = ROOT / "docs/media", ROOT / "docs/test-reports/data"
 SEEDS = list(range(1000, 1200))
-RL = ["sac_rand_demo_s0", "sac_rand_demo_s1", "sacbc_rand_s0", "sac_rand_nodr_demo_s0"]
+RL = ["sac_rand_demo_s0", "sac_rand_demo_s1", "sac_rand_demo_s2", "sacbc_rand_s0", "sac_rand_nodr_demo_s0",
+      "sac_rand_nodr_demo_s1", "sac_rand_nodr_demo_s2"]
 BASE = ["scripted", "noturn", "random"]
 LABEL = {"sac_rand_demo_s0": "SAC+demo DR s0", "sac_rand_demo_s1": "SAC+demo DR s1", "sacbc_rand_s0": "SAC+BC DR s0",
-         "sac_rand_nodr_demo_s0": "SAC+demo noDR s0", "scripted": "Scripted FSM (yaw align)",
+         "sac_rand_nodr_demo_s0": "SAC+demo noDR s0", "sac_rand_demo_s2": "SAC+demo DR s2",
+         "sac_rand_nodr_demo_s1": "SAC+demo noDR s1", "sac_rand_nodr_demo_s2": "SAC+demo noDR s2", "scripted": "Scripted FSM (yaw align)",
          "noturn": "Scripted, no yaw align", "random": "Random"}
 COL = {"sac_rand_demo_s0": "#c0392b", "sac_rand_demo_s1": "#e8a33d", "sacbc_rand_s0": "#1b7f3b",
-       "sac_rand_nodr_demo_s0": "#8e44ad", "scripted": "#333333", "noturn": "#1f6fb4", "random": "#999999"}
+       "sac_rand_nodr_demo_s0": "#8e44ad", "sac_rand_demo_s2": "#d35400",
+       "sac_rand_nodr_demo_s1": "#6c3483", "sac_rand_nodr_demo_s2": "#bb8fce", "scripted": "#333333", "noturn": "#1f6fb4", "random": "#999999"}
 GEOM_L = (0.05, 0.06, 0.07, 0.08, 0.09, 0.10)
 GEOM_W = 0.040
 GEOM_DEG = tuple(range(0, 91, 5))
